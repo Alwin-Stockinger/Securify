@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Securify</string>
+
+    <!-- Strings for home.xml -->
+    <string name="phishing_game_string">Phishing</string>
+    <string name="password_game_string">Passwörter</string>
+    <string name="permissions_game_string">Permissions</string>
+    <string name="settings_string">Einstellungen</string>
+    <string name="achievements_string">Erfolge</string>
+    <string name="gameTab_string">Spiele</string>
+
 </resources>
