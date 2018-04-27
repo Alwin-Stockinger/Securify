@@ -1,196 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="top"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/phishing_game_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/phishing_game_string"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/permissions_game_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-        <ImageView
-            android:id="@+id/securify_logo"
-            android:layout_width="57dp"
-            android:layout_height="64dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="-177dp"
-            android:layout_toStartOf="@+id/app_name"
-            android:contentDescription="applogo"
-            android:padding="8dp"
-            android:src="@mipmap/ic_launcher_background" />
+    <TextView
+        android:id="@+id/password_game_text"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/password_game_string"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/permissions_game_text"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/app_name"
-            android:layout_width="234dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="177dp"
-            android:fontFamily="serif"
-            android:paddingBottom="16dp"
-            android:paddingTop="16dp"
-            android:text="@string/app_name"
-            android:textAlignment="textStart"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/permissions_game_text"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/permissions_game_string"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/phishing_game_text"
+        app:layout_constraintEnd_toStartOf="@id/password_game_text"
+        tools:layout_editor_absoluteX="142dp" />
 
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/game_tab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/gameTab_string"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="632dp"
-        android:layout_gravity="top"
-        android:gravity="top"
-        android:orientation="vertical">
+    <TextView
+        android:id="@+id/achievement_tab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="184dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/achievements_string"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <ProgressBar
-            android:id="@+id/phishingProgressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="16dp"
-            android:indeterminate="false"
-            android:max="100"
-            android:progress="0"
-            android:progressDrawable="@drawable/custom_progressbar_drawable"
-            android:secondaryProgress="0"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phishingButton"
-            app:layout_constraintVertical_bias="0.19" />
+    <TextView
+        android:id="@+id/settings_tab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/settings_string"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <ProgressBar
-            android:id="@+id/passwordProgressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="8dp"
-            android:indeterminate="false"
-            android:max="100"
-            android:progress="0"
-            android:progressDrawable="@drawable/custom_progressbar_drawable"
-            android:secondaryProgress="0"
-            app:layout_constraintBottom_toTopOf="@+id/permissionsProgressBar"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="visible" />
-
-        <ProgressBar
-            android:id="@+id/permissionsProgressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="16dp"
-            android:indeterminate="false"
-            android:progressDrawable="@drawable/custom_progressbar_drawable"
-            android:secondaryProgress="0"
-            app:layout_constraintBottom_toTopOf="@+id/phishingProgressBar"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordProgressBar" />
-
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="36dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="76dp"
-            android:text="@string/password_game_string"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/passwordProgressBar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/passwordButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/round_buttons"
-            android:padding="8dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="@+id/passwordProgressBar"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/passwordProgressBar"
-            app:srcCompat="@drawable/ic_lock" />
-
-        <ImageButton
-            android:id="@+id/phishingButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/round_buttons"
-            android:contentDescription="Phishing"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_fishing_man"
-            app:layout_constraintBottom_toBottomOf="@+id/permissionsProgressBar"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/permissionsProgressBar" />
-
-        <TextView
-            android:id="@+id/phishing_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="152dp"
-            android:text="Phishing"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/permissionsProgressBar"
-            app:layout_constraintHorizontal_bias="0.424"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-
-        <ImageButton
-            android:id="@+id/permissionsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/round_buttons"
-            android:contentDescription="Permissions"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="@+id/phishingProgressBar"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/phishingProgressBar"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/ic_key" />
-
-        <TextView
-            android:id="@+id/permissions_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="144dp"
-            android:fontFamily="serif"
-            android:text="Permissions"
-            android:textSize="18sp"
-            android:typeface="serif"
-            app:layout_constraintEnd_toStartOf="@+id/phishingProgressBar"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phishing_text" />
-
-    </android.support.constraint.ConstraintLayout>
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
