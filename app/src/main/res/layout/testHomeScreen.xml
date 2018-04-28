@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/phishingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/ic_fishing_man" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/passwordButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -28,12 +28,12 @@
         android:layout_marginTop="8dp"
         android:contentDescription="Password game"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3"
+        app:layout_constraintStart_toEndOf="@+id/phishingButton"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_lock" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/permissionsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -43,20 +43,10 @@
         android:contentDescription="Permissions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton4"
+        app:layout_constraintHorizontal_bias="0.721"
+        app:layout_constraintStart_toEndOf="@+id/phishingButton"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499"
         app:srcCompat="@drawable/ic_key" />
-
-    <!-- Swipeable tab -->
-    <io.karim.MaterialTabs
-        android:id="@+id/swipe_tab"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
 
 </android.support.constraint.ConstraintLayout>
