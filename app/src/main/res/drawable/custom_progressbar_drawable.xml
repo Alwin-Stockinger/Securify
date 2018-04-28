@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:id="@android:id/progress">
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromDegrees="-90"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:toDegrees="270" >
 
-        <shape
-            android:innerRadiusRatio="3"
-            android:shape="ring"
-            android:thicknessRatio="7.0"
-            android:useLevel="true" >
+    <shape
+        android:shape="ring"
+        android:useLevel="false" >
+        <gradient
+            android:centerY="0.5"
+            android:endColor="#32cb00"
+            android:startColor="#c30000"
+            android:type="sweep"
+            android:useLevel="false" />
+    </shape>
 
-            <gradient
-                android:centerY="0.5"
-                android:endColor="#32cb00"
-                android:startColor="#c30000"
-                android:type="sweep" />
-        </shape>
-
-    </item>
-</layer-list>
+</rotate>

@@ -10,26 +10,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TabLayout tab;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //no toolbar
 
-        ViewPager vp = (ViewPager) findViewById(R.id.viewpager);
+        //setting the tabs and fragments
+        ViewPager vp = findViewById(R.id.viewpager);
         TabLayout tabLayout = findViewById(R.id.tab_layout);
 
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), MainActivity.this);
@@ -44,25 +41,6 @@ public class MainActivity extends AppCompatActivity {
             tab.setCustomView(pagerAdapter.getTabView(i));
         }
     }
-
-    /*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
 
     public class PagerAdapter extends FragmentPagerAdapter {
         private ArrayList<Fragment> pages = new ArrayList<>();
@@ -108,31 +86,4 @@ public class MainActivity extends AppCompatActivity {
             pages.add(f);
         }
     }
-
-    /*
-    private void addPages(ViewPager viewPager){
-        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), MainActivity.this);
-        pagerAdapter.addPage(new GameFragment());
-        pagerAdapter.addPage(new OtherFragment());
-        viewPager.setAdapter(pagerAdapter);
-    }
-
-    private TabLayout.OnTabSelectedListener tabSelectedListener(final ViewPager pager){
-        return new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                pager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        };
-    }*/
 }
