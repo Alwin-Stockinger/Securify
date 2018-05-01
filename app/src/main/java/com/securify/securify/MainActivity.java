@@ -1,5 +1,6 @@
 package com.securify.securify;
 
+<<<<<<< HEAD
 import android.content.Context;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+=======
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+>>>>>>> master
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+<<<<<<< HEAD
         //no toolbar
 
         //setting the tabs and fragments
@@ -85,5 +92,10 @@ public class MainActivity extends AppCompatActivity {
         public void addPage(Fragment f) {
             pages.add(f);
         }
+=======
+
+>>>>>>> master
     }
+
+
 }
