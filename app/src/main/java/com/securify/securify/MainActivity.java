@@ -1,13 +1,13 @@
 package com.securify.securify;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), MainActivity.this);
 
-        pagerAdapter.addPage(new GameFragment());
-        pagerAdapter.addPage(new OtherFragment());
+        pagerAdapter.addPage(new GameTabFragment());
+        pagerAdapter.addPage(new OtherTabFragment());
         vp.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(vp);
 
@@ -56,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch(position){
                 case 0:
-                    return new GameFragment();
+                    return new GameTabFragment();
                 case 1:
-                    return new OtherFragment();
+                    return new OtherTabFragment();
             }
             return null;
         }

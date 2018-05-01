@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class OtherFragment extends Fragment {
+public class OtherTabFragment extends Fragment {
 
     @Nullable
     @Override
@@ -19,10 +19,5 @@ public class OtherFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-    }
-
-    @Override
-    public String toString() {
-        return "OtherTest";
     }
 }
