@@ -7,18 +7,14 @@ buildscript {
         jcenter()
     }
     dependencies {
-<<<<<<< aefa32f20d068778849bea38de99ab31643976f0
-<<<<<<< 88f03b60ec8a670109235499bdd8c8a1314f20cb
+<<<<<<< HEAD
+        classpath 'com.android.tools.build:gradle:3.1.1'
+=======
         classpath 'com.android.tools.build:gradle:3.0.1'
 
         
-=======
-        classpath 'com.android.tools.build:gradle:3.1.1'
->>>>>>> layout better
+>>>>>>> master
         
-=======
-        classpath 'com.android.tools.build:gradle:3.1.1'
->>>>>>> merge with master
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
