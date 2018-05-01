@@ -17,9 +17,12 @@ import com.securify.securify.gameModels.Persona;
 @Entity(
   tableName="config"
   , indices = @Index(value = {"first_name", "last_name"}, unique = true)
-  , foreignKeys = @ForeignKey(entity = Persona.class,
-                                  parentColumns = "code",
-                                  childColumns = "persona_id"))
+  , foreignKeys = @ForeignKey(
+    entity = Persona.class,
+    parentColumns = "id",
+    childColumns = "persona_id"
+  )
+)
 public class Config {
 
     @PrimaryKey(autoGenerate = true)
@@ -34,7 +37,6 @@ public class Config {
     @ColumnInfo(name = "score")
     public double score;
 
-    @Embedded
     @ColumnInfo(name = "persona_id")
-    public Persona persona;
+    public int persona;
 }

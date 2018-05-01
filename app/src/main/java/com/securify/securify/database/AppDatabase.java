@@ -9,12 +9,14 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
 import com.securify.securify.gameModels.GameModel;
+import com.securify.securify.gameModels.Config;
+import com.securify.securify.gameModels.Persona;
 
 /**
  * Created by Alwin on 27.04.2018.
  */
 
-@Database(version = 1,entities = {GameModel.class})
+@Database(version = 1,entities = {GameModel.class, Persona.class, Config.class})
 public abstract class AppDatabase extends RoomDatabase {
     abstract public GameModelDao gameModelDao();
 
