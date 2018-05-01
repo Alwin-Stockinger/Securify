@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">Securify</string>
 
+    <string name="loremIpsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Nulla interdum, nibh a pellentesque ultricies, odio nunc interdum felis,
+        vel faucibus magna dolor eget nulla. Donec facilisis enim at maximus molestie.
+        Sed sed sem dapibus, facilisis dui a, consectetur lacus. Praesent vel aliquam lectus,
+        ut condimentum est. Vestibulum ac lectus metus. Aenean vitae felis non orci cursus feugiat vitae sed quam.
+    </string>
+
     <!-- Strings for home.xml -->
     <string name="phishing_game_string">Phishing</string>
     <string name="password_game_string">Passwörter</string>
