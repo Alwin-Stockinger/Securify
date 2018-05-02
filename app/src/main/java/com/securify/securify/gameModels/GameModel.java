@@ -10,5 +10,68 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class GameModel {
     @PrimaryKey(autoGenerate = true)
-    public int id;
+    private int id;
+
+    private String tipp;
+    private String schwierigkeit;
+    private String kontext;
+    private String sprache;
+    private int zeit;
+    private String erklaerung;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTipp() {
+        return tipp;
+    }
+
+    public void setTipp(String tipp) {
+        this.tipp = tipp;
+    }
+
+    public String getSchwierigkeit() {
+        return schwierigkeit;
+    }
+
+    public void setSchwierigkeit(String schwierigkeit) {
+        this.schwierigkeit = schwierigkeit;
+    }
+
+    public String getKontext() {
+        return kontext;
+    }
+
+    public void setKontext(String kontext) {
+        this.kontext = kontext;
+    }
+
+    public String getSprache() {
+        return sprache;
+    }
+
+    public void setSprache(String sprache) {
+        this.sprache = sprache;
+    }
+
+    public int getZeit() {
+        return zeit;
+    }
+
+    public void setZeit(int zeit) {
+        this.zeit = zeit;
+    }
+
+    public String getErklaerung() {
+        return erklaerung;
+    }
+
+    public void setErklaerung(String erklaerung) {
+        this.erklaerung = erklaerung;
+    }
+
+    public int getId() {
+        return id;
+    }
 }
