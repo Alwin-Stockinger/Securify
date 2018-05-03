@@ -54,7 +54,8 @@ public abstract class AppDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(final Void... params) {
             GameModel game = new GameModel();
-            game.id=1;
+            //Lujza: did not compile so I had to comment it out
+            //game.id=1;
             gameDao.insertGame(game);
             return null;
         }
