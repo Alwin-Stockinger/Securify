@@ -67,27 +67,36 @@ public class GameTabFragment extends Fragment {
         phishingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GameTabFragment.this.onClick(v);
+                String game_name = "phishing";
+                GameTabFragment.this.onClick(v, game_name);
             }
         });
 
         passwordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GameTabFragment.this.onClick(v);
+                String game_name = "password";
+                GameTabFragment.this.onClick(v, game_name);
             }
         });
 
         permissionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GameTabFragment.this.onClick(v);
+                String game_name = "permissions";
+                GameTabFragment.this.onClick(v, game_name);
             }
         });
     }
 
-    public void onClick(View v) {
-        Intent i = new Intent(getActivity(), GameActivity.class);
+    public void onClick(View v, String game_name) {
+        Intent i;
+        if (game_name.equals("phishing"))
+            i = new Intent(getActivity(), GameActivity.class);
+        else if (game_name.equals("password"))
+            i = new Intent(getActivity(), PasswordActivity.class);
+        else
+            i = new Intent(getActivity(), GameActivity.class);
         startActivity(i);
     }
 
