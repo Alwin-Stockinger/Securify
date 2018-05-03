@@ -9,5 +9,5 @@ import com.securify.securify.gameModels.Persona;
  * Created by vitor on 01/05/18.
  */
 
-public class PersonaDao {
+public interface PersonaDao {
 }

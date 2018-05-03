@@ -13,5 +13,7 @@ import java.util.List;
  */
 
 @Dao
-public class ConfigDao {
+public interface ConfigDao {
+  @Query("SELECT * FROM score WHERE user_id =  :user_id")
+  public float getScore(int user_id);
 }
