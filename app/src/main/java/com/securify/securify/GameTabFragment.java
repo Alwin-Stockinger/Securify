@@ -33,6 +33,14 @@ public class GameTabFragment extends Fragment {
         final ProgressBar passwordBar = view.findViewById(R.id.passwordProgressBar);
         final ProgressBar permissionsBar = view.findViewById(R.id.permissionsProgressBar);
 
+        /*
+        android.view.animation.Animation an = new android.view.animation.RotateAnimation(0.0f, 90.0f, 250f, 273f);
+        an.setFillAfter(true);
+        phishingBar.startAnimation(an);
+        passwordBar.startAnimation(an);
+        permissionsBar.startAnimation(an);
+        */
+
         //demo behaviour
         new Thread(new Runnable() {
             @Override
