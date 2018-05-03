@@ -32,6 +32,9 @@ public class Question {
   @ColumnInfo(name = "statement")
   public String body;
 
+  @ColumnInfo(name = "value")
+  public float value;
+
   @ColumnInfo(name = "quiz_id")
   public int quiz;
 
