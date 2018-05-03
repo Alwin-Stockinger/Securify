@@ -14,12 +14,12 @@ import com.securify.securify.gameModels.Quiz;
 /**
  * Created by vitor on 03/05/18.
  */
-
+ 
  @Entity(
    tableName="quiz"
-  //  , indices = @Index(value = {"first_name", "last_name"}, unique = true)
+   , indices = @Index(value = "game_id", unique = true)
    , foreignKeys = @ForeignKey(
-     entity = Quiz.class,
+     entity = GameModel.class,
      parentColumns = "id",
      childColumns = "game_id"
    )

@@ -16,7 +16,8 @@ import com.securify.securify.gameModels.Persona;
 
 @Entity(
   tableName="config"
-  , indices = @Index(value = {"first_name", "last_name"}, unique = true)
+  // , indices = @Index(value = {"first_name", "last_name"}, unique = true)
+  , indices = @Index(value = "persona_id", unique = true)
   , foreignKeys = @ForeignKey(
     entity = Persona.class,
     parentColumns = "id",
