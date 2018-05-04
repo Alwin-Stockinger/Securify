@@ -87,7 +87,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
 
                 if (capitalFlag) {
                     constraint1.setTextColor(Color.GREEN);
-                    constraint1_icon.setImageResource(R.mipmap.ic_launcher_true_icon);
+                    constraint1_icon.setImageResource(R.mipmap.true_icon);
                 }
                     else {
                     constraint1.setTextColor(Color.RED);
@@ -95,7 +95,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
                 }
                 if (digitFlag) {
                     constraint3.setTextColor(Color.GREEN);
-                    constraint3_icon.setImageResource(R.mipmap.ic_launcher_true_icon);
+                    constraint3_icon.setImageResource(R.mipmap.true_icon);
                 }
                     else {
                     constraint3.setTextColor(Color.RED);
@@ -108,7 +108,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
                 }
                 else {
                     constraint2.setTextColor(Color.GREEN);
-                    constraint2_icon.setImageResource(R.mipmap.ic_launcher_true_icon);
+                    constraint2_icon.setImageResource(R.mipmap.true_icon);
                 }
 
             }

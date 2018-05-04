@@ -19,9 +19,9 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundLayerName" value="ic_launcher_background" />
-                                      <entry key="foregroundImage" value="C:\Users\Yasin\Desktop\ic_launcher.png" />
-                                      <entry key="foregroundLayerName" value="ic_launcher" />
-                                      <entry key="outputName" value="icon_app" />
+                                      <entry key="foregroundImage" value="C:\Users\Yasin\Desktop\true_icon.png" />
+                                      <entry key="foregroundLayerName" value="true_icon" />
+                                      <entry key="outputName" value="ic_launcher_true_icon" />
                                     </map>
                                   </option>
                                 </PersistentState>
