@@ -14,7 +14,7 @@ import com.securify.securify.gameModels.Quiz;
 /**
  * Created by vitor on 03/05/18.
  */
- 
+
  @Entity(
    tableName="quiz"
    , indices = @Index(value = "game_id", unique = true)
@@ -34,5 +34,8 @@ public class Quiz {
 
   @ColumnInfo(name = "game_id")
   public int game;
+
+  // @Embedded
+  // public GameModel game;
 
 }

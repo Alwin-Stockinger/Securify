@@ -38,4 +38,10 @@ public class Question {
   @ColumnInfo(name = "quiz_id")
   public int quiz;
 
+  // @Embedded
+  // public Quiz quiz;
+
+  @ColumnInfo(name = "answered")
+  public bool answered;
+
 }

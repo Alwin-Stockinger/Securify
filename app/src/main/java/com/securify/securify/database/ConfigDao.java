@@ -14,6 +14,6 @@ import java.util.List;
 
 @Dao
 public interface ConfigDao {
-  @Query("SELECT * FROM score WHERE user_id =  :user_id")
+  @Query("SELECT SUM(q.value) FROM question q JOIN score s ON s.question_id = q.id WHERE s.user_id = :userId")
   public float getScore(int user_id);
 }
