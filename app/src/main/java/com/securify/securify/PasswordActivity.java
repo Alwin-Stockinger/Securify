@@ -64,9 +64,9 @@ public class PasswordActivity extends AppCompatActivity {
                 }
 
                 if (capitalFlag) constraint1.setTextColor(Color.GREEN);
-                    else constraint1.setTextColor(Color.RED);
+                else constraint1.setTextColor(Color.RED);
                 if (digitFlag) constraint3.setTextColor(Color.GREEN);
-                    else constraint3.setTextColor(Color.RED);
+                else constraint3.setTextColor(Color.RED);
 
                 if(entryText.length() <= 4 || entryText.length() >= 16)
                     constraint2.setTextColor(Color.RED);
