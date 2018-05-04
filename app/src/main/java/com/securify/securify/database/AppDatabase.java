@@ -33,7 +33,7 @@ public abstract class AppDatabase extends RoomDatabase {
                 }
             }
         }
-        return INSTANCE;
+        return Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"game_db").build();//INSTANCE;
     }
 
     private static RoomDatabase.Callback sRoomDatabaseCallback =

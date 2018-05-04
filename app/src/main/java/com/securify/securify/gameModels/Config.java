@@ -40,4 +40,5 @@ public class Config {
 
     @ColumnInfo(name = "persona_id")
     public int persona;
+
 }

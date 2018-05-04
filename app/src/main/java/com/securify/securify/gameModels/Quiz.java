@@ -8,9 +8,6 @@ import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Embedded;
 
-import com.securify.securify.gameModels.Quiz;
-
-
 /**
  * Created by vitor on 03/05/18.
  */
@@ -23,7 +20,7 @@ import com.securify.securify.gameModels.Quiz;
      parentColumns = "id",
      childColumns = "game_id"
    )
- )
+)
 public class Quiz {
 
   @PrimaryKey(autoGenerate = true)
@@ -34,8 +31,5 @@ public class Quiz {
 
   @ColumnInfo(name = "game_id")
   public int game;
-
-  // @Embedded
-  // public GameModel game;
 
 }

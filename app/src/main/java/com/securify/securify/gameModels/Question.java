@@ -16,14 +16,14 @@ import com.securify.securify.gameModels.Quiz;
  */
 
  @Entity(
-   tableName="quiz"
+   tableName="question"
    , indices = @Index(value = "quiz_id", unique = true)
    , foreignKeys = @ForeignKey(
      entity = Quiz.class,
      parentColumns = "id",
      childColumns = "quiz_id"
    )
- )
+)
 public class Question {
 
   @PrimaryKey(autoGenerate = true)
@@ -38,10 +38,7 @@ public class Question {
   @ColumnInfo(name = "quiz_id")
   public int quiz;
 
-  // @Embedded
-  // public Quiz quiz;
-
   @ColumnInfo(name = "answered")
-  public bool answered;
+  public boolean answered;
 
 }

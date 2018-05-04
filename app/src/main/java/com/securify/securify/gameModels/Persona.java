@@ -8,7 +8,7 @@ import android.arch.persistence.room.PrimaryKey;
 /**
  * Created by vitor on 30/04/18.
  */
-@Entity(tableName = "role")
+@Entity(tableName = "persona")
 public class Persona {
 
   @PrimaryKey(autoGenerate = true)
