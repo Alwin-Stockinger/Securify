@@ -8,10 +8,6 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.1'
-<<<<<<< 4e77299b24f7d2f483bc4ed2da52ed1dfaa1ff90
-
-=======
->>>>>>> merge with master
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
