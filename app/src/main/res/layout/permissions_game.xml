@@ -45,7 +45,7 @@
         app:layout_constraintStart_toEndOf="@+id/gameIcon"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <!-- <TextView
         android:id="@+id/textBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameIcon" />
+        app:layout_constraintTop_toBottomOf="@+id/gameIcon" /> -->
 
     <Button
         android:id="@+id/skipButton"
