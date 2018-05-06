@@ -44,9 +44,9 @@ public class DatabaseTest {
     @Test
     public void useAppContext() throws Exception {
         GameModel game=new GameModel();
-        game.id=1;
+
         gDao.insertGame(game);
         List<GameModel> list= gDao.getAllGames();
-        assertEquals(list.get(0).id,game.id);
+        assertEquals(list.get(0).getId(),game.getId());
     }
 }

@@ -10,7 +10,7 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class GameModel {
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private long  id;
 
     private String tipp;
     private String schwierigkeit;
@@ -71,7 +71,7 @@ public class GameModel {
         this.erklaerung = erklaerung;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 }

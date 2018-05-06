@@ -22,14 +22,15 @@ import com.securify.securify.gameModels.Score;
 @Database(version = 1,entities = {GameModel.class, Persona.class, Config.class, Quiz.class, Question.class, Score.class})
 public abstract class AppDatabase extends RoomDatabase {
     abstract public GameModelDao gameModelDao();
+    abstract public PasswordDao passwordDao();
 
     private static AppDatabase INSTANCE;
 
-    static AppDatabase getDatabase(final Context context){
+    public static AppDatabase getDatabase(final Context context){
         if(INSTANCE==null){
             synchronized (AppDatabase.class){
                 if(INSTANCE==null){
-                    INSTANCE= Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"game_db").build();
+                    INSTANCE= Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"game_db").allowMainThreadQueries().build();
                 }
             }
         }
