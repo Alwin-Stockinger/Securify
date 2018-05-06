@@ -23,4 +23,10 @@ public interface PasswordDao extends GameModelDao {
 
     @Query("SELECT * FROM passwortspiel WHERE id = :id")
     public PasswordModel getById(long id);
+
+    @Query("SELECT * FROM passwortspiel ORDER BY id DESC LIMIT 1")
+    public PasswordModel getMax();
+
+    @Query("DELETE FROM passwortspiel WHERE id= :id")
+    public void deleteGame(long id);
 }

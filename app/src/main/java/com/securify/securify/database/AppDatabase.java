@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 
 import com.securify.securify.gameModels.GameModel;
 import com.securify.securify.gameModels.Config;
+import com.securify.securify.gameModels.PasswordModel;
 import com.securify.securify.gameModels.Persona;
 import com.securify.securify.gameModels.Quiz;
 import com.securify.securify.gameModels.Question;
@@ -19,7 +20,7 @@ import com.securify.securify.gameModels.Score;
  * Created by Alwin on 27.04.2018.
  */
 
-@Database(version = 1,entities = {GameModel.class, Persona.class, Config.class, Quiz.class, Question.class, Score.class})
+@Database(version = 1,entities = {GameModel.class, PasswordModel.class, Persona.class, Config.class, Quiz.class, Question.class, Score.class})
 public abstract class AppDatabase extends RoomDatabase {
     abstract public GameModelDao gameModelDao();
     abstract public PasswordDao passwordDao();
@@ -34,7 +35,7 @@ public abstract class AppDatabase extends RoomDatabase {
                 }
             }
         }
-        return Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"game_db").build();//INSTANCE;
+        return Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"game_db").allowMainThreadQueries().build();//INSTANCE;
     }
 
     private static RoomDatabase.Callback sRoomDatabaseCallback =

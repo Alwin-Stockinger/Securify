@@ -19,7 +19,9 @@ public class GameModel {
     private int zeit;
     private String erklaerung;
 
-    public void setId(int id) {
+
+
+    public void setId(long id) {
         this.id = id;
     }
 
