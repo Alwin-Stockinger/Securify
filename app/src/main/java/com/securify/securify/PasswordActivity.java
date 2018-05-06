@@ -13,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.securify.securify.gameModels.PasswordModel;
+import com.securify.securify.model.MainModel;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,10 +40,22 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.password_game);
 
 
+        //Model things
+        MainModel model=new MainModel(getApplicationContext());
+        PasswordModel gameModel=model.getPassGameById(1);
+        final int minLength=gameModel.getMin_length();
+        final int maxLength=gameModel.getMax_length();
+
+
+
         //Assigning views
         constraint1 = findViewById(R.id.password_constraint1);
         constraint2 = findViewById(R.id.password_constraint2);
         constraint3 = findViewById(R.id.password_constraint3);
+
+        //database text
+        constraint2.setText("mindestens "+minLength+" und maximal "+maxLength+" Zeichen " + "(0)");
+
 
         constraint1.setTextColor(Color.RED);
         constraint2.setTextColor(Color.RED);
@@ -64,7 +79,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
                 String entryText = mEdit.toString();
 
                 char ch;
-                constraint2.setText("mindestens 5 und maximal 15 Zeichen " + "(" + entryText.length() + ")");
+                constraint2.setText("mindestens "+minLength+" und maximal "+maxLength+" Zeichen " + "(" + entryText.length() + ")");
 
                 boolean digitFlag = false;
                 boolean capitalFlag = false;
@@ -102,7 +117,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
                     constraint3_icon.setImageResource(R.mipmap.ic_launcher_false_icon);
                 }
 
-                if(entryText.length() <= 4 || entryText.length() >= 16) {
+                if(entryText.length() < minLength || entryText.length() > maxLength) {
                     constraint2.setTextColor(Color.RED);
                     constraint2_icon.setImageResource(R.mipmap.ic_launcher_false_icon);
                 }

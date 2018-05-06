@@ -10,16 +10,18 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class GameModel {
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private long  id;
 
     private String tipp;
     private String schwierigkeit;
     private String kontext;
     private String sprache;
-    private int zeit;
+    private int zeit;       //zeit in sekunden
     private String erklaerung;
 
-    public void setId(int id) {
+
+
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -71,7 +73,7 @@ public class GameModel {
         this.erklaerung = erklaerung;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 }

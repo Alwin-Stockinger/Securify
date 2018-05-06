@@ -1,6 +1,7 @@
 package com.securify.securify;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -12,15 +13,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.securify.securify.model.MainModel;
+
 import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    SharedPreferences prefs=null;    //needed to check if first app start
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        prefs=getSharedPreferences("com.securify.sercurify",MODE_PRIVATE);//get preferences to check if the app is started the first time
+
 
         //no toolbar
 
@@ -38,6 +46,18 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             tab.setCustomView(pagerAdapter.getTabView(i));
+        }
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        if(prefs.getBoolean("firstrun",true)){//check if first run  https://stackoverflow.com/questions/7217578/check-if-application-is-on-its-first-run
+            MainModel model = new MainModel(getApplicationContext());
+            model.databaseinit();
+
+            prefs.edit().putBoolean("firstrun",false).commit();
         }
     }
 
@@ -85,6 +105,5 @@ public class MainActivity extends AppCompatActivity {
             pages.add(f);
         }
     }
-
 
 }
