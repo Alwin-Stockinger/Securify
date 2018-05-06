@@ -96,7 +96,7 @@ public class GameTabFragment extends Fragment {
         else if (game_name.equals("password"))
             i = new Intent(getActivity(), PasswordActivity.class);
         else
-            i = new Intent(getActivity(), GameActivity.class);
+            i = new Intent(getActivity(), PermissionActivity.class);
         startActivity(i);
     }
 
