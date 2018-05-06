@@ -10,6 +10,7 @@ import com.securify.securify.gameModels.GameModel;
 import com.securify.securify.gameModels.PasswordModel;
 import com.securify.securify.gameModels.PermissionModel;
 import com.securify.securify.gameModels.Persona;
+import com.securify.securify.gameModels.PhishingModel;
 import com.securify.securify.gameModels.Question;
 import com.securify.securify.gameModels.Quiz;
 import com.securify.securify.gameModels.Score;
@@ -18,11 +19,13 @@ import com.securify.securify.gameModels.Score;
  * Created by Alwin on 27.04.2018.
  */
 
-@Database(version = 1,entities = {GameModel.class, PasswordModel.class, PermissionModel.class, Persona.class, Config.class, Quiz.class, Question.class, Score.class})
+@Database(version = 1,entities = {GameModel.class, PasswordModel.class, PermissionModel.class, PhishingModel.class, Persona.class, Config.class, Quiz.class, Question.class, Score.class})
 public abstract class AppDatabase extends RoomDatabase {
     abstract public GameModelDao gameModelDao();
     abstract public PasswordDao passwordDao();
     abstract public PermissionDao permissionDao();
+    abstract public PhishingDao phishingDao();
+
 
     private static AppDatabase INSTANCE;
 
