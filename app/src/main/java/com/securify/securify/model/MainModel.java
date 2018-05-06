@@ -4,7 +4,9 @@ import android.content.Context;
 
 import com.securify.securify.database.AppDatabase;
 import com.securify.securify.database.PasswordDao;
+import com.securify.securify.database.PermissionDao;
 import com.securify.securify.gameModels.PasswordModel;
+import com.securify.securify.gameModels.PermissionModel;
 
 /**
  * Created by Alwin on 06.05.2018.
@@ -29,6 +31,21 @@ public class MainModel {
         return gamePicker.getPassGameById(id);
     }
 
+    public PermissionModel getPermGameById(long id){
+        return gamePicker.getPermGameById(id);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     //test retrieve
     public PasswordModel getMaxPassGame(){
         PasswordDao dao=db.passwordDao();
@@ -40,8 +57,8 @@ public class MainModel {
         PasswordDao dao=db.passwordDao();
         PasswordModel model=new PasswordModel();
         dao.deleteGame(1);
-        model.setId(1);
 
+        model.setId(1);
         model.setMax_length(15);
         model.setMin_length(5);
         model.setMin_number(1);
@@ -50,6 +67,33 @@ public class MainModel {
 
         dao.insertGame(model);
     }
+
+
+
+    private void permInsert(){
+        PermissionDao dao=db.permissionDao();
+        PermissionModel model=new PermissionModel();
+        dao.deleteGame(1);      //Delete old Game with ID 1 from DB
+
+        //set all test values
+        model.setId(1);
+        model.setKamera(true);
+        model.setKontake(false);
+        model.setMikrofon(false);
+        model.setPosition(true);
+        model.setSensoren(false);
+        model.setSpeicher(true);
+        model.setErklaerung("Das ist eine Erklaerung die dir sagt was du falsch gemach hast");
+        model.setZeit(50);  //50 sekunden Zeit
+        model.setSprache("DE"); //Sprache ist Deutsch
+        model.setKontext("Du Willst eine Foto App isntallieren die zusätzlich noch den Ort deiner Fotos speichert");
+        model.setSchwierigkeit("default");
+        model.setTipp("Um den Ort zu speichern muss die App wissen wo du dich gerade befindest");
+
+        dao.insertGame(model);  //insert into DB
+    }
+
+
 
 
 }

@@ -16,7 +16,7 @@ public class GameModel {
     private String schwierigkeit;
     private String kontext;
     private String sprache;
-    private int zeit;
+    private int zeit;       //zeit in sekunden
     private String erklaerung;
 
 

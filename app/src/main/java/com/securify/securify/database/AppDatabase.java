@@ -1,29 +1,28 @@
 package com.securify.securify.database;
 
-import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
-import android.os.AsyncTask;
-import android.support.annotation.NonNull;
 
-import com.securify.securify.gameModels.GameModel;
 import com.securify.securify.gameModels.Config;
+import com.securify.securify.gameModels.GameModel;
 import com.securify.securify.gameModels.PasswordModel;
+import com.securify.securify.gameModels.PermissionModel;
 import com.securify.securify.gameModels.Persona;
-import com.securify.securify.gameModels.Quiz;
 import com.securify.securify.gameModels.Question;
+import com.securify.securify.gameModels.Quiz;
 import com.securify.securify.gameModels.Score;
 
 /**
  * Created by Alwin on 27.04.2018.
  */
 
-@Database(version = 1,entities = {GameModel.class, PasswordModel.class, Persona.class, Config.class, Quiz.class, Question.class, Score.class})
+@Database(version = 1,entities = {GameModel.class, PasswordModel.class, PermissionModel.class, Persona.class, Config.class, Quiz.class, Question.class, Score.class})
 public abstract class AppDatabase extends RoomDatabase {
     abstract public GameModelDao gameModelDao();
     abstract public PasswordDao passwordDao();
+    abstract public PermissionDao permissionDao();
 
     private static AppDatabase INSTANCE;
 
@@ -35,10 +34,12 @@ public abstract class AppDatabase extends RoomDatabase {
                 }
             }
         }
-        return Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"game_db").allowMainThreadQueries().build();//INSTANCE;
+        return Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"game_db")
+                .allowMainThreadQueries()
+                .build();//INSTANCE;
     }
 
-    private static RoomDatabase.Callback sRoomDatabaseCallback =
+    /*private static RoomDatabase.Callback sRoomDatabaseCallback =
             new RoomDatabase.Callback() {
 
                 @Override
@@ -47,6 +48,7 @@ public abstract class AppDatabase extends RoomDatabase {
                     new PopulateDbAsync(INSTANCE).execute();
                 }
             };
+
 
     public static class PopulateDbAsync extends AsyncTask<Void,Void,Void> {
 
@@ -66,6 +68,6 @@ public abstract class AppDatabase extends RoomDatabase {
             gameDao.insertGame(game);
             return null;
         }
-    }
+    }*/
 
 }
