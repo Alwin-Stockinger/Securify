@@ -18,6 +18,9 @@ public interface PhishingDao {
     @Insert
     public void insertGame(PhishingModel model);
 
+    @Insert
+    public void insertAll(List<PhishingModel> phishingModels);
+
     @Query("SELECT * FROM phishingspiel")
     public List<PhishingModel> getAllPhishingGames();
 

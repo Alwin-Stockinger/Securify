@@ -19,6 +19,9 @@ public interface PermissionDao extends GameModelDao {
     @Insert
     public void insertGame(PermissionModel model);
 
+    @Insert
+    public void insertAll(List<PermissionModel> permissionModels);
+
     @Query("SELECT * FROM permissionspiel")
     public List<PermissionModel> getAllPermissionGames();
 

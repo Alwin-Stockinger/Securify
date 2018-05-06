@@ -18,6 +18,9 @@ public interface PasswordDao extends GameModelDao {
     @Insert
     public void insertGame(PasswordModel password);
 
+    @Insert
+    public void insertAll(List<PasswordModel> passwordModels);
+
     @Query("SELECT * FROM passwortspiel")
     public List<PasswordModel> getAllPasswordGames();
 

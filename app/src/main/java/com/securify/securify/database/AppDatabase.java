@@ -3,6 +3,7 @@ package com.securify.securify.database;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
+import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 
 import com.securify.securify.gameModels.Config;
@@ -20,6 +21,7 @@ import com.securify.securify.gameModels.Score;
  */
 
 @Database(version = 1,entities = {GameModel.class, PasswordModel.class, PermissionModel.class, PhishingModel.class, Persona.class, Config.class, Quiz.class, Question.class, Score.class})
+@TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
     abstract public GameModelDao gameModelDao();
     abstract public PasswordDao passwordDao();
@@ -29,17 +31,45 @@ public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;
 
-    public static AppDatabase getDatabase(final Context context){
+
+    public static synchronized AppDatabase getDatabase(final Context context){
         if(INSTANCE==null){
             synchronized (AppDatabase.class){
                 if(INSTANCE==null){
-                    INSTANCE= Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"game_db").allowMainThreadQueries().build();
+                    INSTANCE= Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"game_db")
+                            .allowMainThreadQueries()
+                            /*.addCallback(new Callback() {   //prepopulate Database
+                                @Override
+                                public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                                    super.onCreate(db);
+                                    Executors.newSingleThreadExecutor().execute(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            PopulationFactory factory=new PopulationFactory();
+                                            INSTANCE.phishingDao().insertAll(factory.getPhishingModels());
+                                            INSTANCE.permissionDao().insertAll(factory.getPermissionModels());
+                                            INSTANCE.passwordDao().insertAll(factory.getPasswordModels());
+                                        }
+                                    });
+                                }
+                            })*/
+                            .build();
                 }
             }
         }
-        return Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"game_db")
+        return INSTANCE;/*Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"game_db")
+                .addCallback(new Callback() {   //prepopulate Database
+                    @Override
+                    public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                        super.onCreate(db);
+                        PopulationFactory factory=new PopulationFactory();
+                        INSTANCE.phishingDao().insertAll(factory.getPhishingModels());
+                        INSTANCE.permissionDao().insertAll(factory.getPermissionModels());
+                        INSTANCE.passwordDao().insertAll(factory.getPasswordModels());
+                    }
+                })
                 .allowMainThreadQueries()
-                .build();//INSTANCE;
+                .build();//INSTANCE;*/
     }
 
     /*private static RoomDatabase.Callback sRoomDatabaseCallback =
