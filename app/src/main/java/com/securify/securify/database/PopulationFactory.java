@@ -73,6 +73,7 @@ public class PopulationFactory {
 
         List<PhishingModel> list=new ArrayList<>();
         list.add(model);
+        
         return list;
     }
 

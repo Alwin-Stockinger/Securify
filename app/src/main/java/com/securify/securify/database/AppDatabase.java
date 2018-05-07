@@ -14,6 +14,7 @@ import com.securify.securify.database.daos.highscoreDaos.HPasswordDao;
 import com.securify.securify.database.daos.highscoreDaos.HPermissionDao;
 import com.securify.securify.database.daos.highscoreDaos.HPhishingDao;
 import com.securify.securify.model.UserModel;
+import com.securify.securify.model.gameModels.GameModel;
 import com.securify.securify.model.highscoreModels.HighscorePasswordModel;
 import com.securify.securify.model.highscoreModels.HighscorePermissionModel;
 import com.securify.securify.model.highscoreModels.HighscorePhishingModel;
@@ -35,11 +36,9 @@ import com.securify.securify.model.otherModels.Score;
                                 PermissionModel.class,
                                 PhishingModel.class,
                                 UserModel.class,
-                                HighscorePasswordModel.class,
-                                HighscorePermissionModel.class,
-                                HighscorePhishingModel.class,
 
 
+                                GameModel.class,
                                 Persona.class,
                                 Config.class,
                                 Quiz.class,
@@ -50,12 +49,12 @@ import com.securify.securify.model.otherModels.Score;
 public abstract class AppDatabase extends RoomDatabase {
 
     //DAOs
+    //game daos
     abstract public PasswordDao passwordDao();
     abstract public PermissionDao permissionDao();
     abstract public PhishingDao phishingDao();
-    abstract public HPasswordDao hPasswordDao();
-    abstract public HPermissionDao hPermissionDao();
-    abstract public HPhishingDao hPhishingDao();
+
+    //user daos
     abstract public UserDao userDao();
 
 
