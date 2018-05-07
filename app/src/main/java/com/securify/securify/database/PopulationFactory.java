@@ -1,9 +1,9 @@
 package com.securify.securify.database;
 
 
-import com.securify.securify.gameModels.PasswordModel;
-import com.securify.securify.gameModels.PermissionModel;
-import com.securify.securify.gameModels.PhishingModel;
+import com.securify.securify.model.gameModels.PasswordModel;
+import com.securify.securify.model.gameModels.PermissionModel;
+import com.securify.securify.model.gameModels.PhishingModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,6 +73,7 @@ public class PopulationFactory {
 
         List<PhishingModel> list=new ArrayList<>();
         list.add(model);
+        
         return list;
     }
 

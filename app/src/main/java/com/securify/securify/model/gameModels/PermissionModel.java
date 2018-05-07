@@ -1,4 +1,4 @@
-package com.securify.securify.gameModels;
+package com.securify.securify.model.gameModels;
 
 import android.arch.persistence.room.Entity;
 

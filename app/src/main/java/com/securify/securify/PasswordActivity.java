@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.securify.securify.gameModels.PasswordModel;
+import com.securify.securify.model.gameModels.PasswordModel;
 import com.securify.securify.model.MainModel;
 
 import java.util.regex.Matcher;

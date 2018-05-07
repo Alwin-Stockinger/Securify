@@ -3,12 +3,12 @@ package com.securify.securify.model;
 import android.content.Context;
 
 import com.securify.securify.database.AppDatabase;
-import com.securify.securify.database.PasswordDao;
-import com.securify.securify.database.PermissionDao;
-import com.securify.securify.database.PhishingDao;
-import com.securify.securify.gameModels.PasswordModel;
-import com.securify.securify.gameModels.PermissionModel;
-import com.securify.securify.gameModels.PhishingModel;
+import com.securify.securify.database.daos.gameDaos.PasswordDao;
+import com.securify.securify.database.daos.gameDaos.PermissionDao;
+import com.securify.securify.database.daos.gameDaos.PhishingDao;
+import com.securify.securify.model.gameModels.PasswordModel;
+import com.securify.securify.model.gameModels.PermissionModel;
+import com.securify.securify.model.gameModels.PhishingModel;
 
 /**
  * Created by Alwin on 06.05.2018.

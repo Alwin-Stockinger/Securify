@@ -1,4 +1,4 @@
-package com.securify.securify.database;
+package com.securify.securify.database.daos.otherDaos;
 
 import android.arch.persistence.room.Query;
 

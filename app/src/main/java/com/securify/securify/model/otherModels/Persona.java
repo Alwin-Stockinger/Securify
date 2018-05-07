@@ -1,4 +1,4 @@
-package com.securify.securify.gameModels;
+package com.securify.securify.model.otherModels;
 
 // DB related imports
 import android.arch.persistence.room.ColumnInfo;
