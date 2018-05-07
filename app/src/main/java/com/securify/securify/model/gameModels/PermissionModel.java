@@ -9,12 +9,11 @@ import android.arch.persistence.room.Entity;
 @Entity(tableName = "permissionspiel")
 public class PermissionModel extends GameModel {
 
-    boolean kamera;
-    boolean position;
-    boolean mikrofon;
-    boolean kontake;
-    boolean speicher;
-    boolean sensoren;
+    private boolean kamera;
+    private boolean position;
+    private boolean mikrofon;
+    private boolean kontake;
+    private boolean sms;
 
     public boolean isKamera() {
         return kamera;
@@ -46,21 +45,5 @@ public class PermissionModel extends GameModel {
 
     public void setKontake(boolean kontake) {
         this.kontake = kontake;
-    }
-
-    public boolean isSpeicher() {
-        return speicher;
-    }
-
-    public void setSpeicher(boolean speicher) {
-        this.speicher = speicher;
-    }
-
-    public boolean isSensoren() {
-        return sensoren;
-    }
-
-    public void setSensoren(boolean sensoren) {
-        this.sensoren = sensoren;
     }
 }
