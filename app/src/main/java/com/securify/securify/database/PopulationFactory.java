@@ -42,8 +42,7 @@ public class PopulationFactory {
         model.setKontake(false);
         model.setMikrofon(false);
         model.setPosition(true);
-        model.setSensoren(false);
-        model.setSpeicher(true);
+        model.setSms(false);
         model.setErklaerung("Das ist eine Erklaerung die dir sagt was du falsch gemach hast");
         model.setZeit(50);  //50 sekunden Zeit
         model.setSprache("DE"); //Sprache ist Deutsch
