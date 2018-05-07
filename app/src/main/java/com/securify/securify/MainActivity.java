@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        prefs=getSharedPreferences("com.securify.sercurify",MODE_PRIVATE);//get preferences to check if the app is started the first time
+        prefs=getSharedPreferences("com.securify.securify",MODE_PRIVATE);//get preferences to check if the app is started the first time
 
 
         //no toolbar
