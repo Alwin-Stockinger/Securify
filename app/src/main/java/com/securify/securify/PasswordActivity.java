@@ -43,6 +43,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
         //Model things
         MainModel model=new MainModel(getApplicationContext());
         PasswordModel gameModel=model.getPassGameById(1);
+
         final int minLength=gameModel.getMin_length();
         final int maxLength=gameModel.getMax_length();
 

@@ -41,9 +41,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
 
     private int timerSeconds = 15;
 
-    /*private MainModel mModel;
-    PermissionModel pModel = mModel.getPermGameById(1);
-    */
+
+
     boolean cameraBool = false;
     boolean positionBool = false;
     boolean contactBool = false;
@@ -66,6 +65,12 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.permissions_game);
+
+
+
+        MainModel mModel=new MainModel(getApplicationContext());
+        PermissionModel pModel = mModel.getPermGameById(1);
+
 
         //Assigning switches
         camera = findViewById(R.id.camera_id);
