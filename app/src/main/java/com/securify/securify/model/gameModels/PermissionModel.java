@@ -14,6 +14,15 @@ public class PermissionModel extends GameModel {
     private boolean mikrofon;
     private boolean kontake;
     private boolean sms;
+    
+
+    public boolean isSms() {
+        return sms;
+    }
+
+    public void setSms(boolean sms) {
+        this.sms = sms;
+    }
 
     public boolean isKamera() {
         return kamera;
