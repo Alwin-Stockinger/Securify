@@ -14,6 +14,9 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.securify.securify.gameModels.PermissionModel;
+import com.securify.securify.model.MainModel;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -28,15 +31,25 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
     private Switch sms;
     private Switch microphone;
 
+    private TextView cameraText;
+    private TextView positionText;
+    private TextView contactText;
+    private TextView smsText;
+    private TextView microphoneText;
+
     private TextView counter;
 
     private int timerSeconds = 15;
 
-    boolean cameraBool = true;
+    /*private MainModel mModel;
+    PermissionModel pModel = mModel.getPermGameById(1);
+    */
+    boolean cameraBool = false;
     boolean positionBool = false;
     boolean contactBool = false;
-    boolean smsBool = true;
+    boolean smsBool = false;
     boolean microphoneBool = false;
+
 
     private ImageView cameraIcon;
     private ImageView positionIcon;
@@ -60,6 +73,13 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
         contact = findViewById(R.id.contact_id);
         sms = findViewById(R.id.sms_id);
         microphone = findViewById(R.id.microphone_id);
+
+        //Assigning text for true/false view
+        cameraText = findViewById(R.id.camera_text);
+        positionText = findViewById(R.id.position_text);
+        contactText = findViewById(R.id.contact_text);
+        smsText = findViewById(R.id.sms_text);
+        microphoneText = findViewById(R.id.microphone_text);
 
         //Assigning Imageviews for true and false icons
         cameraIcon = findViewById(R.id.camera_icon_id);
