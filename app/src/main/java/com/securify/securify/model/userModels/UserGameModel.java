@@ -1,13 +1,10 @@
-package com.securify.securify.model.highscoreModels;
+package com.securify.securify.model.userModels;
 
+import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-/**
- * Created by Alwin on 06.05.2018.
- */
-
-
-public class HighscoreModel {
+@Entity
+public class UserGameModel {
     @PrimaryKey(autoGenerate = true)
     private long id;
 
@@ -15,11 +12,21 @@ public class HighscoreModel {
     private long gameId;
 
     private boolean played;
-    private long score;
 
+    public boolean isPlayed() {
+        return played;
+    }
+
+    public void setPlayed(boolean played) {
+        this.played = played;
+    }
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public long getUserId() {
@@ -36,25 +43,5 @@ public class HighscoreModel {
 
     public void setGameId(long gameId) {
         this.gameId = gameId;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public boolean isPlayed() {
-        return played;
-    }
-
-    public void setPlayed(boolean played) {
-        this.played = played;
-    }
-
-    public long getScore() {
-        return score;
-    }
-
-    public void setScore(long score) {
-        this.score = score;
     }
 }

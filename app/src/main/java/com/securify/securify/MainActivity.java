@@ -1,5 +1,6 @@
 package com.securify.securify;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -22,12 +23,16 @@ public class MainActivity extends AppCompatActivity {
 
     SharedPreferences prefs=null;    //needed to check if first app start
 
+    MainModel model;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         prefs=getSharedPreferences("com.securify.securify",MODE_PRIVATE);//get preferences to check if the app is started the first time
+
 
 
         //no toolbar
@@ -49,16 +54,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("ApplySharedPref")
     @Override
     protected void onResume(){
         super.onResume();
 
+        model = new MainModel(getApplicationContext());
         if(prefs.getBoolean("firstrun",true)){//check if first run  https://stackoverflow.com/questions/7217578/check-if-application-is-on-its-first-run
-            MainModel model = new MainModel(getApplicationContext());
             model.databaseinit();
-
             prefs.edit().putBoolean("firstrun",false).commit();
         }
+
+
+
     }
 
     public class PagerAdapter extends FragmentPagerAdapter {
