@@ -4,6 +4,8 @@ package com.securify.securify.database;
 import com.securify.securify.model.gameModels.PasswordModel;
 import com.securify.securify.model.gameModels.PermissionModel;
 import com.securify.securify.model.gameModels.PhishingModel;
+import com.securify.securify.model.userModels.UserModel;
+import com.securify.securify.model.userModels.UserPermissionModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,6 +75,23 @@ public class PopulationFactory {
         List<PhishingModel> list=new ArrayList<>();
         list.add(model);
         
+        return list;
+    }
+
+    public List<UserModel> getUserModels(){
+        UserModel model=new UserModel();
+
+        //set all test values
+        model.setId(1);
+        model.setName("Razvan");
+        model.setPasswordHighscore(0);
+        model.setPermissionHighscore(0);
+        model.setPhishingHighscore(0);
+
+
+        List<UserModel> list=new ArrayList<>();
+        list.add(model);
+
         return list;
     }
 

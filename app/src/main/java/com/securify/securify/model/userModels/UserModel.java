@@ -1,4 +1,4 @@
-package com.securify.securify.model;
+package com.securify.securify.model.userModels;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
