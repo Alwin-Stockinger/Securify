@@ -44,7 +44,7 @@ public class PopulationFactory {
         model.setPosition(true);
         model.setSms(false);
         model.setErklaerung("Das ist eine Erklaerung die dir sagt was du falsch gemach hast");
-        model.setZeit(50);  //50 sekunden Zeit
+        model.setZeit(15);  //15 sekunden Zeit
         model.setSprache("DE"); //Sprache ist Deutsch
         model.setKontext("Du Willst eine Foto App isntallieren die zusätzlich noch den Ort deiner Fotos speichert");
         model.setSchwierigkeit("default");

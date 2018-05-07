@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -39,15 +42,17 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
 
     private TextView counter;
 
-    private int timerSeconds = 15;
+    private int timerSeconds;
 
 
+    MainModel mModel;
+    PermissionModel pModel;
 
-    boolean cameraBool = false;
-    boolean positionBool = false;
-    boolean contactBool = false;
-    boolean smsBool = false;
-    boolean microphoneBool = false;
+    boolean cameraBool;
+    boolean positionBool;
+    boolean contactBool;
+    boolean smsBool;
+    boolean microphoneBool;
 
 
     private ImageView cameraIcon;
@@ -67,10 +72,16 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.permissions_game);
 
 
+        mModel = new MainModel(getApplicationContext());
+        pModel = mModel.getPermGameById(1);
 
-        MainModel mModel=new MainModel(getApplicationContext());
-        PermissionModel pModel = mModel.getPermGameById(1);
+        timerSeconds = pModel.getZeit();
 
+        cameraBool = pModel.isKamera();
+        positionBool = pModel.isPosition();
+        contactBool = pModel.isKontake();
+        smsBool = pModel.isSms();
+        microphoneBool = pModel.isMikrofon();
 
         //Assigning switches
         camera = findViewById(R.id.camera_id);
@@ -116,6 +127,12 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                     time.cancel();
                     time.purge();
                     checkBool(camera.isChecked(), position.isChecked(), contact.isChecked(), sms.isChecked(), microphone.isChecked());
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            counter.clearAnimation();;
+                        }
+                    });
                 } else {
                     setTimerSeconds();
                     runOnUiThread(new Runnable() {
@@ -124,6 +141,20 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                             counter.setText(Integer.toString(getTimerSeconds()));
                         }
                     });
+                    if (timerSeconds <= 5) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Animation anim = new AlphaAnimation(0.0f, 1.0f);
+                                anim.setDuration(50); //You can manage the blinking time with this parameter
+                                anim.setStartOffset(20);
+                                anim.setRepeatMode(Animation.REVERSE);
+                                anim.setRepeatCount(Animation.INFINITE);
+                                counter.startAnimation(anim);
+                                counter.setTextColor(Color.RED);
+                            }
+                        });
+                    }
                 }
             }
         }, delay, period);
@@ -150,8 +181,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 @Override
                 public void run() {
                     cameraIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
-                    camera.getThumbDrawable().setColorFilter(Color.rgb(250 ,25,25), PorterDuff.Mode.MULTIPLY);
-                    camera.getTrackDrawable().setColorFilter(Color.rgb(250 ,25,25), PorterDuff.Mode.MULTIPLY);
+                    camera.setBackgroundColor(Color.parseColor("#ffd9d9"));
                 }
             });
         }
@@ -160,8 +190,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 @Override
                 public void run() {
                     cameraIcon.setImageResource(R.mipmap.true_icon);
-                    camera.getThumbDrawable().setColorFilter(Color.rgb(25 ,250,25), PorterDuff.Mode.MULTIPLY);
-                    camera.getTrackDrawable().setColorFilter(Color.rgb(25 ,250,25), PorterDuff.Mode.MULTIPLY);
+                    camera.setBackgroundColor(Color.parseColor("#d9ffe1"));
                 }
             });
         }
@@ -172,8 +201,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 @Override
                 public void run() {
                     positionIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
-                    position.getThumbDrawable().setColorFilter(Color.rgb(250 ,25,25), PorterDuff.Mode.MULTIPLY);
-                    position.getTrackDrawable().setColorFilter(Color.rgb(250 ,25,25), PorterDuff.Mode.MULTIPLY);
+                    position.setBackgroundColor(Color.parseColor("#ffd9d9"));
                 }
             });
         }
@@ -182,8 +210,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 @Override
                 public void run() {
                     positionIcon.setImageResource(R.mipmap.true_icon);
-                    position.getThumbDrawable().setColorFilter(Color.rgb(25 ,250,25), PorterDuff.Mode.MULTIPLY);
-                    position.getTrackDrawable().setColorFilter(Color.rgb(25 ,250,25), PorterDuff.Mode.MULTIPLY);
+                    position.setBackgroundColor(Color.parseColor("#d9ffe1"));
                 }
             });
         }
@@ -194,8 +221,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 @Override
                 public void run() {
                     contactIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
-                    contact.getThumbDrawable().setColorFilter(Color.rgb(250 ,25,25), PorterDuff.Mode.MULTIPLY);
-                    contact.getTrackDrawable().setColorFilter(Color.rgb(250 ,25,25), PorterDuff.Mode.MULTIPLY);
+                    contact.setBackgroundColor(Color.parseColor("#ffd9d9"));
                 }
             });
         }
@@ -204,8 +230,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 @Override
                 public void run() {
                     contactIcon.setImageResource(R.mipmap.true_icon);
-                    contact.getThumbDrawable().setColorFilter(Color.rgb(25 ,250,25), PorterDuff.Mode.MULTIPLY);
-                    contact.getTrackDrawable().setColorFilter(Color.rgb(25 ,250,25), PorterDuff.Mode.MULTIPLY);
+                    contact.setBackgroundColor(Color.parseColor("#d9ffe1"));
                 }
             });
         }
@@ -216,8 +241,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 @Override
                 public void run() {
                     smsIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
-                    sms.getThumbDrawable().setColorFilter(Color.rgb(250 ,25,25), PorterDuff.Mode.MULTIPLY);
-                    sms.getTrackDrawable().setColorFilter(Color.rgb(250 ,25,25), PorterDuff.Mode.MULTIPLY);
+                    sms.setBackgroundColor(Color.parseColor("#ffd9d9"));
                 }
             });
         }
@@ -226,8 +250,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 @Override
                 public void run() {
                     smsIcon.setImageResource(R.mipmap.true_icon);
-                    sms.getThumbDrawable().setColorFilter(Color.rgb(25 ,250,25), PorterDuff.Mode.MULTIPLY);
-                    sms.getTrackDrawable().setColorFilter(Color.rgb(25 ,250,25), PorterDuff.Mode.MULTIPLY);
+                    sms.setBackgroundColor(Color.parseColor("#d9ffe1"));
                 }
             });
         }
@@ -237,8 +260,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 @Override
                 public void run() {
                     microphoneIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
-                    microphone.getThumbDrawable().setColorFilter(Color.rgb(250 ,25,25), PorterDuff.Mode.MULTIPLY);
-                    microphone.getTrackDrawable().setColorFilter(Color.rgb(250 ,25,25), PorterDuff.Mode.MULTIPLY);
+                    microphone.setBackgroundColor(Color.parseColor("#ffd9d9"));
                 }
             });
         }
@@ -247,14 +269,14 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 @Override
                 public void run() {
                     microphoneIcon.setImageResource(R.mipmap.true_icon);
-                    microphone.getThumbDrawable().setColorFilter(Color.rgb(25 ,250,25), PorterDuff.Mode.MULTIPLY);
-                    microphone.getTrackDrawable().setColorFilter(Color.rgb(25 ,250,25), PorterDuff.Mode.MULTIPLY);
+                    microphone.setBackgroundColor(Color.parseColor("#d9ffe1"));
                 }
             });
         }
 
 
     }
+
 
     @Override
     public void onClick(View view) {
@@ -265,11 +287,16 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 setTimerSecondsDirect(0);
                 time.cancel();
                 time.purge();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        counter.clearAnimation();
+                    }
+                });
                 checkBool(camera.isChecked(), position.isChecked(), contact.isChecked(), sms.isChecked(), microphone.isChecked());
                 break;
 
         }
     }
-
 }
 
