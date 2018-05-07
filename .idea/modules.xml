@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Securify.iml" filepath="$PROJECT_DIR$/Securify.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/Securify.iml" filepath="$PROJECT_DIR$/.idea/Securify.iml" />
+      <module fileurl="file://C:\Users\stock\workspace\Securify\.idea\Securify.iml" filepath="C:\Users\stock\workspace\Securify\.idea\Securify.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -1,5 +1,6 @@
 package com.securify.securify;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("ApplySharedPref")
     @Override
     protected void onResume(){
         super.onResume();
