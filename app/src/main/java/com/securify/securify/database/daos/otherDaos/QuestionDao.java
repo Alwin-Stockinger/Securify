@@ -1,4 +1,4 @@
-package com.securify.securify.database;
+package com.securify.securify.database.daos.otherDaos;
 
 /**
  * Created by vitor on 04/05/18.
