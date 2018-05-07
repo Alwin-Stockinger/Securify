@@ -10,6 +10,7 @@ import com.securify.securify.database.daos.userDaos.UserDao;
 import com.securify.securify.database.daos.gameDaos.PasswordDao;
 import com.securify.securify.database.daos.gameDaos.PermissionDao;
 import com.securify.securify.database.daos.gameDaos.PhishingDao;
+import com.securify.securify.database.daos.userDaos.UserPasswordDao;
 import com.securify.securify.database.daos.userDaos.UserPermissionDao;
 import com.securify.securify.model.userModels.UserModel;
 import com.securify.securify.model.gameModels.GameModel;
@@ -21,6 +22,7 @@ import com.securify.securify.model.gameModels.PhishingModel;
 import com.securify.securify.model.otherModels.Question;
 import com.securify.securify.model.otherModels.Quiz;
 import com.securify.securify.model.otherModels.Score;
+import com.securify.securify.model.userModels.UserPasswordModel;
 import com.securify.securify.model.userModels.UserPermissionModel;
 
 /**
@@ -33,6 +35,7 @@ import com.securify.securify.model.userModels.UserPermissionModel;
                                 PhishingModel.class,
                                 UserModel.class,
                                 UserPermissionModel.class,
+                                UserPasswordModel.class,
 
                                 GameModel.class,
                                 Persona.class,
@@ -53,6 +56,7 @@ public abstract class AppDatabase extends RoomDatabase {
     //user daos
     abstract public UserDao userDao();
     abstract public UserPermissionDao userPermissionDao();
+    abstract public UserPasswordDao userPasswordDao();
 
 
 
