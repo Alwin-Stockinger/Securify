@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.securify.securify.gameModels.PermissionModel;
+import com.securify.securify.model.gameModels.PermissionModel;
 import com.securify.securify.model.MainModel;
 
 import java.util.Timer;
