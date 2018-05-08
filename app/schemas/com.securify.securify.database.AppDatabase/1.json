@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "cc911eb3915a5244e1d8147681d7c647",
+    "identityHash": "9192a75bd9cd4368a63367b7e45fb22f",
     "entities": [
       {
         "tableName": "passwortspiel",
@@ -538,6 +538,108 @@
         ]
       },
       {
+        "tableName": "usedPassword",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `password` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_usedPassword_password",
+            "unique": true,
+            "columnNames": [
+              "password"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_usedPassword_password` ON `${TABLE_NAME}` (`password`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "usedPasswordUserJoin",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `passwordId` INTEGER NOT NULL, PRIMARY KEY(`userId`, `passwordId`), FOREIGN KEY(`userId`) REFERENCES `user`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`passwordId`) REFERENCES `usedPassword`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "passwordId",
+            "columnName": "passwordId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "userId",
+            "passwordId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_usedPasswordUserJoin_userId",
+            "unique": false,
+            "columnNames": [
+              "userId"
+            ],
+            "createSql": "CREATE  INDEX `index_usedPasswordUserJoin_userId` ON `${TABLE_NAME}` (`userId`)"
+          },
+          {
+            "name": "index_usedPasswordUserJoin_passwordId",
+            "unique": false,
+            "columnNames": [
+              "passwordId"
+            ],
+            "createSql": "CREATE  INDEX `index_usedPasswordUserJoin_passwordId` ON `${TABLE_NAME}` (`passwordId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "user",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "userId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "usedPassword",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "passwordId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
         "tableName": "GameModel",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tipp` TEXT, `schwierigkeit` TEXT, `kontext` TEXT, `sprache` TEXT, `zeit` INTEGER NOT NULL, `erklaerung` TEXT)",
         "fields": [
@@ -888,7 +990,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"cc911eb3915a5244e1d8147681d7c647\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"9192a75bd9cd4368a63367b7e45fb22f\")"
     ]
   }
 }

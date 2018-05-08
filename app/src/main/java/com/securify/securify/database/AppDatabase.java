@@ -9,6 +9,8 @@ import android.content.Context;
 import com.securify.securify.database.daos.gameDaos.PasswordDao;
 import com.securify.securify.database.daos.gameDaos.PermissionDao;
 import com.securify.securify.database.daos.gameDaos.PhishingDao;
+import com.securify.securify.database.daos.gameDaos.UsedPasswordDao;
+import com.securify.securify.database.daos.gameDaos.UsedPasswordUserDao;
 import com.securify.securify.database.daos.userDaos.UserDao;
 import com.securify.securify.database.daos.userDaos.UserPasswordDao;
 import com.securify.securify.database.daos.userDaos.UserPermissionDao;
@@ -17,6 +19,8 @@ import com.securify.securify.model.gameModels.GameModel;
 import com.securify.securify.model.gameModels.PasswordModel;
 import com.securify.securify.model.gameModels.PermissionModel;
 import com.securify.securify.model.gameModels.PhishingModel;
+import com.securify.securify.model.gameModels.UsedPasswordModel;
+import com.securify.securify.model.gameModels.UsedPasswordUserModel;
 import com.securify.securify.model.otherModels.Config;
 import com.securify.securify.model.otherModels.Persona;
 import com.securify.securify.model.otherModels.Question;
@@ -39,6 +43,9 @@ import com.securify.securify.model.userModels.UserPhishingModel;
                                 UserPermissionModel.class,
                                 UserPasswordModel.class,
                                 UserPhishingModel.class,
+                                UsedPasswordModel.class,
+                                UsedPasswordUserModel.class,
+
 
                                 GameModel.class,
                                 Persona.class,
@@ -55,6 +62,8 @@ public abstract class AppDatabase extends RoomDatabase {
     abstract public PasswordDao passwordDao();
     abstract public PermissionDao permissionDao();
     abstract public PhishingDao phishingDao();
+    abstract public UsedPasswordDao usedPasswordDao();
+    abstract public UsedPasswordUserDao usedPasswordUserDao();
 
     //user daos
     abstract public UserDao userDao();

@@ -11,6 +11,8 @@ import com.securify.securify.database.daos.userDaos.UserDao;
 import com.securify.securify.model.gameModels.PasswordModel;
 import com.securify.securify.model.gameModels.PermissionModel;
 import com.securify.securify.model.gameModels.PhishingModel;
+import com.securify.securify.model.gameModels.UsedPasswordModel;
+import com.securify.securify.model.gameModels.UsedPasswordUserModel;
 import com.securify.securify.model.userModels.UserGameModel;
 import com.securify.securify.model.userModels.UserModel;
 import com.securify.securify.model.userModels.UserPasswordModel;
@@ -152,7 +154,22 @@ public class MainModel {
     }*/
 
 
+    public boolean isPasswordUsed(long userId, String password){
+        return db.usedPasswordUserDao().isPasswordUsedByUserId(password,userId);
+    }
 
+    public void setPasswordUsed(long userId, String password){
+        long passwordId;
+        if(db.usedPasswordDao().doesExist(password)){
+            passwordId=db.usedPasswordDao().getUsedPasswordByPassword(password).getId();
+        }
+        else{
+            UsedPasswordModel usedPasswordModel=new UsedPasswordModel(password);
+            passwordId=db.usedPasswordDao().insertGetLong(usedPasswordModel);
+        }
+        UsedPasswordUserModel usedPasswordUserModel=new UsedPasswordUserModel(userId,passwordId);
+        db.usedPasswordUserDao().insert(usedPasswordUserModel);
+    }
 
 
 

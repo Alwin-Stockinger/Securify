@@ -43,7 +43,7 @@ public class DatabaseTest {
     public void useAppContext() throws Exception {
         PasswordModel game=new PasswordModel();
 
-        gDao.insertGame(game);
+        gDao.insert(game);
         PasswordModel gamedb= gDao.getById(1);
         assertEquals(gamedb.getId(),game.getId());
     }
