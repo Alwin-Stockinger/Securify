@@ -4,23 +4,25 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Index;
 
-import com.securify.securify.model.gameModels.PermissionModel;
+import com.securify.securify.model.gameModels.PhishingModel;
 
 import static android.arch.persistence.room.ForeignKey.CASCADE;
 
-@Entity(tableName = "userPermission",foreignKeys = {@ForeignKey(entity = UserModel.class,
+/**
+ * Created by Alwin on 08.05.2018.
+ */
+@Entity(tableName = "userPhsishing",foreignKeys = {@ForeignKey(entity = UserModel.class,
                                                                 parentColumns = "id",
                                                                 childColumns = "userId",
                                                                 onDelete = CASCADE),
-                                                    @ForeignKey(entity = PermissionModel.class,
+                                                    @ForeignKey(entity = PhishingModel.class,
                                                                 parentColumns = "id",
                                                                 childColumns = "gameId",
                                                                 onDelete=CASCADE)}
                                     , indices = {   @Index("userId"),
                                                     @Index("gameId")})
-public class UserPermissionModel extends UserGameModel {
-
-    public UserPermissionModel(long userId,long gameId,boolean played){
+public class UserPhishingModel extends  UserGameModel{
+    public UserPhishingModel(long userId,long gameId,boolean played){
         super(userId,gameId,played);
     }
 }

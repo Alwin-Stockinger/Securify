@@ -9,7 +9,7 @@
         ut condimentum est. Vestibulum ac lectus metus. Aenean vitae felis non orci cursus feugiat vitae sed quam.
     </string>
 
-    <!-- Strings for home.xml -->
+    <!-- -->
     <string name="phishing_game_string">Phishing</string>
     <string name="password_game_string">Passwörter</string>
     <string name="permissions_game_string">Permissions</string>

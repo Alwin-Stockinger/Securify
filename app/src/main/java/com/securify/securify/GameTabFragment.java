@@ -41,6 +41,7 @@ public class GameTabFragment extends Fragment {
         permissionsBar.startAnimation(an);
         */
 
+        /*
         //demo behaviour
         new Thread(new Runnable() {
             @Override
@@ -63,6 +64,7 @@ public class GameTabFragment extends Fragment {
                 }
             }
         }).start();
+        */
 
         phishingButton.setOnClickListener(new View.OnClickListener() {
             @Override

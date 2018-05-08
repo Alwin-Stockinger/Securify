@@ -1,36 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/achievement_tab"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+    <ImageButton
+        android:id="@+id/settingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="122dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="@string/achievements_string"
-        android:gravity="center"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/settings_tab"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/round_buttons"
+        app:layout_constraintBottom_toTopOf="@+id/highscoreButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_settings_black_24px" />
 
-    <TextView
-        android:id="@+id/settings_tab"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="268dp"
+    <ImageButton
+        android:id="@+id/highscoreButton"
+        android:layout_width="wrap_content"
+        android:layout_height="119dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:gravity="center"
-        android:text="@string/settings_string"
-        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/round_buttons"
+        app:layout_constraintBottom_toTopOf="@+id/awardsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingsButton"
+        app:srcCompat="@drawable/ic_trophy" />
+
+    <ImageButton
+        android:id="@+id/awardsButton"
+        android:layout_width="122dp"
+        android:layout_height="128dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/round_buttons"
+        app:layout_constraintBottom_toTopOf="@+id/tab_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/highscoreButton"
+        app:layout_constraintVertical_bias="0.396" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:elevation="6dp"
+        android:minHeight="?attr/actionBarSize"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabGravity="center"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="#ffffff"
+        app:tabTextColor="#d3d3d3" />
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

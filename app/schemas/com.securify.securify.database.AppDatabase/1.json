@@ -1,0 +1,996 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "9192a75bd9cd4368a63367b7e45fb22f",
+    "entities": [
+      {
+        "tableName": "passwortspiel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`verbotene_chars` TEXT, `min_length` INTEGER NOT NULL, `max_length` INTEGER NOT NULL, `min_upper` INTEGER NOT NULL, `min_number` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tipp` TEXT, `schwierigkeit` TEXT, `kontext` TEXT, `sprache` TEXT, `zeit` INTEGER NOT NULL, `erklaerung` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "verbotene_chars",
+            "columnName": "verbotene_chars",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "min_length",
+            "columnName": "min_length",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "max_length",
+            "columnName": "max_length",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "min_upper",
+            "columnName": "min_upper",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "min_number",
+            "columnName": "min_number",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipp",
+            "columnName": "tipp",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "schwierigkeit",
+            "columnName": "schwierigkeit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "kontext",
+            "columnName": "kontext",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sprache",
+            "columnName": "sprache",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "zeit",
+            "columnName": "zeit",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "erklaerung",
+            "columnName": "erklaerung",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "permissionspiel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`kamera` INTEGER NOT NULL, `position` INTEGER NOT NULL, `mikrofon` INTEGER NOT NULL, `kontake` INTEGER NOT NULL, `sms` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tipp` TEXT, `schwierigkeit` TEXT, `kontext` TEXT, `sprache` TEXT, `zeit` INTEGER NOT NULL, `erklaerung` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "kamera",
+            "columnName": "kamera",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "position",
+            "columnName": "position",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mikrofon",
+            "columnName": "mikrofon",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kontake",
+            "columnName": "kontake",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sms",
+            "columnName": "sms",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipp",
+            "columnName": "tipp",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "schwierigkeit",
+            "columnName": "schwierigkeit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "kontext",
+            "columnName": "kontext",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sprache",
+            "columnName": "sprache",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "zeit",
+            "columnName": "zeit",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "erklaerung",
+            "columnName": "erklaerung",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "phishingspiel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`absender` TEXT, `betreff` TEXT, `is_phishing` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tipp` TEXT, `schwierigkeit` TEXT, `kontext` TEXT, `sprache` TEXT, `zeit` INTEGER NOT NULL, `erklaerung` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "absender",
+            "columnName": "absender",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "betreff",
+            "columnName": "betreff",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "is_phishing",
+            "columnName": "is_phishing",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipp",
+            "columnName": "tipp",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "schwierigkeit",
+            "columnName": "schwierigkeit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "kontext",
+            "columnName": "kontext",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sprache",
+            "columnName": "sprache",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "zeit",
+            "columnName": "zeit",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "erklaerung",
+            "columnName": "erklaerung",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "user",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `passwordHighscore` INTEGER NOT NULL, `permissionHighscore` INTEGER NOT NULL, `phishingHighscore` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "passwordHighscore",
+            "columnName": "passwordHighscore",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "permissionHighscore",
+            "columnName": "permissionHighscore",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phishingHighscore",
+            "columnName": "phishingHighscore",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_user_name",
+            "unique": true,
+            "columnNames": [
+              "name"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_user_name` ON `${TABLE_NAME}` (`name`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "userPermission",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userId` INTEGER NOT NULL, `gameId` INTEGER NOT NULL, `played` INTEGER NOT NULL, FOREIGN KEY(`userId`) REFERENCES `user`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`gameId`) REFERENCES `permissionspiel`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gameId",
+            "columnName": "gameId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "played",
+            "columnName": "played",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_userPermission_userId",
+            "unique": false,
+            "columnNames": [
+              "userId"
+            ],
+            "createSql": "CREATE  INDEX `index_userPermission_userId` ON `${TABLE_NAME}` (`userId`)"
+          },
+          {
+            "name": "index_userPermission_gameId",
+            "unique": false,
+            "columnNames": [
+              "gameId"
+            ],
+            "createSql": "CREATE  INDEX `index_userPermission_gameId` ON `${TABLE_NAME}` (`gameId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "user",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "userId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "permissionspiel",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "gameId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "userPassword",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userId` INTEGER NOT NULL, `gameId` INTEGER NOT NULL, `played` INTEGER NOT NULL, FOREIGN KEY(`userId`) REFERENCES `user`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`gameId`) REFERENCES `passwortspiel`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gameId",
+            "columnName": "gameId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "played",
+            "columnName": "played",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_userPassword_userId",
+            "unique": false,
+            "columnNames": [
+              "userId"
+            ],
+            "createSql": "CREATE  INDEX `index_userPassword_userId` ON `${TABLE_NAME}` (`userId`)"
+          },
+          {
+            "name": "index_userPassword_gameId",
+            "unique": false,
+            "columnNames": [
+              "gameId"
+            ],
+            "createSql": "CREATE  INDEX `index_userPassword_gameId` ON `${TABLE_NAME}` (`gameId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "user",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "userId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "passwortspiel",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "gameId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "userPhsishing",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userId` INTEGER NOT NULL, `gameId` INTEGER NOT NULL, `played` INTEGER NOT NULL, FOREIGN KEY(`userId`) REFERENCES `user`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`gameId`) REFERENCES `phishingspiel`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gameId",
+            "columnName": "gameId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "played",
+            "columnName": "played",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_userPhsishing_userId",
+            "unique": false,
+            "columnNames": [
+              "userId"
+            ],
+            "createSql": "CREATE  INDEX `index_userPhsishing_userId` ON `${TABLE_NAME}` (`userId`)"
+          },
+          {
+            "name": "index_userPhsishing_gameId",
+            "unique": false,
+            "columnNames": [
+              "gameId"
+            ],
+            "createSql": "CREATE  INDEX `index_userPhsishing_gameId` ON `${TABLE_NAME}` (`gameId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "user",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "userId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "phishingspiel",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "gameId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "usedPassword",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `password` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_usedPassword_password",
+            "unique": true,
+            "columnNames": [
+              "password"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_usedPassword_password` ON `${TABLE_NAME}` (`password`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "usedPasswordUserJoin",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `passwordId` INTEGER NOT NULL, PRIMARY KEY(`userId`, `passwordId`), FOREIGN KEY(`userId`) REFERENCES `user`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`passwordId`) REFERENCES `usedPassword`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "passwordId",
+            "columnName": "passwordId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "userId",
+            "passwordId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_usedPasswordUserJoin_userId",
+            "unique": false,
+            "columnNames": [
+              "userId"
+            ],
+            "createSql": "CREATE  INDEX `index_usedPasswordUserJoin_userId` ON `${TABLE_NAME}` (`userId`)"
+          },
+          {
+            "name": "index_usedPasswordUserJoin_passwordId",
+            "unique": false,
+            "columnNames": [
+              "passwordId"
+            ],
+            "createSql": "CREATE  INDEX `index_usedPasswordUserJoin_passwordId` ON `${TABLE_NAME}` (`passwordId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "user",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "userId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "usedPassword",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "passwordId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "GameModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tipp` TEXT, `schwierigkeit` TEXT, `kontext` TEXT, `sprache` TEXT, `zeit` INTEGER NOT NULL, `erklaerung` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipp",
+            "columnName": "tipp",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "schwierigkeit",
+            "columnName": "schwierigkeit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "kontext",
+            "columnName": "kontext",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sprache",
+            "columnName": "sprache",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "zeit",
+            "columnName": "zeit",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "erklaerung",
+            "columnName": "erklaerung",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "persona",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `code` INTEGER NOT NULL, `name` TEXT, `age` INTEGER NOT NULL, `profession` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "code",
+            "columnName": "code",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "age",
+            "columnName": "age",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "profession",
+            "columnName": "profession",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "config",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `first_name` TEXT, `last_name` TEXT, `score` REAL NOT NULL, `persona_id` INTEGER NOT NULL, FOREIGN KEY(`persona_id`) REFERENCES `persona`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "firstName",
+            "columnName": "first_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastName",
+            "columnName": "last_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "score",
+            "columnName": "score",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "persona",
+            "columnName": "persona_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_config_persona_id",
+            "unique": true,
+            "columnNames": [
+              "persona_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_config_persona_id` ON `${TABLE_NAME}` (`persona_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "persona",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "persona_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "quiz",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `game_id` INTEGER NOT NULL, FOREIGN KEY(`game_id`) REFERENCES `GameModel`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "game",
+            "columnName": "game_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_quiz_game_id",
+            "unique": true,
+            "columnNames": [
+              "game_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_quiz_game_id` ON `${TABLE_NAME}` (`game_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "GameModel",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "game_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "question",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `statement` TEXT, `value` REAL NOT NULL, `quiz_id` INTEGER NOT NULL, `answered` INTEGER NOT NULL, FOREIGN KEY(`quiz_id`) REFERENCES `quiz`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "body",
+            "columnName": "statement",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "value",
+            "columnName": "value",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "quiz",
+            "columnName": "quiz_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "answered",
+            "columnName": "answered",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_question_quiz_id",
+            "unique": true,
+            "columnNames": [
+              "quiz_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_question_quiz_id` ON `${TABLE_NAME}` (`quiz_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "quiz",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "quiz_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "score",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `user_id` TEXT, `question_id` INTEGER NOT NULL, FOREIGN KEY(`user_id`) REFERENCES `config`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`question_id`) REFERENCES `question`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "user",
+            "columnName": "user_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "question",
+            "columnName": "question_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_score_user_id_question_id",
+            "unique": true,
+            "columnNames": [
+              "user_id",
+              "question_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_score_user_id_question_id` ON `${TABLE_NAME}` (`user_id`, `question_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "config",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "user_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "question",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "question_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"9192a75bd9cd4368a63367b7e45fb22f\")"
+    ]
+  }
+}

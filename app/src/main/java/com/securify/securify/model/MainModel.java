@@ -8,12 +8,16 @@ import com.securify.securify.database.daos.gameDaos.PasswordDao;
 import com.securify.securify.database.daos.gameDaos.PermissionDao;
 import com.securify.securify.database.daos.gameDaos.PhishingDao;
 import com.securify.securify.database.daos.userDaos.UserDao;
-import com.securify.securify.database.daos.userDaos.UserPermissionDao;
 import com.securify.securify.model.gameModels.PasswordModel;
 import com.securify.securify.model.gameModels.PermissionModel;
 import com.securify.securify.model.gameModels.PhishingModel;
+import com.securify.securify.model.gameModels.UsedPasswordModel;
+import com.securify.securify.model.gameModels.UsedPasswordUserModel;
+import com.securify.securify.model.userModels.UserGameModel;
 import com.securify.securify.model.userModels.UserModel;
+import com.securify.securify.model.userModels.UserPasswordModel;
 import com.securify.securify.model.userModels.UserPermissionModel;
+import com.securify.securify.model.userModels.UserPhishingModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,8 +53,8 @@ public class MainModel {
     public void databaseinit(){
         PopulationFactory factory=new PopulationFactory();
 
-        PasswordDao pDao=db.passwordDao();
-        pDao.insertAll(factory.getPasswordModels());
+        PasswordDao paDao=db.passwordDao();
+        paDao.insertAll(factory.getPasswordModels());
 
         PhishingDao phDao=db.phishingDao();
         phDao.insertAll(factory.getPhishingModels());
@@ -61,47 +65,144 @@ public class MainModel {
         UserDao userDao=db.userDao();
         userDao.insertAll(factory.getUserModels());
 
-        initUserPermission(userDao,peDao);
+        initUserGameTables(userDao,peDao,phDao,paDao);
+
     }
 
-    private void initUserPermission(UserDao userDao,PermissionDao permissionDao){
+    private void initUserGameTables(UserDao userDao,PermissionDao permissionDao,PhishingDao phishingDao, PasswordDao passwordDao){
         List<UserModel> users=userDao.getAllUsers();
-        List<PermissionModel> permissions=permissionDao.getAllPermissionGames();
 
-        UserPermissionDao upDao=db.userPermissionDao();
+        List<PermissionModel> permissionModels=permissionDao.getAllPermissionGames();
+        List<PasswordModel> passwordModels=passwordDao.getAllPasswordGames();
+        List<PhishingModel> phishingModels=phishingDao.getAllPhishingGames();
+
+        List<UserPermissionModel> userPermissionModels=new ArrayList<>();
+        List<UserPasswordModel> userPasswordModels=new ArrayList<>();
+        List<UserPhishingModel> userPhishingModels=new ArrayList<>();
+
+        for(UserModel user:users){
+            userPermissionModels.addAll(initUserWithPermissions(user,permissionModels));
+            userPasswordModels.addAll(initUserWithPasswords(user,passwordModels));
+            userPhishingModels.addAll(initUserPhishing(user,phishingModels));
+        }
+
+        db.userPermissionDao().insertAll(userPermissionModels);
+        db.userPasswordDao().insertAll(userPasswordModels);
+        db.userPhishingDao().insertAll(userPhishingModels);
+    }
+
+
+
+    private List<UserPermissionModel> initUserWithPermissions(UserModel user, List<PermissionModel> permissionModels){
 
         List<UserPermissionModel> insertList=new ArrayList<>();
 
-        for(UserModel user :users){
-            for(PermissionModel permission:permissions){
-                UserPermissionModel userPermissionModel=new UserPermissionModel();
+        for(PermissionModel permissionModel:permissionModels){
+            UserPermissionModel userPermissionModel=new UserPermissionModel(user.getId(),permissionModel.getId(),false);
 
-                userPermissionModel.setGameId(permission.getId());
-                userPermissionModel.setUserId(user.getId());
-                userPermissionModel.setPlayed(false);
-                insertList.add(userPermissionModel);
-            }
+            insertList.add(userPermissionModel);
         }
-        upDao.insertAll(insertList);
+
+        return insertList;
     }
 
 
-    //return progress percentage in permission games
-    public int getPermProgress(long userId){
-        UserPermissionDao permDao=db.userPermissionDao();
-        List<UserPermissionModel> list=permDao.getUserPermissionGamesByUserId(userId);
+    private List<UserPhishingModel> initUserPhishing(UserModel user,List<PhishingModel> phishingModels){
 
-        int gamesCount=0;
+        List<UserPhishingModel> insertList=new ArrayList<>();
+
+        for(PhishingModel phishingModel:phishingModels){
+            UserPhishingModel userPhishingModel=new UserPhishingModel(user.getId(),phishingModel.getId(),false);
+
+            insertList.add(userPhishingModel);
+        }
+        return insertList;
+    }
+
+
+    private List<UserPasswordModel> initUserWithPasswords(UserModel user,List<PasswordModel> passwordModels){
+
+        List<UserPasswordModel> inserList=new ArrayList<>();
+
+        for(PasswordModel passwordModel:passwordModels){
+            UserPasswordModel userPasswordModel=new UserPasswordModel(user.getId(),passwordModel.getId(),false);
+
+            inserList.add(userPasswordModel);
+        }
+        return inserList;
+    }
+
+
+    /*
+    private <UserGame,Game> List<UserGame> initUserWithGames(UserModel user, List<Game> games,UserGame tempUserGame){
+        List<UserGame> insertList=new ArrayList<>();
+
+        Class<UserGame> userGameClass;
+
+        try{
+            UserGame userGame = userGameClass.newInstance();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+
+        for(Game game:games){
+            UserGame userGame= UserGame;
+
+        }
+    }*/
+
+
+    public boolean isPasswordUsed(long userId, String password){
+        return db.usedPasswordUserDao().isPasswordUsedByUserId(password,userId);
+    }
+
+    public void setPasswordUsed(long userId, String password){
+        long passwordId;
+        if(db.usedPasswordDao().doesExist(password)){
+            passwordId=db.usedPasswordDao().getUsedPasswordByPassword(password).getId();
+        }
+        else{
+            UsedPasswordModel usedPasswordModel=new UsedPasswordModel(password);
+            passwordId=db.usedPasswordDao().insertGetLong(usedPasswordModel);
+        }
+        UsedPasswordUserModel usedPasswordUserModel=new UsedPasswordUserModel(userId,passwordId);
+        db.usedPasswordUserDao().insert(usedPasswordUserModel);
+    }
+
+
+
+
+
+    //return progress percentage of game
+    private<T extends UserGameModel> int getGameProgress(List<T> list){
+
+        int gamesCount=list.size();
         int gamesPlayed=0;
-        for(UserPermissionModel userPermission:list){
-            gamesCount++;
-            if(userPermission.isPlayed()){
+        for(T t:list){
+            if(t.isPlayed()){
                 gamesPlayed++;
             }
         }
         if(gamesCount==0) return 100;
         else return 100*gamesPlayed/gamesCount;
     }
+
+    public int getPermissionProgress(long userId){
+        List<UserPermissionModel> userPermissionModels=db.userPermissionDao().getUserGamesByUserId(userId);
+        return getGameProgress(userPermissionModels);
+    }
+    public int getPassswordProgress(long userId){
+        List<UserPasswordModel> userPasswordModels=db.userPasswordDao().getUserGamesByUserId(userId);
+        return getGameProgress(userPasswordModels);
+    }
+    public int getPhishingProgress(long userId){
+        List<UserPhishingModel> userPhishingModels=db.userPhishingDao().getUserGamesByUserId(userId);
+        return getGameProgress(userPhishingModels);
+    }
+
+
 
 
 
@@ -110,11 +211,6 @@ public class MainModel {
         PasswordDao dao=db.passwordDao();
         return dao.getMax();
     }
-
-
-
-
-
 
 
 }

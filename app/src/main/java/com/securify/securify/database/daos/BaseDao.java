@@ -11,9 +11,12 @@ import java.util.List;
 public interface BaseDao<T> {
 
     @Insert
-    public void insertGame(T obj);
+    public void insert(T obj);
 
     @Insert
     public void insertAll(List<T> obj);
+
+    @Insert
+    public long insertGetLong(T obj);
 
 }
