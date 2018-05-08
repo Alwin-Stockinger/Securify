@@ -85,7 +85,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
         microphoneBool = pModel.isMikrofon();
 
         //hint-Button
-        hint_Btn = findViewById(R.id.hint_permission_id);
+        hint_Btn = findViewById(R.id.permission_hint_id);
 
         //Assigning switches
         camera = findViewById(R.id.camera_id);
