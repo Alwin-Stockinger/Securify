@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -8,8 +7,8 @@
 
     <ImageButton
         android:id="@+id/settingsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="122dp"
+        android:layout_width="135dp"
+        android:layout_height="135dp"
         android:layout_gravity="center"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -25,37 +24,39 @@
 
     <ImageButton
         android:id="@+id/highscoreButton"
-        android:layout_width="wrap_content"
-        android:layout_height="119dp"
+        android:layout_width="135dp"
+        android:layout_height="135dp"
         android:layout_gravity="center"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/round_buttons"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/awardsButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/settingsButton"
-        app:srcCompat="@drawable/ic_trophy" />
+        app:srcCompat="@drawable/landing" />
 
     <ImageButton
         android:id="@+id/awardsButton"
-        android:layout_width="122dp"
-        android:layout_height="128dp"
+        android:layout_width="135dp"
+        android:layout_height="135dp"
         android:layout_gravity="center"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/round_buttons"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/tab_layout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/highscoreButton"
-        app:layout_constraintVertical_bias="0.396" />
+        app:layout_constraintVertical_bias="0.396"
+        app:srcCompat="@drawable/medal" />
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout"
@@ -72,5 +73,39 @@
         app:tabMode="fixed"
         app:tabSelectedTextColor="#ffffff"
         app:tabTextColor="#d3d3d3" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Einstellungen"
+        app:layout_constraintBottom_toTopOf="@+id/settingsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Highscores"
+        app:layout_constraintBottom_toTopOf="@+id/highscoreButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Erfolge"
+        app:layout_constraintBottom_toTopOf="@+id/awardsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
