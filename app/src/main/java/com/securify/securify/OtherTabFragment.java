@@ -8,13 +8,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
+
 
 public class OtherTabFragment extends Fragment {
 
-    Button settingsButton;
-    Button highscoresButton;
-    Button awardsButton;
+    ImageButton settingsButton;
+    ImageButton highscoresButton;
+    ImageButton awardsButton;
 
     @Nullable
     @Override
