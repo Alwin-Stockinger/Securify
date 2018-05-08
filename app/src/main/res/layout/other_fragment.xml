@@ -18,6 +18,7 @@
         android:background="@drawable/round_buttons"
         app:layout_constraintBottom_toTopOf="@+id/highscoreButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_settings_black_24px" />
@@ -25,16 +26,19 @@
     <ImageButton
         android:id="@+id/highscoreButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="119dp"
         android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/round_buttons"
+        app:layout_constraintBottom_toTopOf="@+id/awardsButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_trophy"
-        tools:layout_editor_absoluteY="228dp" />
+        app:layout_constraintTop_toBottomOf="@+id/settingsButton"
+        app:srcCompat="@drawable/ic_trophy" />
 
     <ImageButton
         android:id="@+id/awardsButton"

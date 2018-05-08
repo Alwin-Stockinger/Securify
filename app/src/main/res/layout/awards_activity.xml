@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".SettingsActivity">
+    tools:context=".AwardsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,14 +23,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="serif"
-            android:text="Einstellungen"
+            android:text="Erfolge"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
 
     </LinearLayout>
-
-    <!-- User settings -->
-
 
 </LinearLayout>
