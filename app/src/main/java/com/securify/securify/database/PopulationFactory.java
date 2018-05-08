@@ -62,15 +62,23 @@ public class PopulationFactory {
 
         //set all test values
         model.setId(1);
-        model.setAbsender("Ich bin der Absender");
-        model.setBetreff("Ich bin der Betreff");
+        model.setAbsender("from: sparkasse_oesterreich@gmail.com");
+        model.setBetreff("Aktualisierung Kundendatenbank");
         model.setIs_phishing(true);
-        model.setErklaerung("Das ist eine Erklaerung die dir sagt was du falsch gemach hast");
-        model.setZeit(50);  //50 sekunden Zeit
+        model.setErklaerung("Die Rechtschreibung alleine zeigt, dass etwas an der E-Mail nicht passt. Außerdem würde die Bank niemals auf diese Weise (also per Mail) nach Ihren Bankdaten fragen!");
+        model.setZeit(40);  //50 sekunden Zeit
         model.setSprache("DE"); //Sprache ist Deutsch
-        model.setKontext("Ich bin ein gemeiner schurke und möchte deine Kreditkarte stehlen, also schick mir bitte deine Kreditkartennummer und deine PIN");
+        model.setKontext("Sehr geehrte Kundin, sehr geehrter Kunde,\n" +
+                "\n" +
+                "Der technische Dienst der Bank fuhrt die planmassige Aktualisierung der Software durch. Fur die Aktualisierung der Kundendatenbank ist es notig, Ihre Bankdaten erneut zu bestatigen. Dafuer muessen Sie unseren Link (unten) besuchen, wo Ihnen eine spezielle Form zum Ausfullen angeboten wird. \n" +
+                "\n" +
+                "https://www.sparkasse.de/firmenkunden/B_electronic-banking/online_banking_cud.html\n" +
+                "\n" +
+                "Diese Anweisung wird an alle Bankkunden gesandt und ist zum Erfullen erfoderlich.\n" +
+                "\n" +
+                "Wir bitten um Verstandnis und bedanken uns fur die Zusammenarbeit.\n");
         model.setSchwierigkeit("default");
-        model.setTipp("Schurken sollten man nicht trauen!");
+        model.setTipp("Rechtschreibung beachten!");
 
         List<PhishingModel> list=new ArrayList<>();
         list.add(model);

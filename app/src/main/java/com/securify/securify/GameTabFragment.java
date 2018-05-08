@@ -92,7 +92,7 @@ public class GameTabFragment extends Fragment {
     public void onClick(View v, String game_name) {
         Intent i;
         if (game_name.equals("phishing"))
-            i = new Intent(getActivity(), GameActivity.class);
+            i = new Intent(getActivity(), PhishingActivity.class);
         else if (game_name.equals("password"))
             i = new Intent(getActivity(), PasswordActivity.class);
         else

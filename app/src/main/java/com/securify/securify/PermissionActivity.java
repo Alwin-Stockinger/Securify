@@ -28,6 +28,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
 
     private boolean gameResult = true;
 
+    private ImageButton hint_Btn;
+
     private Switch camera;
     private Switch position;
     private Switch contact;
@@ -62,7 +64,6 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
     private ImageView microphoneIcon;
 
     private Button finishBtn;
-    private ImageButton backBtn;
 
     final Timer time = new Timer();
 
@@ -82,6 +83,9 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
         contactBool = pModel.isKontake();
         smsBool = pModel.isSms();
         microphoneBool = pModel.isMikrofon();
+
+        //hint-Button
+        hint_Btn = findViewById(R.id.hint_permission_id);
 
         //Assigning switches
         camera = findViewById(R.id.camera_id);
@@ -111,10 +115,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
         finishBtn = findViewById(R.id.permission_finish_btn);
         finishBtn.setOnClickListener(this);
 
-        backBtn = findViewById(R.id.permission_back_btn);
-        backBtn.setOnClickListener(this);
-
-
+        //Timer properties
         int delay = 1000;
         int period = 1000;
         counter.setText(Integer.toString(timerSeconds));
@@ -122,8 +123,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
         time.scheduleAtFixedRate(new TimerTask() {
 
             public void run() {
-                if (timerSeconds == 0) {
-                    System.out.println("work finished");
+                if (timerSeconds == 1) {
                     time.cancel();
                     time.purge();
                     checkBool(camera.isChecked(), position.isChecked(), contact.isChecked(), sms.isChecked(), microphone.isChecked());
@@ -133,6 +133,19 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                             counter.clearAnimation();;
                         }
                     });
+                    setTimerSeconds();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            counter.setText(Integer.toString(getTimerSeconds()));
+                        }
+                    });
+                    camera.setClickable(false);
+                    position.setClickable(false);
+                    contact.setClickable(false);
+                    sms.setClickable(false);
+                    microphone.setClickable(false);
+
                 } else {
                     setTimerSeconds();
                     runOnUiThread(new Runnable() {
@@ -146,7 +159,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                             @Override
                             public void run() {
                                 Animation anim = new AlphaAnimation(0.0f, 1.0f);
-                                anim.setDuration(50); //You can manage the blinking time with this parameter
+                                anim.setDuration(50);
                                 anim.setStartOffset(20);
                                 anim.setRepeatMode(Animation.REVERSE);
                                 anim.setRepeatCount(Animation.INFINITE);
@@ -182,6 +195,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     cameraIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
                     camera.setBackgroundColor(Color.parseColor("#ffd9d9"));
+                    cameraText.setText("Falsch!");
+                    cameraText.setTextColor(Color.RED);
                 }
             });
         }
@@ -191,6 +206,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     cameraIcon.setImageResource(R.mipmap.true_icon);
                     camera.setBackgroundColor(Color.parseColor("#d9ffe1"));
+                    cameraText.setText("Richtig!");
+                    cameraText.setTextColor(Color.GREEN);
                 }
             });
         }
@@ -202,6 +219,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     positionIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
                     position.setBackgroundColor(Color.parseColor("#ffd9d9"));
+                    positionText.setText("Falsch!");
+                    positionText.setTextColor(Color.RED);
                 }
             });
         }
@@ -211,6 +230,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     positionIcon.setImageResource(R.mipmap.true_icon);
                     position.setBackgroundColor(Color.parseColor("#d9ffe1"));
+                    positionText.setText("Richtig!");
+                    positionText.setTextColor(Color.GREEN);
                 }
             });
         }
@@ -222,6 +243,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     contactIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
                     contact.setBackgroundColor(Color.parseColor("#ffd9d9"));
+                    contactText.setText("Falsch!");
+                    contactText.setTextColor(Color.RED);
                 }
             });
         }
@@ -231,6 +254,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     contactIcon.setImageResource(R.mipmap.true_icon);
                     contact.setBackgroundColor(Color.parseColor("#d9ffe1"));
+                    contactText.setText("Richtig!");
+                    contactText.setTextColor(Color.GREEN);
                 }
             });
         }
@@ -242,6 +267,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     smsIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
                     sms.setBackgroundColor(Color.parseColor("#ffd9d9"));
+                    smsText.setText("Falsch!");
+                    smsText.setTextColor(Color.RED);
                 }
             });
         }
@@ -251,6 +278,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     smsIcon.setImageResource(R.mipmap.true_icon);
                     sms.setBackgroundColor(Color.parseColor("#d9ffe1"));
+                    smsText.setText("Richtig!");
+                    smsText.setTextColor(Color.GREEN);
                 }
             });
         }
@@ -261,6 +290,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     microphoneIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
                     microphone.setBackgroundColor(Color.parseColor("#ffd9d9"));
+                    microphoneText.setText("Falsch!");
+                    microphoneText.setTextColor(Color.RED);
                 }
             });
         }
@@ -270,6 +301,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     microphoneIcon.setImageResource(R.mipmap.true_icon);
                     microphone.setBackgroundColor(Color.parseColor("#d9ffe1"));
+                    microphoneText.setText("Richtig!");
+                    microphoneText.setTextColor(Color.GREEN);
                 }
             });
         }
@@ -293,6 +326,11 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                         counter.clearAnimation();
                     }
                 });
+                camera.setClickable(false);
+                position.setClickable(false);
+                contact.setClickable(false);
+                sms.setClickable(false);
+                microphone.setClickable(false);
                 checkBool(camera.isChecked(), position.isChecked(), contact.isChecked(), sms.isChecked(), microphone.isChecked());
                 break;
 
