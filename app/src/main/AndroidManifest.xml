@@ -17,14 +17,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GameActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
         <activity android:name=".PasswordActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity android:name=".PermissionActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
+        <activity android:name=".AwardsActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SettingsActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity android:name=".HighscoresActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
     </application>
 </manifest>
