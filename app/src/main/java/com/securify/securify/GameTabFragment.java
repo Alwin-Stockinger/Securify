@@ -29,7 +29,7 @@ public class GameTabFragment extends Fragment {
         ImageButton phishingButton = view.findViewById(R.id.phishingButton);
         ImageButton passwordButton = view.findViewById(R.id.passwordButton);
         ImageButton permissionsButton = view.findViewById(R.id.permissionsButton);
-        final ProgressBar phishingBar = view.findViewById(R.id.phishingProgressBar);
+        final ProgressBar phishingBar = view.findViewById(R.id.permissionsProgressBar);
         final ProgressBar passwordBar = view.findViewById(R.id.passwordProgressBar);
         final ProgressBar permissionsBar = view.findViewById(R.id.permissionsProgressBar);
 

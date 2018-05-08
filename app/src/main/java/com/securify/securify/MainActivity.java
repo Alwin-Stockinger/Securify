@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     @SuppressLint("ApplySharedPref")
     @Override
     protected void onResume(){
@@ -64,8 +65,6 @@ public class MainActivity extends AppCompatActivity {
             model.databaseinit();
             prefs.edit().putBoolean("firstrun",false).commit();
         }
-
-
 
     }
 

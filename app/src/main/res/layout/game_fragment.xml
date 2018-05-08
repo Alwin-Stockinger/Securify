@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:gravity="top"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:fitsSystemWindows="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -43,91 +44,97 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="632dp"
+        android:layout_height="match_parent"
         android:layout_gravity="top"
         android:gravity="top"
         android:orientation="vertical">
 
-        <ProgressBar
-            android:id="@+id/phishingProgressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="16dp"
-            android:indeterminate="false"
-            android:max="100"
-            android:progress="0"
-            android:progressDrawable="@drawable/custom_progressbar_drawable"
-            android:secondaryProgress="0"
-            android:rotation="90"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phishingButton"
-            app:layout_constraintVertical_bias="0.19" />
 
         <ProgressBar
             android:id="@+id/passwordProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="140dp"
             android:layout_height="140dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:indeterminate="false"
             android:max="100"
-            android:progress="0"
-            android:rotation="90"
+            android:progress="1"
             android:progressDrawable="@drawable/custom_progressbar_drawable"
+            android:rotation="90"
             android:secondaryProgress="0"
-            app:layout_constraintBottom_toTopOf="@+id/permissionsProgressBar"
+            app:layout_constraintBottom_toTopOf="@+id/phishingProgressBar"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:visibility="visible" />
 
         <ProgressBar
-            android:id="@+id/permissionsProgressBar"
+            android:id="@+id/phishingProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="140dp"
             android:layout_height="140dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
             android:indeterminate="false"
-            android:rotation="90"
             android:progressDrawable="@drawable/custom_progressbar_drawable"
-            android:secondaryProgress="0"
-            app:layout_constraintBottom_toTopOf="@+id/phishingProgressBar"
+            android:rotation="90"
+            android:secondaryProgress="1"
+            app:layout_constraintBottom_toTopOf="@+id/permissionsProgressBar"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordProgressBar" />
 
+        <ProgressBar
+            android:id="@+id/permissionsProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="144dp"
+            android:layout_height="140dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="1"
+            android:progressDrawable="@drawable/custom_progressbar_drawable"
+            android:rotation="90"
+            android:secondaryProgress="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phishingProgressBar" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/password_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="36dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="76dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="serif"
             android:text="@string/password_game_string"
             android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/phishing_text"
             app:layout_constraintEnd_toStartOf="@+id/passwordProgressBar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/passwordProgressBar"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageButton
             android:id="@+id/passwordButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/round_buttons"
             android:padding="8dp"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="@+id/passwordProgressBar"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/passwordProgressBar"
+            app:layout_constraintStart_toStartOf="@+id/passwordProgressBar"
             app:layout_constraintTop_toTopOf="@+id/passwordProgressBar"
             app:srcCompat="@drawable/ic_lock" />
 
@@ -136,32 +143,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/round_buttons"
             android:contentDescription="Phishing"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_fishing_man"
-            app:layout_constraintBottom_toBottomOf="@+id/permissionsProgressBar"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/permissionsProgressBar" />
+            app:layout_constraintBottom_toBottomOf="@+id/phishingProgressBar"
+            app:layout_constraintEnd_toEndOf="@+id/phishingProgressBar"
+            app:layout_constraintStart_toStartOf="@+id/phishingProgressBar"
+            app:layout_constraintTop_toTopOf="@+id/phishingProgressBar" />
 
         <TextView
             android:id="@+id/phishing_text"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="152dp"
+            android:layout_marginEnd="40dp"
             android:fontFamily="serif"
             android:text="Phishing"
             android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/permissionsProgressBar"
-            app:layout_constraintHorizontal_bias="0.424"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintEnd_toStartOf="@+id/phishingProgressBar"
+            app:layout_constraintTop_toTopOf="@+id/phishingProgressBar" />
 
 
         <ImageButton
@@ -169,32 +172,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/round_buttons"
             android:contentDescription="Permissions"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="@+id/phishingProgressBar"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/phishingProgressBar"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintBottom_toBottomOf="@+id/permissionsProgressBar"
+            app:layout_constraintEnd_toEndOf="@+id/permissionsProgressBar"
+            app:layout_constraintStart_toStartOf="@+id/permissionsProgressBar"
+            app:layout_constraintTop_toTopOf="@+id/permissionsProgressBar"
             app:srcCompat="@drawable/ic_key" />
 
         <TextView
             android:id="@+id/permissions_text"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="144dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="serif"
             android:text="Permissions"
             android:textSize="16sp"
             android:typeface="serif"
-            app:layout_constraintEnd_toStartOf="@+id/phishingProgressBar"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phishing_text" />
+            app:layout_constraintEnd_toStartOf="@+id/permissionsProgressBar"
+            app:layout_constraintTop_toTopOf="@+id/permissionsProgressBar" />
+
+        <ImageView
+            android:id="@+id/swipeArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/phishingProgressBar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="?android:attr/actionModeCloseDrawable" />
 
     </android.support.constraint.ConstraintLayout>
 

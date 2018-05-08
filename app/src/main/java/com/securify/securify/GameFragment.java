@@ -24,7 +24,7 @@ public class GameFragment extends Fragment {
         ImageButton phishingButton = view.findViewById(R.id.phishing_game_text);
         ImageButton passwordButton = view.findViewById(R.id.password_game_text);
         ImageButton permissionsButton = view.findViewById(R.id.permissions_game_text);
-        ProgressBar phishingBar = view.findViewById(R.id.phishingProgressBar);
+        ProgressBar phishingBar = view.findViewById(R.id.permissionsProgressBar);
         ProgressBar passwordBar = view.findViewById(R.id.passwordProgressBar);
         ProgressBar permissionsBar = view.findViewById(R.id.permissionsProgressBar);
     }
