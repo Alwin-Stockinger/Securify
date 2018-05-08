@@ -8,10 +8,10 @@ import com.securify.securify.database.daos.gameDaos.PasswordDao;
 import com.securify.securify.database.daos.gameDaos.PermissionDao;
 import com.securify.securify.database.daos.gameDaos.PhishingDao;
 import com.securify.securify.database.daos.userDaos.UserDao;
-import com.securify.securify.database.daos.userDaos.UserPermissionDao;
 import com.securify.securify.model.gameModels.PasswordModel;
 import com.securify.securify.model.gameModels.PermissionModel;
 import com.securify.securify.model.gameModels.PhishingModel;
+import com.securify.securify.model.userModels.UserGameModel;
 import com.securify.securify.model.userModels.UserModel;
 import com.securify.securify.model.userModels.UserPasswordModel;
 import com.securify.securify.model.userModels.UserPermissionModel;
@@ -158,22 +158,34 @@ public class MainModel {
 
 
 
-    //return progress percentage in permission games
-    public int getPermProgress(long userId){
-        UserPermissionDao permDao=db.userPermissionDao();
-        List<UserPermissionModel> list=permDao.getUserPermissionGamesByUserId(userId);
+    //return progress percentage of game
+    private<T extends UserGameModel> int getGameProgress(List<T> list){
 
-        int gamesCount=0;
+        int gamesCount=list.size();
         int gamesPlayed=0;
-        for(UserPermissionModel userPermission:list){
-            gamesCount++;
-            if(userPermission.isPlayed()){
+        for(T t:list){
+            if(t.isPlayed()){
                 gamesPlayed++;
             }
         }
         if(gamesCount==0) return 100;
         else return 100*gamesPlayed/gamesCount;
     }
+
+    public int getPermissionProgress(long userId){
+        List<UserPermissionModel> userPermissionModels=db.userPermissionDao().getUserGamesByUserId(userId);
+        return getGameProgress(userPermissionModels);
+    }
+    public int getPassswordProgress(long userId){
+        List<UserPasswordModel> userPasswordModels=db.userPasswordDao().getUserGamesByUserId(userId);
+        return getGameProgress(userPasswordModels);
+    }
+    public int getPhishingProgress(long userId){
+        List<UserPhishingModel> userPhishingModels=db.userPhishingDao().getUserGamesByUserId(userId);
+        return getGameProgress(userPhishingModels);
+    }
+
+
 
 
 
