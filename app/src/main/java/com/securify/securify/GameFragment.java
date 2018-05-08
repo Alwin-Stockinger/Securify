@@ -21,16 +21,12 @@ public class GameFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ImageButton phishingButton = view.findViewById(R.id.phishing_game_text);
-        ImageButton passwordButton = view.findViewById(R.id.password_game_text);
-        ImageButton permissionsButton = view.findViewById(R.id.permissions_game_text);
-        ProgressBar phishingBar = view.findViewById(R.id.permissionsProgressBar);
+        ImageButton phishingButton = view.findViewById(R.id.phishingButton);
+        ImageButton passwordButton = view.findViewById(R.id.passwordButton);
+        ImageButton permissionsButton = view.findViewById(R.id.permissionsButton);
+        ProgressBar phishingBar = view.findViewById(R.id.phishingProgressBar);
         ProgressBar passwordBar = view.findViewById(R.id.passwordProgressBar);
         ProgressBar permissionsBar = view.findViewById(R.id.permissionsProgressBar);
     }
 
-    @Override
-    public String toString() {
-        return "GameTest";
-    }
 }

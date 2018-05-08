@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:gravity="top"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:fitsSystemWindows="true">
+    tools:context=".MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -86,25 +86,6 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordProgressBar" />
-
-        <ProgressBar
-            android:id="@+id/permissionsProgressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="144dp"
-            android:layout_height="140dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:indeterminate="false"
-            android:max="100"
-            android:progress="1"
-            android:progressDrawable="@drawable/custom_progressbar_drawable"
-            android:rotation="90"
-            android:secondaryProgress="0"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phishingProgressBar" />
 
         <TextView
             android:id="@+id/password_text"
@@ -210,6 +191,42 @@
             app:layout_constraintStart_toEndOf="@+id/phishingProgressBar"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="?android:attr/actionModeCloseDrawable" />
+
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:elevation="6dp"
+            android:minHeight="?attr/actionBarSize"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tabGravity="center"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="#ffffff"
+            app:tabTextColor="#d3d3d3" />
+
+        <ProgressBar
+            android:id="@+id/permissionsProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="144dp"
+            android:layout_height="140dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="1"
+            android:progressDrawable="@drawable/custom_progressbar_drawable"
+            android:rotation="90"
+            android:secondaryProgress="0"
+            app:layout_constraintBottom_toTopOf="@+id/tab_layout"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phishingProgressBar" />
 
     </android.support.constraint.ConstraintLayout>
 

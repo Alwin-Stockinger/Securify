@@ -29,7 +29,7 @@ public class GameTabFragment extends Fragment {
         ImageButton phishingButton = view.findViewById(R.id.phishingButton);
         ImageButton passwordButton = view.findViewById(R.id.passwordButton);
         ImageButton permissionsButton = view.findViewById(R.id.permissionsButton);
-        final ProgressBar phishingBar = view.findViewById(R.id.permissionsProgressBar);
+        final ProgressBar phishingBar = view.findViewById(R.id.phishingProgressBar);
         final ProgressBar passwordBar = view.findViewById(R.id.passwordProgressBar);
         final ProgressBar permissionsBar = view.findViewById(R.id.permissionsProgressBar);
 
@@ -41,6 +41,7 @@ public class GameTabFragment extends Fragment {
         permissionsBar.startAnimation(an);
         */
 
+        /*
         //demo behaviour
         new Thread(new Runnable() {
             @Override
@@ -63,6 +64,7 @@ public class GameTabFragment extends Fragment {
                 }
             }
         }).start();
+        */
 
         phishingButton.setOnClickListener(new View.OnClickListener() {
             @Override
