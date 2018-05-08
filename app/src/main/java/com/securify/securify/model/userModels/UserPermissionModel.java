@@ -17,4 +17,7 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
                                                                 onDelete=CASCADE)})
 public class UserPermissionModel extends UserGameModel {
 
+    public UserPermissionModel(long userId,long gameId,boolean played){
+        super(userId,gameId,played);
+    }
 }

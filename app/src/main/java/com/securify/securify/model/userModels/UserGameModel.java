@@ -4,7 +4,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity
-public class UserGameModel {
+abstract public class UserGameModel {
     @PrimaryKey(autoGenerate = true)
     private long id;
 
@@ -12,6 +12,13 @@ public class UserGameModel {
     private long gameId;
 
     private boolean played;
+
+    UserGameModel(long userId,long gameId, boolean played){
+        this.userId=userId;
+        this.gameId=gameId;
+        this.played=played;
+    }
+
 
     public boolean isPlayed() {
         return played;
