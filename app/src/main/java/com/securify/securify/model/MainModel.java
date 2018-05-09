@@ -180,6 +180,9 @@ public class MainModel {
             UserModel user=new UserModel(name);
             userDao.insert(user);
             activeUser=user;
+            db.userPhishingDao().insertAll(initUserWithPhishing(user,db.phishingDao().getAllPhishingGames()));
+            db.userPermissionDao().insertAll(initUserWithPermissions(user,db.permissionDao().getAllPermissionGames()));
+            db.userPasswordDao().insertAll(initUserWithPasswords(user,db.passwordDao().getAllPasswordGames()));
         }
         return activeUser;
     }
