@@ -3,7 +3,6 @@ package com.securify.securify.database.daos.gameDaos;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Query;
 
-import com.securify.securify.database.daos.BaseDao;
 import com.securify.securify.model.gameModels.PermissionModel;
 
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.List;
 
 
 @Dao
-abstract public class PermissionDao implements BaseDao<PermissionModel> {
+abstract public class PermissionDao implements GameModelDao<PermissionModel> {
 
     @Query("SELECT * FROM permissionspiel")
     abstract public List<PermissionModel> getAllPermissionGames();

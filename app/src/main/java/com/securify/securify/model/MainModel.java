@@ -42,9 +42,22 @@ public class MainModel {
 
 
     public MainModel(Context context){
+        this.db=AppDatabase.getDatabase(context);
+        this.gamePicker=new GamePicker(db,getActiveUser());
 
-        db=AppDatabase.getDatabase(context);
-        gamePicker=new GamePicker(context,db);
+        setActiveUser(db.userDao().getById(1));     //TODO
+    }
+
+    public PasswordModel getRandomPasswordGame(){
+        return gamePicker.getRandomPassGame();
+    }
+
+    public PhishingModel getRandomPhishingGame(){
+        return gamePicker.getRandomPhishGame();
+    }
+
+    public PermissionModel getRandomPermissionGame(){
+        return gamePicker.getRandomPermGame();
     }
 
     public PasswordModel getPassGameById(long id){

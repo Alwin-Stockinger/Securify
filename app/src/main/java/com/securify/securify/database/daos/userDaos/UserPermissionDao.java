@@ -11,6 +11,7 @@ import java.util.List;
 
 @Dao
 public abstract class UserPermissionDao implements UserGameDao<UserPermissionModel,PermissionModel>{
+
     @Query("SELECT * FROM userPermission")
     abstract public List<UserPermissionModel> getAllUserPermissions();
 
@@ -26,5 +27,13 @@ public abstract class UserPermissionDao implements UserGameDao<UserPermissionMod
     @Query("SELECT * FROM userPermission INNER JOIN permissionspiel ON gameId=permissionspiel.id WHERE userId=:uId")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)     //Supresses Warning that complains about not all columns used, but this is wanted
     abstract public List<PermissionModel> getPermissionGamesByUserId(long uId);
+
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)     //Supresses Warning that complains about not all columns used, but this is wanted
+    @Query("SELECT * FROM userPermission INNER JOIN permissionspiel ON gameId=permissionspiel.id WHERE (userId=:uId AND played=0) ORDER BY RANDOM() LIMIT 1")
+    abstract public PermissionModel getRandomNotPlayedGame(long uId);
+
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)     //Supresses Warning that complains about not all columns used, but this is wanted
+    @Query("SELECT * FROM userPermission INNER JOIN permissionspiel ON gameId=permissionspiel.id WHERE userId=:uId ORDER BY RANDOM() LIMIT 1")
+    abstract public PermissionModel getRandomGame(long uId);
 
 }

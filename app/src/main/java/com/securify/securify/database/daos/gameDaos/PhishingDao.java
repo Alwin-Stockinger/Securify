@@ -3,7 +3,6 @@ package com.securify.securify.database.daos.gameDaos;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Query;
 
-import com.securify.securify.database.daos.BaseDao;
 import com.securify.securify.model.gameModels.PhishingModel;
 
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.List;
  */
 
 @Dao
-public abstract class PhishingDao implements BaseDao<PhishingModel>{
+public abstract class PhishingDao implements GameModelDao<PhishingModel>{
 
 
     @Query("SELECT * FROM phishingspiel")

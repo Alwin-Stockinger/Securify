@@ -3,7 +3,6 @@ package com.securify.securify.database.daos.gameDaos;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Query;
 
-import com.securify.securify.database.daos.BaseDao;
 import com.securify.securify.model.gameModels.PasswordModel;
 
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.List;
  */
 
 @Dao
-public abstract class PasswordDao implements BaseDao<PasswordModel> {
+public abstract class PasswordDao implements GameModelDao<PasswordModel> {
 
     @Query("SELECT * FROM passwortspiel")
     abstract public List<PasswordModel> getAllPasswordGames();

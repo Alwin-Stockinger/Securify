@@ -20,6 +20,14 @@ public abstract class UserPasswordDao implements UserGameDao<UserPasswordModel,P
     @Query("SELECT * FROM userPassword INNER JOIN passwortspiel ON gameId=passwortspiel.id WHERE userId=:uId")
     abstract public List<PasswordModel> getGamesByUserId(long uId);
 
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)     //Supresses Warning that complains about not all columns used, but this is wanted
+    @Query("SELECT * FROM userPassword INNER JOIN passwortspiel ON gameId=passwortspiel.id WHERE (userId=:uId AND played=0) ORDER BY RANDOM() LIMIT 1")
+    abstract public PasswordModel getRandomNotPlayedGame(long uId);
+
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)     //Supresses Warning that complains about not all columns used, but this is wanted
+    @Query("SELECT * FROM userPassword INNER JOIN passwortspiel ON gameId=passwortspiel.id WHERE userId=:uId ORDER BY RANDOM() LIMIT 1")
+    abstract public PasswordModel getRandomGame(long uId);
+
     @Query("SELECT * FROM userPassword WHERE userId=:uId")
     abstract public List<UserPasswordModel> getUserGamesByUserId(long uId);
 }

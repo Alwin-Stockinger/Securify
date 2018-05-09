@@ -5,7 +5,6 @@ import com.securify.securify.model.gameModels.PasswordModel;
 import com.securify.securify.model.gameModels.PermissionModel;
 import com.securify.securify.model.gameModels.PhishingModel;
 import com.securify.securify.model.userModels.UserModel;
-import com.securify.securify.model.userModels.UserPermissionModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +86,7 @@ public class PopulationFactory {
     }
 
     public List<UserModel> getUserModels(){
-        UserModel model=new UserModel();
+        UserModel model=new UserModel("");
 
         //set all test values
         model.setId(1);
