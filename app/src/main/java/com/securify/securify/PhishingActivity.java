@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -54,6 +55,7 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
         phModel = mModel.getPhishGameById(1);
 
         context = findViewById(R.id.mail_view_id);
+        context.setMovementMethod(new ScrollingMovementMethod());
 
         resultIcon = findViewById(R.id.phishing_result_icon);
         resultIcon.setVisibility(View.GONE);
