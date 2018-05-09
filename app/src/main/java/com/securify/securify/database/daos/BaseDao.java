@@ -1,6 +1,7 @@
 package com.securify.securify.database.daos;
 
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.Update;
 
 import java.util.List;
 
@@ -11,12 +12,15 @@ import java.util.List;
 public interface BaseDao<T> {
 
     @Insert
-    public void insert(T obj);
+    void insert(T obj);
 
     @Insert
-    public void insertAll(List<T> obj);
+    void insertAll(List<T> obj);
 
     @Insert
-    public long insertGetLong(T obj);
+    long insertGetLong(T obj);
+
+    @Update
+    void update(T obj);
 
 }

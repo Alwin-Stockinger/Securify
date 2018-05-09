@@ -31,6 +31,16 @@ public class MainModel {
     private AppDatabase db;
     private GamePicker gamePicker;
 
+    private UserModel activeUser;
+
+    public UserModel getActiveUser() {
+        return activeUser;
+    }
+
+    public void setActiveUser(UserModel activeUser) {
+        this.activeUser = activeUser;
+    }
+
     public MainModel(Context context){
         this.context=context;
 
@@ -203,10 +213,47 @@ public class MainModel {
     }
 
 
+    //HIGHSCORE METHODS-------------------
+    //methods to set user Highscores that also check if it is a new highscore, if it is not a new highscore nothing happens
+    public void setUserPasswordHighscore(long highscore){
+        UserModel user=getActiveUser();
+        if(user.getPasswordHighscore()<highscore){
+            user.setPasswordHighscore(highscore);
+            db.userDao().update(user);
+        }
+    }
+    public void setUserPhishingHighscore(long highscore){
+        UserModel user=getActiveUser();
+        if(user.getPhishingHighscore()<highscore){
+            user.setPhishingHighscore(highscore);
+            db.userDao().update(user);
+        }
+    }
+    public void setUserPermissionHighscore(long highscore){
+        UserModel user=getActiveUser();
+        if(user.getPermissionHighscore()<highscore){
+            user.setPermissionHighscore(highscore);
+            db.userDao().update(user);
+        }
+    }
+
+
+
+    //Methods for the Highscores, they com already ordered from the database
+    public List<UserModel> getTopPassword(int top_count){
+        return db.userDao().getTopPassword(top_count);
+    }
+    public List<UserModel> getTopPhishing(int top_count){
+        return db.userDao().getTopPhishing(top_count);
+    }
+    public List<UserModel> getTopPermission(int top_count){
+        return db.userDao().getTopPermission(top_count);
+    }
 
 
 
 
+    //NOT RELEVANT METHODS
     public PasswordModel getMaxPassGame(){
         PasswordDao dao=db.passwordDao();
         return dao.getMax();
