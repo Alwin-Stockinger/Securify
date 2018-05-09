@@ -35,16 +35,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textBox"
+        android:id="@+id/permission_textbox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="117dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:background="#eeeeee"
-        android:text="@string/loremIpsum"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gameIcon" />
 
@@ -313,7 +312,7 @@
         app:layout_constraintVertical_bias="0.428" />
 
     <ImageButton
-        android:id="@+id/permission_hint_id"
+        android:id="@+id/permission_hint_icon"
         android:layout_width="59dp"
         android:layout_height="52dp"
         android:layout_marginBottom="496dp"
@@ -327,5 +326,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_lightbulb" />
+
+    <TextView
+        android:id="@+id/permission_hint_text"
+        android:layout_width="186dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="68dp"
+        android:text="TextView"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.002" />
 
 </android.support.constraint.ConstraintLayout>

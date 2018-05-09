@@ -65,6 +65,9 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
 
     private Button finishBtn;
 
+    private TextView permission_game_text;
+    private TextView permission_hint_text;
+
     final Timer time = new Timer();
 
     @Override
@@ -85,7 +88,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
         microphoneBool = pModel.isMikrofon();
 
         //hint-Button
-        hint_Btn = findViewById(R.id.permission_hint_id);
+        hint_Btn = findViewById(R.id.permission_hint_icon);
+        hint_Btn.setOnClickListener(this);
 
         //Assigning switches
         camera = findViewById(R.id.camera_id);
@@ -114,6 +118,15 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
         //Assigning buttons
         finishBtn = findViewById(R.id.permission_finish_btn);
         finishBtn.setOnClickListener(this);
+
+        //Database information
+        permission_game_text = findViewById(R.id.permission_textbox);
+        permission_game_text.setText(pModel.getKontext());
+
+        permission_hint_text = findViewById(R.id.permission_hint_text);
+        permission_hint_text.setVisibility(View.GONE);
+        permission_hint_text.setTextColor(Color.parseColor("#5e4ceb"));
+        permission_hint_text.setText(pModel.getTipp());
 
         //Timer properties
         int delay = 1000;
@@ -315,6 +328,10 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View view) {
 
         switch (view.getId()) {
+
+            case R.id.permission_hint_icon:
+                permission_hint_text.setVisibility(View.VISIBLE);
+                break;
 
             case R.id.permission_finish_btn:
                 setTimerSecondsDirect(0);
