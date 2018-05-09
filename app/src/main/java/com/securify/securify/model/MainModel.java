@@ -8,6 +8,9 @@ import com.securify.securify.database.daos.gameDaos.PasswordDao;
 import com.securify.securify.database.daos.gameDaos.PermissionDao;
 import com.securify.securify.database.daos.gameDaos.PhishingDao;
 import com.securify.securify.database.daos.userDaos.UserDao;
+import com.securify.securify.database.daos.userDaos.UserPasswordDao;
+import com.securify.securify.database.daos.userDaos.UserPermissionDao;
+import com.securify.securify.database.daos.userDaos.UserPhishingDao;
 import com.securify.securify.model.gameModels.PasswordModel;
 import com.securify.securify.model.gameModels.PermissionModel;
 import com.securify.securify.model.gameModels.PhishingModel;
@@ -118,7 +121,7 @@ public class MainModel {
         List<UserPermissionModel> insertList=new ArrayList<>();
 
         for(PermissionModel permissionModel:permissionModels){
-            UserPermissionModel userPermissionModel=new UserPermissionModel(user.getId(),permissionModel.getId(),false);
+            UserPermissionModel userPermissionModel=new UserPermissionModel(user.getId(),permissionModel.getId(),false,false);
 
             insertList.add(userPermissionModel);
         }
@@ -132,7 +135,7 @@ public class MainModel {
         List<UserPhishingModel> insertList=new ArrayList<>();
 
         for(PhishingModel phishingModel:phishingModels){
-            UserPhishingModel userPhishingModel=new UserPhishingModel(user.getId(),phishingModel.getId(),false);
+            UserPhishingModel userPhishingModel=new UserPhishingModel(user.getId(),phishingModel.getId(),false, false);
 
             insertList.add(userPhishingModel);
         }
@@ -145,7 +148,7 @@ public class MainModel {
         List<UserPasswordModel> inserList=new ArrayList<>();
 
         for(PasswordModel passwordModel:passwordModels){
-            UserPasswordModel userPasswordModel=new UserPasswordModel(user.getId(),passwordModel.getId(),false);
+            UserPasswordModel userPasswordModel=new UserPasswordModel(user.getId(),passwordModel.getId(),false,false);
 
             inserList.add(userPasswordModel);
         }
@@ -252,6 +255,35 @@ public class MainModel {
     }
     public List<UserModel> getTopPermission(int top_count){
         return db.userDao().getTopPermission(top_count);
+    }
+
+    //Played and succeeded Game setting
+    public void setPasswordSucceeded(PasswordModel password, boolean succeeded){
+        UserPasswordDao dao=db.userPasswordDao();
+        UserPasswordModel userPassword=dao.getUserPassword(activeUser.getId(),password.getId());
+        userPassword.setPlayed(true);
+
+        if(succeeded) userPassword.setSucceeded(true);
+
+        dao.update(userPassword);
+    }
+    public void setPhishingSucceeded(PhishingModel phishing, boolean succeeded){
+        UserPhishingDao dao=db.userPhishingDao();
+        UserPhishingModel userPhishing=dao.getUserPhishing(activeUser.getId(),phishing.getId());
+        userPhishing.setPlayed(true);
+
+        if(succeeded) userPhishing.setSucceeded(true);
+
+        dao.update(userPhishing);
+    }
+    public void setPermissionSucceded(PermissionModel permission, boolean succeeded){
+        UserPermissionDao dao=db.userPermissionDao();
+        UserPermissionModel userPermission=dao.getUserPermission(activeUser.getId(),permission.getId());
+        userPermission.setPlayed(true);
+
+        if(succeeded) userPermission.setSucceeded(true);
+
+        dao.update(userPermission);
     }
 
 

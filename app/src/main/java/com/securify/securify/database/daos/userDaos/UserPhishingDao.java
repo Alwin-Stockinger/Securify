@@ -30,4 +30,6 @@ public abstract class UserPhishingDao implements UserGameDao<UserPhishingModel,P
     @Query("SELECT * FROM userPhsishing INNER JOIN phishingspiel ON gameId=phishingspiel.id WHERE userId=:uId ORDER BY RANDOM() LIMIT 1")
     abstract public PhishingModel getRandomGame(long uId);
 
+    @Query("SELECT * FROM userphsishing WHERE (userId=:uId AND gameId=:pId)")
+    abstract public UserPhishingModel getUserPhishing(long uId, long pId);
 }

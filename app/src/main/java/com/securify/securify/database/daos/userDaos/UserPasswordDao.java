@@ -30,4 +30,8 @@ public abstract class UserPasswordDao implements UserGameDao<UserPasswordModel,P
 
     @Query("SELECT * FROM userPassword WHERE userId=:uId")
     abstract public List<UserPasswordModel> getUserGamesByUserId(long uId);
+
+    @Query("SELECT * FROM userPassword WHERE (userId=:uId AND gameId=:pId)")
+    abstract public UserPasswordModel getUserPassword(long uId, long pId);
+
 }

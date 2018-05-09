@@ -36,4 +36,7 @@ public abstract class UserPermissionDao implements UserGameDao<UserPermissionMod
     @Query("SELECT * FROM userPermission INNER JOIN permissionspiel ON gameId=permissionspiel.id WHERE userId=:uId ORDER BY RANDOM() LIMIT 1")
     abstract public PermissionModel getRandomGame(long uId);
 
+    @Query("SELECT * FROM userPermission WHERE (userId=:uId AND gameId=:pId)")
+    abstract public UserPermissionModel getUserPermission(long uId, long pId);
+
 }

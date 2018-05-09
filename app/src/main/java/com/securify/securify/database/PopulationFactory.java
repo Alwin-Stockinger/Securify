@@ -65,7 +65,7 @@ public class PopulationFactory {
         model.setBetreff("Aktualisierung Kundendatenbank");
         model.setIs_phishing(true);
         model.setErklaerung("Die Rechtschreibung alleine zeigt, dass etwas an der E-Mail nicht passt. Außerdem würde die Bank niemals auf diese Weise (also per Mail) nach Ihren Bankdaten fragen!");
-        model.setZeit(40);  //50 sekunden Zeit
+        model.setZeit(40);  //40 sekunden Zeit
         model.setSprache("DE"); //Sprache ist Deutsch
         model.setKontext("Sehr geehrte Kundin, sehr geehrter Kunde,\n" +
                 "\n" +

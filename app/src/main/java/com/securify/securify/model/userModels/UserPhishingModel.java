@@ -22,7 +22,7 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
                                     , indices = {   @Index("userId"),
                                                     @Index("gameId")})
 public class UserPhishingModel extends  UserGameModel{
-    public UserPhishingModel(long userId,long gameId,boolean played){
-        super(userId,gameId,played);
+    public UserPhishingModel(long userId,long gameId,boolean played,boolean succeeded){
+        super(userId,gameId,played,succeeded);
     }
 }
