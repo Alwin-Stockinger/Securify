@@ -1,6 +1,5 @@
 package com.securify.securify.model.userModels;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
@@ -19,6 +18,13 @@ public class UserModel {
     private long passwordHighscore;
     private long permissionHighscore;
     private long phishingHighscore;
+
+    public UserModel(String name){
+        this.name=name;
+        setPermissionHighscore(0);
+        setPhishingHighscore(0);
+        setPasswordHighscore(0);
+    }
 
     public long getPasswordHighscore() {
         return passwordHighscore;

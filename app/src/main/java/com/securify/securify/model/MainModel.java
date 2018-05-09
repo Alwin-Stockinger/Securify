@@ -27,7 +27,6 @@ import java.util.List;
  */
 
 public class MainModel {
-    private Context context;
     private AppDatabase db;
     private GamePicker gamePicker;
 
@@ -41,8 +40,8 @@ public class MainModel {
         this.activeUser = activeUser;
     }
 
+
     public MainModel(Context context){
-        this.context=context;
 
         db=AppDatabase.getDatabase(context);
         gamePicker=new GamePicker(context,db);
@@ -93,15 +92,13 @@ public class MainModel {
         for(UserModel user:users){
             userPermissionModels.addAll(initUserWithPermissions(user,permissionModels));
             userPasswordModels.addAll(initUserWithPasswords(user,passwordModels));
-            userPhishingModels.addAll(initUserPhishing(user,phishingModels));
+            userPhishingModels.addAll(initUserWithPhishing(user,phishingModels));
         }
 
         db.userPermissionDao().insertAll(userPermissionModels);
         db.userPasswordDao().insertAll(userPasswordModels);
         db.userPhishingDao().insertAll(userPhishingModels);
     }
-
-
 
     private List<UserPermissionModel> initUserWithPermissions(UserModel user, List<PermissionModel> permissionModels){
 
@@ -117,7 +114,7 @@ public class MainModel {
     }
 
 
-    private List<UserPhishingModel> initUserPhishing(UserModel user,List<PhishingModel> phishingModels){
+    private List<UserPhishingModel> initUserWithPhishing(UserModel user,List<PhishingModel> phishingModels){
 
         List<UserPhishingModel> insertList=new ArrayList<>();
 
@@ -142,28 +139,7 @@ public class MainModel {
         return inserList;
     }
 
-
-    /*
-    private <UserGame,Game> List<UserGame> initUserWithGames(UserModel user, List<Game> games,UserGame tempUserGame){
-        List<UserGame> insertList=new ArrayList<>();
-
-        Class<UserGame> userGameClass;
-
-        try{
-            UserGame userGame = userGameClass.newInstance();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        }
-
-        for(Game game:games){
-            UserGame userGame= UserGame;
-
-        }
-    }*/
-
-
+    //Password Used Methods, This Methods are for checking if password was already used and inserting used passwords
     public boolean isPasswordUsed(long userId, String password){
         return db.usedPasswordUserDao().isPasswordUsedByUserId(password,userId);
     }
@@ -181,11 +157,24 @@ public class MainModel {
         db.usedPasswordUserDao().insert(usedPasswordUserModel);
     }
 
+    //User Methods---------------------------------
+    public UserModel changeUser(String name){
+        UserDao userDao=db.userDao();
+        if(userDao.doesUserExistWithName(name)){
+            activeUser=userDao.getByName(name);
+        }
+        else{
+            UserModel user=new UserModel(name);
+            userDao.insert(user);
+            activeUser=user;
+        }
+        return activeUser;
+    }
 
 
 
 
-    //return progress percentage of game
+    //return progress percentage of game-----------------------------------
     private<T extends UserGameModel> int getGameProgress(List<T> list){
 
         int gamesCount=list.size();
@@ -238,7 +227,6 @@ public class MainModel {
     }
 
 
-
     //Methods for the Highscores, they com already ordered from the database
     public List<UserModel> getTopPassword(int top_count){
         return db.userDao().getTopPassword(top_count);
@@ -253,7 +241,7 @@ public class MainModel {
 
 
 
-    //NOT RELEVANT METHODS
+    //NOT RELEVANT METHODS---------------------------
     public PasswordModel getMaxPassGame(){
         PasswordDao dao=db.passwordDao();
         return dao.getMax();
