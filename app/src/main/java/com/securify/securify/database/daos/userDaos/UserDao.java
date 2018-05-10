@@ -35,4 +35,7 @@ public abstract class UserDao implements BaseDao<UserModel> {
     @Query("SELECT * FROM user WHERE name=:name")
     abstract public UserModel getByName(String name);
 
+    @Query("SELECT * FROM user WHERE active=1")
+    abstract public UserModel getActiveUser();
+
 }

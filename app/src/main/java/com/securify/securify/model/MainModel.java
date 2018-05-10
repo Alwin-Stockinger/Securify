@@ -39,7 +39,7 @@ public class MainModel {
         return activeUser;
     }
 
-    public void setActiveUser(UserModel activeUser) {
+    private void setActiveUser(UserModel activeUser) {
         this.activeUser = activeUser;
     }
 
@@ -48,7 +48,7 @@ public class MainModel {
         this.db=AppDatabase.getDatabase(context);
         this.gamePicker=new GamePicker(db,getActiveUser());
 
-        setActiveUser(db.userDao().getById(1));     //TODO
+        setActiveUser(db.userDao().getActiveUser());
     }
 
     public PasswordModel getRandomPasswordGame(){
@@ -156,11 +156,11 @@ public class MainModel {
     }
 
     //Password Used Methods, This Methods are for checking if password was already used and inserting used passwords
-    public boolean isPasswordUsed(long userId, String password){
-        return db.usedPasswordUserDao().isPasswordUsedByUserId(password,userId);
+    public boolean isPasswordUsed(String password){
+        return db.usedPasswordUserDao().isPasswordUsedByUserId(password,activeUser.getId());
     }
 
-    public void setPasswordUsed(long userId, String password){
+    public void setPasswordUsed(String password){
         long passwordId;
         if(db.usedPasswordDao().doesExist(password)){
             passwordId=db.usedPasswordDao().getUsedPasswordByPassword(password).getId();
@@ -169,26 +169,40 @@ public class MainModel {
             UsedPasswordModel usedPasswordModel=new UsedPasswordModel(password);
             passwordId=db.usedPasswordDao().insertGetLong(usedPasswordModel);
         }
-        UsedPasswordUserModel usedPasswordUserModel=new UsedPasswordUserModel(userId,passwordId);
+        UsedPasswordUserModel usedPasswordUserModel=new UsedPasswordUserModel(activeUser.getId(),passwordId);
         db.usedPasswordUserDao().insert(usedPasswordUserModel);
     }
 
     //User Methods---------------------------------
     public UserModel changeUser(String name){
         UserDao userDao=db.userDao();
+        activeUser.setActive(false);
+        userDao.update(activeUser);
+
         if(userDao.doesUserExistWithName(name)){
-            activeUser=userDao.getByName(name);
+            setActiveUser(userDao.getByName(name));
         }
-        else{
+        else{   //creates new User
             UserModel user=new UserModel(name);
-            userDao.insert(user);
-            activeUser=user;
+            user.setLanguage(activeUser.getLanguage());       //sets language for new User to the language of the previous user
+            user.setId(userDao.insertGetLong(user));        //inserts User and changes Id to correct autoincremented Id
+
             db.userPhishingDao().insertAll(initUserWithPhishing(user,db.phishingDao().getAllPhishingGames()));
             db.userPermissionDao().insertAll(initUserWithPermissions(user,db.permissionDao().getAllPermissionGames()));
             db.userPasswordDao().insertAll(initUserWithPasswords(user,db.passwordDao().getAllPasswordGames()));
+
+            setActiveUser(user);
         }
+        activeUser.setActive(true);
+        userDao.update(activeUser);
         return activeUser;
     }
+
+    public void changeLanguage(String language){
+        activeUser.setLanguage(language);
+        db.userDao().update(activeUser);
+    }
+
 
 
 
@@ -207,16 +221,16 @@ public class MainModel {
         else return 100*gamesPlayed/gamesCount;
     }
 
-    public int getPermissionProgress(long userId){
-        List<UserPermissionModel> userPermissionModels=db.userPermissionDao().getUserGamesByUserId(userId);
+    public int getPermissionProgress(){
+        List<UserPermissionModel> userPermissionModels=db.userPermissionDao().getUserGamesByUserId(activeUser.getId());
         return getGameProgress(userPermissionModels);
     }
-    public int getPassswordProgress(long userId){
-        List<UserPasswordModel> userPasswordModels=db.userPasswordDao().getUserGamesByUserId(userId);
+    public int getPassswordProgress(){
+        List<UserPasswordModel> userPasswordModels=db.userPasswordDao().getUserGamesByUserId(activeUser.getId());
         return getGameProgress(userPasswordModels);
     }
-    public int getPhishingProgress(long userId){
-        List<UserPhishingModel> userPhishingModels=db.userPhishingDao().getUserGamesByUserId(userId);
+    public int getPhishingProgress(){
+        List<UserPhishingModel> userPhishingModels=db.userPhishingDao().getUserGamesByUserId(activeUser.getId());
         return getGameProgress(userPhishingModels);
     }
 
@@ -294,6 +308,7 @@ public class MainModel {
         PasswordDao dao=db.passwordDao();
         return dao.getMax();
     }
+
 
 
 }

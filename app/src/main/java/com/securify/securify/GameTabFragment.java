@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+
+import com.securify.securify.model.MainModel;
 
 public class GameTabFragment extends Fragment{
 
@@ -33,6 +34,15 @@ public class GameTabFragment extends Fragment{
         final ProgressBar phishingBar = view.findViewById(R.id.phishingProgressBar);
         final ProgressBar passwordBar = view.findViewById(R.id.passwordProgressBar);
         final ProgressBar permissionsBar = view.findViewById(R.id.permissionsProgressBar);
+
+
+
+        //Progress Bar initialization
+        MainModel model=new MainModel(getContext());
+        phishingBar.setProgress(model.getPhishingProgress());
+        passwordBar.setProgress(model.getPassswordProgress());
+        permissionsBar.setProgress(model.getPermissionProgress());
+
 
         /*
         android.view.animation.Animation an = new android.view.animation.RotateAnimation(0.0f, 90.0f, 250f, 273f);

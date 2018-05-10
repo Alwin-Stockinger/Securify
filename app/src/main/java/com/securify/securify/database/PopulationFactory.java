@@ -94,6 +94,8 @@ public class PopulationFactory {
         model.setPasswordHighscore(0);
         model.setPermissionHighscore(0);
         model.setPhishingHighscore(0);
+        model.setLanguage("DE");
+        model.setActive(true);
 
 
         List<UserModel> list=new ArrayList<>();

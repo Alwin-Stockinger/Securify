@@ -29,12 +29,12 @@ public abstract class UserPermissionDao implements UserGameDao<UserPermissionMod
     abstract public List<PermissionModel> getPermissionGamesByUserId(long uId);
 
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)     //Supresses Warning that complains about not all columns used, but this is wanted
-    @Query("SELECT * FROM userPermission INNER JOIN permissionspiel ON gameId=permissionspiel.id WHERE (userId=:uId AND played=0) ORDER BY RANDOM() LIMIT 1")
-    abstract public PermissionModel getRandomNotPlayedGame(long uId);
+    @Query("SELECT * FROM userPermission INNER JOIN permissionspiel ON gameId=permissionspiel.id WHERE (userId=:uId AND played=0 AND sprache=:language) ORDER BY RANDOM() LIMIT 1")
+    abstract public PermissionModel getRandomNotPlayedGame(long uId, String language);
 
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)     //Supresses Warning that complains about not all columns used, but this is wanted
-    @Query("SELECT * FROM userPermission INNER JOIN permissionspiel ON gameId=permissionspiel.id WHERE userId=:uId ORDER BY RANDOM() LIMIT 1")
-    abstract public PermissionModel getRandomGame(long uId);
+    @Query("SELECT * FROM userPermission INNER JOIN permissionspiel ON gameId=permissionspiel.id WHERE (userId=:uId AND sprache=:language) ORDER BY RANDOM() LIMIT 1")
+    abstract public PermissionModel getRandomGame(long uId, String language);
 
     @Query("SELECT * FROM userPermission WHERE (userId=:uId AND gameId=:pId)")
     abstract public UserPermissionModel getUserPermission(long uId, long pId);

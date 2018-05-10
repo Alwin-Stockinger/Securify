@@ -19,11 +19,32 @@ public class UserModel {
     private long permissionHighscore;
     private long phishingHighscore;
 
+    private String language;
+
+    private boolean active;
+
+
     public UserModel(String name){
         this.name=name;
         setPermissionHighscore(0);
         setPhishingHighscore(0);
         setPasswordHighscore(0);
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     public long getPasswordHighscore() {
@@ -51,7 +72,6 @@ public class UserModel {
     }
 
     public long getId() {
-
         return id;
     }
 

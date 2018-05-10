@@ -23,12 +23,12 @@ public abstract class UserPhishingDao implements UserGameDao<UserPhishingModel,P
     abstract public List<UserPhishingModel> getUserGamesByUserId(long uId);
 
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)     //Supresses Warning that complains about not all columns used, but this is wanted
-    @Query("SELECT * FROM userPhsishing INNER JOIN phishingspiel ON gameId=phishingspiel.id WHERE (userId=:uId AND played=0) ORDER BY RANDOM() LIMIT 1")
-    abstract public PhishingModel getRandomNotPlayedGame(long uId);
+    @Query("SELECT * FROM userPhsishing INNER JOIN phishingspiel ON gameId=phishingspiel.id WHERE (userId=:uId AND played=0 AND sprache=:language) ORDER BY RANDOM() LIMIT 1")
+    abstract public PhishingModel getRandomNotPlayedGame(long uId, String language);
 
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)     //Supresses Warning that complains about not all columns used, but this is wanted
-    @Query("SELECT * FROM userPhsishing INNER JOIN phishingspiel ON gameId=phishingspiel.id WHERE userId=:uId ORDER BY RANDOM() LIMIT 1")
-    abstract public PhishingModel getRandomGame(long uId);
+    @Query("SELECT * FROM userPhsishing INNER JOIN phishingspiel ON gameId=phishingspiel.id WHERE (userId=:uId AND sprache=:language) ORDER BY RANDOM() LIMIT 1")
+    abstract public PhishingModel getRandomGame(long uId, String language);
 
     @Query("SELECT * FROM userphsishing WHERE (userId=:uId AND gameId=:pId)")
     abstract public UserPhishingModel getUserPhishing(long uId, long pId);
