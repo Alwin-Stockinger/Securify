@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "0f7e1eac912b6b26c8e47eeacc98289b",
+    "identityHash": "20115a67acc29bc10f11b4941e3f895a",
     "entities": [
       {
         "tableName": "passwortspiel",
@@ -252,7 +252,7 @@
       },
       {
         "tableName": "user",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `passwordHighscore` INTEGER NOT NULL, `permissionHighscore` INTEGER NOT NULL, `phishingHighscore` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `passwordHighscore` INTEGER NOT NULL, `permissionHighscore` INTEGER NOT NULL, `phishingHighscore` INTEGER NOT NULL, `language` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -283,6 +283,12 @@
             "columnName": "phishingHighscore",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "language",
+            "columnName": "language",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -1008,7 +1014,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"0f7e1eac912b6b26c8e47eeacc98289b\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"20115a67acc29bc10f11b4941e3f895a\")"
     ]
   }
 }

@@ -39,7 +39,7 @@ public class MainModel {
         return activeUser;
     }
 
-    public void setActiveUser(UserModel activeUser) {
+    private void setActiveUser(UserModel activeUser) {
         this.activeUser = activeUser;
     }
 
@@ -177,18 +177,27 @@ public class MainModel {
     public UserModel changeUser(String name){
         UserDao userDao=db.userDao();
         if(userDao.doesUserExistWithName(name)){
-            activeUser=userDao.getByName(name);
+            setActiveUser(userDao.getByName(name));
         }
         else{   //creates new User
             UserModel user=new UserModel(name);
+            user.setLanguage(activeUser.getLanguage());       //sets language for new User to the language of the previous user
             user.setId(userDao.insertGetLong(user));        //inserts User and changes Id to correct autoincremented Id
 
             db.userPhishingDao().insertAll(initUserWithPhishing(user,db.phishingDao().getAllPhishingGames()));
             db.userPermissionDao().insertAll(initUserWithPermissions(user,db.permissionDao().getAllPermissionGames()));
             db.userPasswordDao().insertAll(initUserWithPasswords(user,db.passwordDao().getAllPasswordGames()));
+
+            setActiveUser(user);
         }
         return activeUser;
     }
+
+    public void changeLanguage(String language){
+        activeUser.setLanguage(language);
+        db.userDao().update(activeUser);
+    }
+
 
 
 
@@ -294,6 +303,7 @@ public class MainModel {
         PasswordDao dao=db.passwordDao();
         return dao.getMax();
     }
+
 
 
 }

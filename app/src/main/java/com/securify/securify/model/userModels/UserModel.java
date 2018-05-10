@@ -19,11 +19,22 @@ public class UserModel {
     private long permissionHighscore;
     private long phishingHighscore;
 
+    private String language;
+
+
     public UserModel(String name){
         this.name=name;
         setPermissionHighscore(0);
         setPhishingHighscore(0);
         setPasswordHighscore(0);
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     public long getPasswordHighscore() {

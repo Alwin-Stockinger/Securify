@@ -25,13 +25,13 @@ import com.securify.securify.model.userModels.UserModel;
     }
 
     PasswordModel getRandomPassGame(){
-        return db.userPasswordDao().getRandomGame(user.getId());
+        return db.userPasswordDao().getRandomGame(user.getId(),user.getLanguage());
     }
     PermissionModel getRandomPermGame(){
-        return db.userPermissionDao().getRandomGame(user.getId());
+        return db.userPermissionDao().getRandomGame(user.getId(),user.getLanguage());
     }
     PhishingModel getRandomPhishGame(){
-        return db.userPhishingDao().getRandomGame(user.getId());
+        return db.userPhishingDao().getRandomGame(user.getId(),user.getLanguage());
     }
 
     PasswordModel getPassGameById(long id){
