@@ -48,7 +48,7 @@ public class MainModel {
         this.db=AppDatabase.getDatabase(context);
         this.gamePicker=new GamePicker(db,getActiveUser());
 
-        setActiveUser(db.userDao().getById(1));     //TODO
+        setActiveUser(db.userDao().getActiveUser());
     }
 
     public PasswordModel getRandomPasswordGame(){
@@ -176,6 +176,9 @@ public class MainModel {
     //User Methods---------------------------------
     public UserModel changeUser(String name){
         UserDao userDao=db.userDao();
+        activeUser.setActive(false);
+        userDao.update(activeUser);
+
         if(userDao.doesUserExistWithName(name)){
             setActiveUser(userDao.getByName(name));
         }
@@ -190,6 +193,8 @@ public class MainModel {
 
             setActiveUser(user);
         }
+        activeUser.setActive(true);
+        userDao.update(activeUser);
         return activeUser;
     }
 

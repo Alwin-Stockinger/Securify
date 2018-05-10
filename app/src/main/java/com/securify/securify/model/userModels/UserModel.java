@@ -21,12 +21,22 @@ public class UserModel {
 
     private String language;
 
+    private boolean active;
+
 
     public UserModel(String name){
         this.name=name;
         setPermissionHighscore(0);
         setPhishingHighscore(0);
         setPasswordHighscore(0);
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public String getLanguage() {
@@ -62,7 +72,6 @@ public class UserModel {
     }
 
     public long getId() {
-
         return id;
     }
 
