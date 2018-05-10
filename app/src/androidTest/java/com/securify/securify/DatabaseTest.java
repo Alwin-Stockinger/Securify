@@ -44,6 +44,7 @@ public class DatabaseTest {
         PasswordModel game=new PasswordModel();
 
         gDao.insert(game);
+        game.setId(1);
         PasswordModel gamedb= gDao.getById(1);
         assertEquals(gamedb.getId(),game.getId());
     }

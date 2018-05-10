@@ -179,10 +179,10 @@ public class MainModel {
         if(userDao.doesUserExistWithName(name)){
             activeUser=userDao.getByName(name);
         }
-        else{
+        else{   //creates new User
             UserModel user=new UserModel(name);
-            userDao.insert(user);
-            activeUser=user;
+            user.setId(userDao.insertGetLong(user));        //inserts User and changes Id to correct autoincremented Id
+
             db.userPhishingDao().insertAll(initUserWithPhishing(user,db.phishingDao().getAllPhishingGames()));
             db.userPermissionDao().insertAll(initUserWithPermissions(user,db.permissionDao().getAllPermissionGames()));
             db.userPasswordDao().insertAll(initUserWithPasswords(user,db.passwordDao().getAllPasswordGames()));
@@ -207,16 +207,16 @@ public class MainModel {
         else return 100*gamesPlayed/gamesCount;
     }
 
-    public int getPermissionProgress(long userId){
-        List<UserPermissionModel> userPermissionModels=db.userPermissionDao().getUserGamesByUserId(userId);
+    public int getPermissionProgress(){
+        List<UserPermissionModel> userPermissionModels=db.userPermissionDao().getUserGamesByUserId(activeUser.getId());
         return getGameProgress(userPermissionModels);
     }
-    public int getPassswordProgress(long userId){
-        List<UserPasswordModel> userPasswordModels=db.userPasswordDao().getUserGamesByUserId(userId);
+    public int getPassswordProgress(){
+        List<UserPasswordModel> userPasswordModels=db.userPasswordDao().getUserGamesByUserId(activeUser.getId());
         return getGameProgress(userPasswordModels);
     }
-    public int getPhishingProgress(long userId){
-        List<UserPhishingModel> userPhishingModels=db.userPhishingDao().getUserGamesByUserId(userId);
+    public int getPhishingProgress(){
+        List<UserPhishingModel> userPhishingModels=db.userPhishingDao().getUserGamesByUserId(activeUser.getId());
         return getGameProgress(userPhishingModels);
     }
 
