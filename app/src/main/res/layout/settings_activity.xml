@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="serif"
-            android:text="Einstellungen"
+            android:text="@string/settings_string"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -31,6 +31,9 @@
     </LinearLayout>
 
     <!-- User settings -->
+    <!-- change username -->
+    <!-- change language -->
+    <!-- delete data ? -->
 
 
 </LinearLayout>

@@ -15,8 +15,8 @@
         android:background="?attr/colorPrimary"
         android:elevation="6dp"
         android:minHeight="?attr/actionBarSize"
-        android:textAlignment="center"
-        app:tabGravity="center"
+        android:textAlignment="viewEnd"
+        app:tabGravity="fill"
         app:tabMode="fixed"
         app:tabSelectedTextColor="#ffffff"
         app:tabTextColor="#d3d3d3" />

@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences prefs=null;    //needed to check if first app start
 
     MainModel model;
-
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
         prefs=getSharedPreferences("com.securify.securify",MODE_PRIVATE);//get preferences to check if the app is started the first time
 
-
-
-        //no toolbar
-
         //setting the tabs and fragments
         ViewPager vp = findViewById(R.id.viewpager);
-        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        tabLayout = findViewById(R.id.tab_layout);
 
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), MainActivity.this);
 
@@ -52,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             tab.setCustomView(pagerAdapter.getTabView(i));
         }
+        //setupTabIcons();
     }
 
 
@@ -68,10 +65,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void setupTabIcons() {
+        tabLayout.getTabAt(0).setIcon(R.drawable.game);
+        tabLayout.getTabAt(1).setIcon(R.drawable.menu);
+    }
+
     public class PagerAdapter extends FragmentPagerAdapter {
         private ArrayList<Fragment> pages = new ArrayList<>();
 
-        String[] tabTitles =  new String[] {"Spiele", "Anderes"};
+        String[] tabTitles =  new String[] {"  Spiele", "  Anderes"};
         Context context;
 
         public PagerAdapter(FragmentManager fm, Context context) {

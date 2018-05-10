@@ -38,10 +38,12 @@
         android:id="@+id/permission_textbox"
         android:layout_width="match_parent"
         android:layout_height="117dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="8dp"
         android:background="#eeeeee"
+        app:layout_constraintBottom_toTopOf="@+id/camera_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -151,7 +153,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/camera_id"
         app:layout_constraintTop_toTopOf="@+id/gameIcon"
-        app:layout_constraintVertical_bias="0.429"
+        app:layout_constraintVertical_bias="0.351"
         app:srcCompat="@android:color/white" />
 
     <ImageView
@@ -163,10 +165,10 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.977"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/position_id"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.557"
+        app:layout_constraintVertical_bias="0.499"
         app:srcCompat="@android:color/background_light" />
 
     <ImageView
@@ -226,90 +228,79 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="144dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Abgeben!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/gameIcon"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/microphone_id" />
 
     <TextView
         android:id="@+id/camera_text"
         android:layout_width="59dp"
         android:layout_height="22dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/camera_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.754"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.439" />
+        app:layout_constraintTop_toTopOf="@+id/camera_id" />
 
     <TextView
         android:id="@+id/position_text"
         android:layout_width="59dp"
         android:layout_height="22dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/position_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.754"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/camera_text"
-        app:layout_constraintVertical_bias="0.104" />
+        app:layout_constraintTop_toTopOf="@+id/position_id" />
 
     <TextView
         android:id="@+id/contact_text"
         android:layout_width="59dp"
         android:layout_height="22dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/contact_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.754"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/position_text"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintTop_toTopOf="@+id/contact_id" />
 
     <TextView
         android:id="@+id/sms_text"
         android:layout_width="59dp"
         android:layout_height="22dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/sms_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.754"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact_text"
-        app:layout_constraintVertical_bias="0.23" />
+        app:layout_constraintTop_toTopOf="@+id/sms_id" />
 
     <TextView
         android:id="@+id/microphone_text"
         android:layout_width="59dp"
         android:layout_height="22dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/microphone_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.754"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sms_text"
-        app:layout_constraintVertical_bias="0.428" />
+        app:layout_constraintTop_toTopOf="@+id/microphone_id" />
 
     <ImageButton
         android:id="@+id/permission_hint_icon"

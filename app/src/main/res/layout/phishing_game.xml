@@ -7,18 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
-    <ImageButton
-        android:id="@+id/timer"
-        android:layout_width="44dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/round_buttons"
-        app:layout_constraintEnd_toStartOf="@+id/gameIcon"
-        app:layout_constraintHorizontal_bias="0.254"
+    <TextView
+        android:id="@+id/counter_phishing_id"
+        android:layout_width="56dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
 
     <ImageView
         android:id="@+id/gameIcon"
@@ -26,8 +30,9 @@
         android:layout_height="47dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/round_buttons"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/round_buttons"
+        android:src="@drawable/ic_fishing_man"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,11 +40,11 @@
 
     <ImageButton
         android:id="@+id/hint_phishing_id"
-        android:layout_width="43dp"
-        android:layout_height="43dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/ic_lightbulb"
         android:src="@drawable/ic_lightbulb"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,7 +72,7 @@
         android:id="@+id/spam_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -83,7 +88,7 @@
         android:id="@+id/no_spam_btn"
         android:layout_width="wrap_content"
         android:layout_height="49dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="224dp"
         android:layout_marginTop="8dp"
@@ -95,76 +100,47 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.822" />
 
-    <TextView
-        android:id="@+id/counter_phishing_id"
-        android:layout_width="56dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="504dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="26sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.037"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="54dp"
-        android:layout_height="51dp"
-        android:layout_marginBottom="500dp"
-        android:src="@drawable/ic_fishing_man"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/mail_view_id"
-        android:layout_width="329dp"
-        android:layout_height="291dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:fadeScrollbars="false"
         android:maxLines="15"
         android:scrollbars="vertical"
         android:textColor="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/spam_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.419" />
+        app:layout_constraintTop_toBottomOf="@+id/gameIcon" />
 
     <ImageView
         android:id="@+id/phishing_result_icon"
         android:layout_width="74dp"
         android:layout_height="70dp"
-        android:layout_marginTop="408dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/no_spam_btn"
+        app:layout_constraintHorizontal_bias="0.548"
+        app:layout_constraintStart_toEndOf="@+id/spam_btn"
+        app:layout_constraintTop_toBottomOf="@+id/mail_view_id"
         app:srcCompat="@drawable/custom_progressbar_drawable" />
 
     <TextView
         android:id="@+id/phishing_result_text"
         android:layout_width="77dp"
         android:layout_height="34dp"
-        android:layout_marginBottom="52dp"
-        android:layout_marginTop="8dp"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phishing_result_icon"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/phishing_result_icon" />
 
     <TextView
         android:id="@+id/phishing_hint_text_id"
@@ -181,17 +157,18 @@
 
     <TextView
         android:id="@+id/phishing_explanationFalse_id"
-        android:layout_width="343dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:textAlignment="center"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phishing_result_text"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>
