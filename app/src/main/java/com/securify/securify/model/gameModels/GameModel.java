@@ -25,6 +25,10 @@ public class GameModel {
         this.id = id;
     }
 
+    public long getId() {
+        return id;
+    }
+
     public String getTipp() {
         return tipp;
     }
@@ -73,7 +77,5 @@ public class GameModel {
         this.erklaerung = erklaerung;
     }
 
-    public long getId() {
-        return id;
-    }
+
 }

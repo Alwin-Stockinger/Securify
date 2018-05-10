@@ -19,4 +19,20 @@ public abstract class UserDao implements BaseDao<UserModel> {
 
     @Query("SELECT * FROM user WHERE id = :id")
     abstract public UserModel getById(long id);
+
+    @Query("SELECT * FROM user ORDER BY passwordHighscore desc limit :top ")
+    abstract public List<UserModel> getTopPassword(int top);
+
+    @Query("SELECT * FROM user ORDER BY phishingHighscore desc limit :top ")
+    abstract public List<UserModel> getTopPhishing(int top);
+
+    @Query("SELECT * FROM user ORDER BY permissionHighscore desc limit :top ")
+    abstract public List<UserModel> getTopPermission(int top);
+
+    @Query("SELECT EXISTS(SELECT * FROM user WHERE name=:name)")
+    abstract public boolean doesUserExistWithName(String name);
+
+    @Query("SELECT * FROM user WHERE name=:name")
+    abstract public UserModel getByName(String name);
+
 }

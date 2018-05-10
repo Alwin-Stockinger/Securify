@@ -12,13 +12,22 @@ abstract public class UserGameModel {
     private long gameId;
 
     private boolean played;
+    private boolean succeeded;
 
-    UserGameModel(long userId,long gameId, boolean played){
+    UserGameModel(long userId,long gameId, boolean played, boolean succeeded){
         this.userId=userId;
         this.gameId=gameId;
         this.played=played;
+        this.succeeded=succeeded;
     }
 
+    public boolean isSucceeded() {
+        return succeeded;
+    }
+
+    public void setSucceeded(boolean succeeded) {
+        this.succeeded = succeeded;
+    }
 
     public boolean isPlayed() {
         return played;

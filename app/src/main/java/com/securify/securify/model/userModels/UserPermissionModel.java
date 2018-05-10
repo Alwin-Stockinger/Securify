@@ -20,7 +20,7 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
                                                     @Index("gameId")})
 public class UserPermissionModel extends UserGameModel {
 
-    public UserPermissionModel(long userId,long gameId,boolean played){
-        super(userId,gameId,played);
+    public UserPermissionModel(long userId,long gameId,boolean played,boolean succeeded){
+        super(userId,gameId,played,succeeded);
     }
 }
