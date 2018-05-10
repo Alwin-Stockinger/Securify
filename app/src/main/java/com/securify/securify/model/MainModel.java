@@ -156,11 +156,11 @@ public class MainModel {
     }
 
     //Password Used Methods, This Methods are for checking if password was already used and inserting used passwords
-    public boolean isPasswordUsed(long userId, String password){
-        return db.usedPasswordUserDao().isPasswordUsedByUserId(password,userId);
+    public boolean isPasswordUsed(String password){
+        return db.usedPasswordUserDao().isPasswordUsedByUserId(password,activeUser.getId());
     }
 
-    public void setPasswordUsed(long userId, String password){
+    public void setPasswordUsed(String password){
         long passwordId;
         if(db.usedPasswordDao().doesExist(password)){
             passwordId=db.usedPasswordDao().getUsedPasswordByPassword(password).getId();
@@ -169,7 +169,7 @@ public class MainModel {
             UsedPasswordModel usedPasswordModel=new UsedPasswordModel(password);
             passwordId=db.usedPasswordDao().insertGetLong(usedPasswordModel);
         }
-        UsedPasswordUserModel usedPasswordUserModel=new UsedPasswordUserModel(userId,passwordId);
+        UsedPasswordUserModel usedPasswordUserModel=new UsedPasswordUserModel(activeUser.getId(),passwordId);
         db.usedPasswordUserDao().insert(usedPasswordUserModel);
     }
 
