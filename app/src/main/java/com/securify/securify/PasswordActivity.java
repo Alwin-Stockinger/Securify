@@ -1,6 +1,5 @@
 package com.securify.securify;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,9 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.securify.securify.model.achievementModels.AchievementModel;
-import com.securify.securify.model.gameModels.PasswordModel;
 import com.securify.securify.model.MainModel;
+import com.securify.securify.model.gameModels.PasswordModel;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -40,6 +38,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
     private ImageButton backBtn;
 
     private MainModel model;
+    private PasswordModel gameModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,7 +48,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
 
         //Model things
         model=new MainModel(getApplicationContext());
-        PasswordModel gameModel=model.getPassGameById(1);
+        gameModel=model.getRandomPasswordGame();
 
         final int minLength=gameModel.getMin_length();
         final int maxLength=gameModel.getMax_length();
@@ -239,22 +238,29 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
 
                 }
 
-                //Achievements
-                if (percentage >= 60 && model.achievementSuccess(1)) {
-                    Toast.makeText(PasswordActivity.this,
-                            "Sie haben den Erfolg " + model.getAchievement(1).getTitle() + " erreicht!",
-                            Toast.LENGTH_LONG).show();
+                //Geschafft
+                if(percentage>=60){
+                    model.setPasswordSucceeded(gameModel,true);
+                    //Achievements
+                    if (percentage >= 60 && model.achievementSuccess(1)) {
+                        Toast.makeText(PasswordActivity.this,
+                                "Sie haben den Erfolg " + model.getAchievement(1).getTitle() + " erreicht!",
+                                Toast.LENGTH_LONG).show();
+                    }
+                    else if (percentage >= 65 && counterSpecial_Symbol <= 2 && model.achievementSuccess(2)) {
+                        Toast.makeText(PasswordActivity.this,
+                                "Sie haben den Erfolg " + model.getAchievement(2).getTitle() + " erreicht!",
+                                Toast.LENGTH_LONG).show();
+                    }
+                    else if (percentage >= 70  && counterDigit <= 2 && counterSpecial_Symbol <= 2 && model.achievementSuccess(3)) {
+                        Toast.makeText(PasswordActivity.this,
+                                "Sie haben den Erfolg " + model.getAchievement(3).getTitle() + " erreicht!",
+                                Toast.LENGTH_LONG).show();
+                    }
                 }
-                else if (percentage >= 65 && counterSpecial_Symbol <= 2 && model.achievementSuccess(2)) {
-                    Toast.makeText(PasswordActivity.this,
-                            "Sie haben den Erfolg " + model.getAchievement(2).getTitle() + " erreicht!",
-                            Toast.LENGTH_LONG).show();
-                }
-                else if (percentage >= 70  && counterDigit <= 2 && counterSpecial_Symbol <= 2 && model.achievementSuccess(3)) {
-                    Toast.makeText(PasswordActivity.this,
-                            "Sie haben den Erfolg " + model.getAchievement(3).getTitle() + " erreicht!",
-                            Toast.LENGTH_LONG).show();
-                }
+                else model.setPasswordSucceeded(gameModel,false);
+
+
 
                 prozent_view.setText(Integer.toString(percentage) + "%");
                 break;
