@@ -86,20 +86,50 @@ public class PopulationFactory {
     }
 
     public List<UserModel> getUserModels(){
-        UserModel model=new UserModel("");
 
-        //set all test values
-        model.setId(1);
-        model.setName("Razvan");
-        model.setPasswordHighscore(0);
-        model.setPermissionHighscore(0);
-        model.setPhishingHighscore(0);
-        model.setLanguage("DE");
-        model.setActive(true);
+        //set all values
+        UserModel model1=new UserModel("Razvan");
+        model1.setPasswordHighscore(0);
+        model1.setPermissionHighscore(0);
+        model1.setPhishingHighscore(0);
+        model1.setLanguage("DE");
+        model1.setActive(true);
 
+
+        UserModel model2=new UserModel("Alwin");
+        model2.setPasswordHighscore(1);
+        model2.setPermissionHighscore(1);
+        model2.setPhishingHighscore(2);
+        model2.setLanguage("DE");
+        model2.setActive(false);
+
+        UserModel model3=new UserModel("Lujza");
+        model3.setPasswordHighscore(5);
+        model3.setPermissionHighscore(3);
+        model3.setPhishingHighscore(2);
+        model3.setLanguage("DE");
+        model3.setActive(false);
+
+        UserModel model4=new UserModel("Yasin (der König)");
+        model4.setPasswordHighscore(10);
+        model4.setPermissionHighscore(21);
+        model4.setPhishingHighscore(50);
+        model4.setLanguage("DE");
+        model4.setActive(false);
+
+        UserModel model5=new UserModel("Vitor");
+        model5.setPasswordHighscore(20);
+        model5.setPermissionHighscore(20);
+        model5.setPhishingHighscore(20);
+        model5.setLanguage("EN");
+        model5.setActive(false);
 
         List<UserModel> list=new ArrayList<>();
-        list.add(model);
+        list.add(model1);
+        list.add(model2);
+        list.add(model3);
+        list.add(model4);
+        list.add(model5);
 
         return list;
     }
