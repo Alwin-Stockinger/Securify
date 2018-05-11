@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context = ".HighscoresActivity">
+    tools:context=".HighscoresActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <ImageButton
-        android:id="@+id/backButton"
-        style="@android:style/Widget.Material.ImageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="?attr/actionModeCloseDrawable" />
+        <ImageButton
+            android:id="@+id/backButton"
+            style="@android:style/Widget.Material.ImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="?attr/actionModeCloseDrawable" />
 
         <TextView
             android:layout_width="match_parent"
@@ -34,9 +34,9 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/password_game_string"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"/>
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,14 +56,15 @@
             android:id="@+id/name1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="@string/samplename"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/points1"
-            android:layout_width="wrap_content"
+            android:layout_width="12dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
@@ -86,13 +87,13 @@
             android:id="@+id/name2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="@string/samplename"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/points2"
-            android:layout_width="wrap_content"
+            android:layout_width="12dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/zero"
@@ -117,14 +118,15 @@
             android:id="@+id/name3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="@string/samplename"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/points3"
-            android:layout_width="wrap_content"
+            android:layout_width="12dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
@@ -148,7 +150,7 @@
             android:id="@+id/name4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="@string/samplename"
             android:textSize="18sp" />
 
@@ -156,6 +158,7 @@
             android:id="@+id/points4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
@@ -179,14 +182,15 @@
             android:id="@+id/name5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="@string/samplename"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/points5"
-            android:layout_width="wrap_content"
+            android:layout_width="12dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
@@ -197,9 +201,9 @@
         android:id="@+id/phishing_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/phishing_game_string"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"/>
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -219,7 +223,7 @@
             android:id="@+id/name1_phishing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="@string/samplename"
             android:textSize="18sp" />
 
@@ -227,6 +231,7 @@
             android:id="@+id/points1_phishing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
@@ -249,7 +254,7 @@
             android:id="@+id/name2_phishing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="@string/samplename"
             android:textSize="18sp" />
 
@@ -257,6 +262,7 @@
             android:id="@+id/points2_phishing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
@@ -280,7 +286,7 @@
             android:id="@+id/name3_phishing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="@string/samplename"
             android:textSize="18sp" />
 
@@ -288,6 +294,7 @@
             android:id="@+id/points3_phishing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
@@ -311,7 +318,7 @@
             android:id="@+id/name4_phishing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="@string/samplename"
             android:textSize="18sp" />
 
@@ -342,7 +349,7 @@
             android:id="@+id/name5_phishing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="@string/samplename"
             android:textSize="18sp" />
 
@@ -360,9 +367,9 @@
         android:id="@+id/permissions_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/password_game_string"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"/>
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -382,7 +389,7 @@
             android:id="@+id/name1_permissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="@string/samplename"
             android:textSize="18sp" />
 
@@ -390,6 +397,7 @@
             android:id="@+id/points1_permissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
@@ -412,7 +420,7 @@
             android:id="@+id/name2_permissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="@string/samplename"
             android:textSize="18sp" />
 
@@ -420,6 +428,7 @@
             android:id="@+id/points2_permissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
@@ -443,7 +452,7 @@
             android:id="@+id/name3_permissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="@string/samplename"
             android:textSize="18sp" />
 
@@ -451,6 +460,7 @@
             android:id="@+id/points3_permissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
@@ -474,7 +484,7 @@
             android:id="@+id/name4_permissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="@string/samplename"
             android:textSize="18sp" />
 
@@ -482,6 +492,7 @@
             android:id="@+id/points4_permissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
@@ -505,7 +516,7 @@
             android:id="@+id/name5_permissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="@string/samplename"
             android:textSize="18sp" />
 
@@ -513,6 +524,7 @@
             android:id="@+id/points5_permissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
