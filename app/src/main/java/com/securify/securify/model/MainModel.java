@@ -308,11 +308,17 @@ public class MainModel {
     //achievement Mehtods
 
     //Creates new succeeded achievement entry, the method will do nothing if already succeeded
-    public void achievementSuccess(long achievementId){
+    public boolean achievementSuccess(long achievementId){
         if(!db.userAchievementDao().isAchieved(activeUser.getId(),achievementId)){
             UserAchievementModel userAchievementModel=new UserAchievementModel(activeUser.getId(),achievementId,new Date());
             db.userAchievementDao().insert(userAchievementModel);
+            return true;
         }
+        else return false;
+    }
+
+    public AchievementModel getAchievement(long achievementId){
+        return db.achievementDao().getAchivementById(achievementId);
     }
 
     public  List<AchievementModel> getAchievedAchievements(){

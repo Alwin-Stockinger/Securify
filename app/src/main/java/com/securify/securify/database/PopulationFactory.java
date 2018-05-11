@@ -131,8 +131,47 @@ public class PopulationFactory {
         model1.setTipp("Rechtschreibung beachten!");
 
 
+        PhishingModel model2=new PhishingModel();
+        model2.setAbsender("from: info@twitter.com");
+        model2.setBetreff("An update on your account security");
+        model2.setIs_phishing(true);
+        model2.setErklaerung("Das ist eine echte Email die Twitter ausgesendet hat. Die Email hat weder Rechtschreibfehler noch ist der Absender von einer seltsamen Adresse. Man wird auch nicht direkt aufgerufen auf einen seltsamen Link zu drücken.");
+        model2.setZeit(50);
+        model2.setSprache("DE"); //Sprache ist Deutsch
+        model2.setKontext("Hi ,\n" +
+                "\n" +
+                "When you set a password for your Twitter account, we use technology that masks it so no one at the company can see it. We recently identified a bug that stored passwords unmasked in an internal log. We have fixed the bug, and our investigation shows no indication of breach or misuse by anyone. \n" +
+                "\n" +
+                "Out of an abundance of caution, we ask that you consider changing your password on all services where you’ve used this password. You can change your Twitter password anytime by going to the password settings page.\n" +
+                "\n" +
+                "\n" +
+                "About The Bug\n" +
+                "\n" +
+                "We mask passwords through a process called hashing using a function known as bcrypt, which replaces the actual password with a random set of numbers and letters that are stored in Twitter's system. This allows our systems to validate your account credentials without revealing your password. This is an industry standard.\n" +
+                "\n" +
+                "Due to a bug, passwords were written to an internal log before completing the hashing process. We found this error ourselves, removed the passwords, and are implementing plans to prevent this bug from happening again.\n" +
+                "\n" +
+                "\n" +
+                "Tips on Account Security\n" +
+                "\n" +
+                "1.\t \tChange your password on Twitter and on any other service where you may have used the same password.\n" +
+                "\n" +
+                "2.\t \tUse a strong password that you don't reuse on other services.\n" +
+                "\n" +
+                "3.\t \tEnable login verification, also known as two factor authentication. This is the single best action you can take to increase your account security.\n" +
+                "\n" +
+                "4.\t \tUse a password manager to make sure you're using strong, unique passwords everywhere.\n" +
+                "\n" +
+                "We are very sorry this happened. We recognize and appreciate the trust you place in us, and are committed to earning that trust every day.\n" +
+                "\n" +
+                "Team Twitter\n");
+        model2.setSchwierigkeit("MEDIUM");
+        model2.setTipp("Erkennst du die Domain(das nach dem @) des Absenders?");
+
+
         List<PhishingModel> list=new ArrayList<>();
         list.add(model1);
+        list.add(model2);
         
         return list;
     }
