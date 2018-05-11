@@ -72,7 +72,7 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
         context.setScrollbarFadingEnabled(false);
 
         spam_btn = findViewById(R.id.spam_btn);
-        spam_btn.setBackgroundColor(parseColor("#aeea00"));
+        spam_btn.setBackgroundColor(parseColor("#64dd17"));
         spam_btn.setOnClickListener(this);
 
         no_spam_btn = findViewById(R.id.no_spam_btn);

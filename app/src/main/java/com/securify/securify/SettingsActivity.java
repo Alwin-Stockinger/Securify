@@ -44,6 +44,5 @@ public class SettingsActivity extends AppCompatActivity implements  View.OnClick
 
         ImageButton backButton = findViewById(R.id.backButton);
         Button changeLang = findViewById(R.id.changeLanguage);
-        Button changeUname = findViewById(R.id.changeUsername);
     }
 }

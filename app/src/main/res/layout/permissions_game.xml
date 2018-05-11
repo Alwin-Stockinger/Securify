@@ -42,6 +42,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:padding="4dp"
         android:background="#eeeeee"
         app:layout_constraintBottom_toTopOf="@+id/camera_id"
         app:layout_constraintEnd_toEndOf="parent"
@@ -154,7 +155,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/camera_id"
         app:layout_constraintTop_toTopOf="@+id/camera_id"
-        app:srcCompat="@android:color/white" />
+        app:srcCompat="#eeeeee" />
 
     <ImageView
         android:id="@+id/position_icon_id"
@@ -167,7 +168,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/position_id"
         app:layout_constraintTop_toTopOf="@+id/position_id"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="#eeeeee" />
 
     <ImageView
         android:id="@+id/contact_icon_id"
@@ -182,7 +183,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/contact_id"
         app:layout_constraintTop_toTopOf="@+id/contact_id"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="#eeeeee" />
 
 
     <ImageView
@@ -198,7 +199,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/microphone_id"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="#eeeeee" />
 
 
     <ImageView
@@ -214,7 +215,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/sms_id"
         app:layout_constraintTop_toTopOf="@+id/sms_id"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="#eeeeee" />
 
     <Button
         android:id="@+id/permission_finish_btn"
