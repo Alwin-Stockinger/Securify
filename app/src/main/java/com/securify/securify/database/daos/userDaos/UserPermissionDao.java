@@ -2,7 +2,6 @@ package com.securify.securify.database.daos.userDaos;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Query;
-import android.arch.persistence.room.RoomWarnings;
 
 import com.securify.securify.model.gameModels.PermissionModel;
 import com.securify.securify.model.userModels.UserPermissionModel;
@@ -24,16 +23,13 @@ public abstract class UserPermissionDao implements UserGameDao<UserPermissionMod
     @Query("SELECT * FROM userPermission WHERE userId=:uId")
     abstract public List<UserPermissionModel> getUserGamesByUserId(long uId);
 
-    @Query("SELECT * FROM userPermission INNER JOIN permissionspiel ON gameId=permissionspiel.id WHERE userId=:uId")
-    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)     //Supresses Warning that complains about not all columns used, but this is wanted
+    @Query("SELECT permissionspiel.* FROM userPermission INNER JOIN permissionspiel ON gameId=permissionspiel.id WHERE userId=:uId")
     abstract public List<PermissionModel> getPermissionGamesByUserId(long uId);
 
-    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)     //Supresses Warning that complains about not all columns used, but this is wanted
-    @Query("SELECT * FROM userPermission INNER JOIN permissionspiel ON gameId=permissionspiel.id WHERE (userId=:uId AND played=0 AND sprache=:language) ORDER BY RANDOM() LIMIT 1")
+    @Query("SELECT permissionspiel.* FROM userPermission INNER JOIN permissionspiel ON gameId=permissionspiel.id WHERE (userId=:uId AND played=0 AND sprache=:language) ORDER BY RANDOM() LIMIT 1")
     abstract public PermissionModel getRandomNotPlayedGame(long uId, String language);
 
-    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)     //Supresses Warning that complains about not all columns used, but this is wanted
-    @Query("SELECT * FROM userPermission INNER JOIN permissionspiel ON gameId=permissionspiel.id WHERE (userId=:uId AND sprache=:language) ORDER BY RANDOM() LIMIT 1")
+    @Query("SELECT permissionspiel.* FROM userPermission INNER JOIN permissionspiel ON gameId=permissionspiel.id WHERE (userId=:uId AND sprache=:language) ORDER BY RANDOM() LIMIT 1")
     abstract public PermissionModel getRandomGame(long uId, String language);
 
     @Query("SELECT * FROM userPermission WHERE (userId=:uId AND gameId=:pId)")
