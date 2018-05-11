@@ -49,9 +49,8 @@ public class MainModel {
 
     public MainModel(Context context){
         this.db=AppDatabase.getDatabase(context);
-        this.gamePicker=new GamePicker(db,getActiveUser());
-
         setActiveUser(db.userDao().getActiveUser());
+        this.gamePicker=new GamePicker(db,getActiveUser());
     }
 
     public PasswordModel getRandomPasswordGame(){
