@@ -18,5 +18,11 @@
     <string name="highscores_string">Highscores</string>
     <string name="gameTab_string">Spiele</string>
 
-
+    <string name="zero">0</string>
+    <string name="samplename">name name</string>
+    <string name="first">1.</string>
+    <string name="second">2.</string>
+    <string name="third">3.</string>
+    <string name="fourth">4.</string>
+    <string name="fifth">5.</string>
 </resources>
