@@ -11,11 +11,9 @@ import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.securify.securify.model.MainModel;
-import com.securify.securify.model.gameModels.PermissionModel;
 import com.securify.securify.model.gameModels.PhishingModel;
 
 import java.util.Timer;
@@ -54,7 +52,7 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.phishing_game);
 
         mModel = new MainModel(getApplicationContext());
-        phModel = mModel.getPhishGameById(1);
+        phModel = mModel.getRandomPhishingGame();
 
         context = findViewById(R.id.mail_view_id);
 
