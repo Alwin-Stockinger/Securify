@@ -11,6 +11,7 @@ import com.securify.securify.database.daos.userDaos.UserDao;
 import com.securify.securify.database.daos.userDaos.UserPasswordDao;
 import com.securify.securify.database.daos.userDaos.UserPermissionDao;
 import com.securify.securify.database.daos.userDaos.UserPhishingDao;
+import com.securify.securify.model.achievementModels.UserAchievementModel;
 import com.securify.securify.model.gameModels.PasswordModel;
 import com.securify.securify.model.gameModels.PermissionModel;
 import com.securify.securify.model.gameModels.PhishingModel;
@@ -23,6 +24,7 @@ import com.securify.securify.model.userModels.UserPermissionModel;
 import com.securify.securify.model.userModels.UserPhishingModel;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -91,6 +93,8 @@ public class MainModel {
         userDao.insertAll(factory.getUserModels());
 
         initUserGameTables(userDao,peDao,phDao,paDao);
+
+        db.achievementDao().insertAll(factory.getAchievementModels());
 
     }
 
@@ -298,6 +302,16 @@ public class MainModel {
         if(succeeded) userPermission.setSucceeded(true);
 
         dao.update(userPermission);
+    }
+
+    //achievement Mehtods
+
+    //Creates new succeeded achievement entry, the method will do nothing if already succeded
+    public void achievementSuccess(long achievementId){
+        if(!db.userAchievementDao().isAchieved(activeUser.getId(),achievementId)){
+            UserAchievementModel userAchievementModel=new UserAchievementModel(activeUser.getId(),achievementId,new Date());
+            db.userAchievementDao().insert(userAchievementModel);
+        }
     }
 
 

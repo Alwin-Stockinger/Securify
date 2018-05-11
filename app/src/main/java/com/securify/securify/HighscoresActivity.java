@@ -34,14 +34,14 @@ public class HighscoresActivity extends AppCompatActivity{
         TextView points5=findViewById(R.id.points5);
 
 
-        //assign name, databse already sorted for correct order
+        //assign name, users come already sorted from the db
         placeOne.setText(users.get(0).getName());
         placeTwo.setText(users.get(1).getName());
         placeThree.setText(users.get(2).getName());
         placeFour.setText(users.get(3).getName());
         placeFive.setText(users.get(4).getName());
 
-
+        //assign highscores
         points1.setText(Long.toString(users.get(0).getPasswordHighscore()));
         points2.setText(Long.toString(users.get(1).getPasswordHighscore()));
         points3.setText(Long.toString(users.get(2).getPasswordHighscore()));

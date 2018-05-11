@@ -6,6 +6,8 @@ import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 
+import com.securify.securify.database.daos.achievementDaos.AchievementDao;
+import com.securify.securify.database.daos.achievementDaos.UserAchievementDao;
 import com.securify.securify.database.daos.gameDaos.PasswordDao;
 import com.securify.securify.database.daos.gameDaos.PermissionDao;
 import com.securify.securify.database.daos.gameDaos.PhishingDao;
@@ -15,6 +17,8 @@ import com.securify.securify.database.daos.userDaos.UserDao;
 import com.securify.securify.database.daos.userDaos.UserPasswordDao;
 import com.securify.securify.database.daos.userDaos.UserPermissionDao;
 import com.securify.securify.database.daos.userDaos.UserPhishingDao;
+import com.securify.securify.model.achievementModels.AchievementModel;
+import com.securify.securify.model.achievementModels.UserAchievementModel;
 import com.securify.securify.model.gameModels.GameModel;
 import com.securify.securify.model.gameModels.PasswordModel;
 import com.securify.securify.model.gameModels.PermissionModel;
@@ -45,6 +49,8 @@ import com.securify.securify.model.userModels.UserPhishingModel;
                                 UserPhishingModel.class,
                                 UsedPasswordModel.class,
                                 UsedPasswordUserModel.class,
+                                AchievementModel.class,
+                                UserAchievementModel.class,
 
 
                                 GameModel.class,
@@ -70,6 +76,10 @@ public abstract class AppDatabase extends RoomDatabase {
     abstract public UserPermissionDao userPermissionDao();
     abstract public UserPasswordDao userPasswordDao();
     abstract public UserPhishingDao userPhishingDao();
+
+    //achievement daos
+    abstract public AchievementDao achievementDao();
+    abstract public UserAchievementDao userAchievementDao();
 
 
 

@@ -1,6 +1,7 @@
 package com.securify.securify.database;
 
 
+import com.securify.securify.model.achievementModels.AchievementModel;
 import com.securify.securify.model.gameModels.PasswordModel;
 import com.securify.securify.model.gameModels.PermissionModel;
 import com.securify.securify.model.gameModels.PhishingModel;
@@ -85,11 +86,13 @@ public class PopulationFactory {
         return list;
     }
 
+
+    //Users
     public List<UserModel> getUserModels(){
 
         //set all values
         UserModel model1=new UserModel("Razvan");
-        model1.setPasswordHighscore(0);
+        model1.setPasswordHighscore(9001);
         model1.setPermissionHighscore(0);
         model1.setPhishingHighscore(0);
         model1.setLanguage("DE");
@@ -130,6 +133,31 @@ public class PopulationFactory {
         list.add(model3);
         list.add(model4);
         list.add(model5);
+
+        return list;
+    }
+
+
+    //Achievements
+
+    public List<AchievementModel> getAchievementModels(){
+
+        AchievementModel ach1=new AchievementModel();
+        ach1.setTitle("Passwort Expterte");
+        ach1.setContext("Erreiche über 70% beim Passwortspiel");
+        ach1.setDifficulty("EASY");
+        ach1.setLanguage("DE");
+
+        AchievementModel ach2=new AchievementModel();
+        ach2.setTitle("Passwort Spezialist");
+        ach2.setContext("Erreiche über 65% beim Passwortspiel mit weniger als 2 Sonderzeichen");
+        ach2.setDifficulty("MEDIUM");
+        ach2.setLanguage("DE");
+
+        List<AchievementModel> list=new ArrayList<AchievementModel>();
+        list.add(ach1);
+        list.add(ach2);
+
 
         return list;
     }
