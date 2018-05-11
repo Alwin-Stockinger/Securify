@@ -11,6 +11,7 @@ import com.securify.securify.database.daos.userDaos.UserDao;
 import com.securify.securify.database.daos.userDaos.UserPasswordDao;
 import com.securify.securify.database.daos.userDaos.UserPermissionDao;
 import com.securify.securify.database.daos.userDaos.UserPhishingDao;
+import com.securify.securify.model.achievementModels.AchievementModel;
 import com.securify.securify.model.achievementModels.UserAchievementModel;
 import com.securify.securify.model.gameModels.PasswordModel;
 import com.securify.securify.model.gameModels.PermissionModel;
@@ -306,12 +307,20 @@ public class MainModel {
 
     //achievement Mehtods
 
-    //Creates new succeeded achievement entry, the method will do nothing if already succeded
+    //Creates new succeeded achievement entry, the method will do nothing if already succeeded
     public void achievementSuccess(long achievementId){
         if(!db.userAchievementDao().isAchieved(activeUser.getId(),achievementId)){
             UserAchievementModel userAchievementModel=new UserAchievementModel(activeUser.getId(),achievementId,new Date());
             db.userAchievementDao().insert(userAchievementModel);
         }
+    }
+
+    public  List<AchievementModel> getAchievedAchievements(){
+        return db.userAchievementDao().getAllAchievedWithLanguage(activeUser.getId(),activeUser.getLanguage());
+    }
+
+    public List<AchievementModel> getAllAchievements(){
+        return db.achievementDao().getAllAchievementsWithLanguage(activeUser.getLanguage());
     }
 
 
