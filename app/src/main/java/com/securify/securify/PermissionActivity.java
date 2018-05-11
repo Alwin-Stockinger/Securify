@@ -1,7 +1,9 @@
 package com.securify.securify;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.securify.securify.model.MainModel;
 import com.securify.securify.model.gameModels.PermissionModel;
@@ -23,6 +26,10 @@ import java.util.TimerTask;
 public class PermissionActivity extends AppCompatActivity implements View.OnClickListener {
 
     private boolean gameResult = true;
+    private int TrueAnswers;
+    private int TrueAnswersInTime;
+    private int TrueAnswersInTime2;
+
 
     private ImageButton hint_Btn;
 
@@ -40,8 +47,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
 
     private TextView counter;
 
-    private int timerSeconds;
-
+    private int timerSeconds = 0;
+    private int oldTimer = 0;
 
     MainModel mModel;
     PermissionModel pModel;
@@ -63,7 +70,6 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
 
     private TextView permission_game_text;
     private TextView permission_hint_text;
-
     final Timer time = new Timer();
 
     @Override
@@ -71,6 +77,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.permissions_game);
 
+        handOverForAchievements();
 
         mModel = new MainModel(getApplicationContext());
         pModel = mModel.getRandomPermissionGame();
@@ -139,7 +146,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            counter.clearAnimation();;
+                            counter.clearAnimation();
+                            ;
                         }
                     });
                     setTimerSeconds();
@@ -154,6 +162,9 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                     contact.setClickable(false);
                     sms.setClickable(false);
                     microphone.setClickable(false);
+
+                    achievementTest();
+                    showNextGame();
 
                 } else {
                     setTimerSeconds();
@@ -196,8 +207,9 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
         return timerSeconds;
     }
 
-    private void checkBool(boolean cameraB, boolean positionB, boolean contactB, boolean smsB, boolean microphoneB) {
+    private boolean checkBool(boolean cameraB, boolean positionB, boolean contactB, boolean smsB, boolean microphoneB) {
 
+        int trueAnswers = 0;
 
         if (cameraB != cameraBool) {
             gameResult = false;
@@ -221,6 +233,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                     cameraText.setTextColor(Color.GREEN);
                 }
             });
+            trueAnswers++;
         }
 
         if (positionB != positionBool) {
@@ -245,6 +258,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                     positionText.setTextColor(Color.GREEN);
                 }
             });
+            trueAnswers++;
         }
 
         if (contactB != contactBool) {
@@ -269,6 +283,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                     contactText.setTextColor(Color.GREEN);
                 }
             });
+            trueAnswers++;
         }
 
         if (smsB != smsBool) {
@@ -293,6 +308,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                     smsText.setTextColor(Color.GREEN);
                 }
             });
+            trueAnswers++;
         }
         if (microphoneB != microphoneBool) {
             gameResult = false;
@@ -316,10 +332,14 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                     microphoneText.setTextColor(Color.GREEN);
                 }
             });
+            trueAnswers++;
         }
 
         //save game to database
         mModel.setPermissionSucceded(pModel,gameResult);
+
+        if (trueAnswers == 5) return true;
+        else return false;
 
     }
 
@@ -334,6 +354,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.permission_finish_btn:
+                oldTimer = getTimerSeconds();
                 setTimerSecondsDirect(0);
                 time.cancel();
                 time.purge();
@@ -348,10 +369,82 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 contact.setClickable(false);
                 sms.setClickable(false);
                 microphone.setClickable(false);
-                checkBool(camera.isChecked(), position.isChecked(), contact.isChecked(), sms.isChecked(), microphone.isChecked());
+
+                achievementTest();
+                showNextGame();
+
                 break;
+
 
         }
     }
+
+    void handOverForAchievements() {
+        Bundle b = getIntent().getExtras();
+        if(b != null) {
+            TrueAnswers = b.getInt("key");
+            TrueAnswersInTime = b.getInt("key2");
+            TrueAnswersInTime2 = b.getInt("key3");
+        }
+        else {
+            TrueAnswers = 0;
+            TrueAnswersInTime = 0;
+            TrueAnswersInTime2 = 0;
+        }
+    }
+
+    void achievementTest() {
+        if (checkBool(camera.isChecked(), position.isChecked(), contact.isChecked(), sms.isChecked(), microphone.isChecked())) {
+            TrueAnswers++;
+            if (oldTimer >= (pModel.getZeit() * 0.5))
+                TrueAnswersInTime++;
+            else
+                TrueAnswersInTime = 0;
+            if (oldTimer >= (pModel.getZeit()*0.7))
+                TrueAnswersInTime2++;
+            else TrueAnswersInTime2 = 0;
+        } else {
+            TrueAnswers = 0;
+            TrueAnswersInTime = 0;
+            TrueAnswersInTime2 = 0;
+        }
+        if (TrueAnswers == 2 && mModel.achievementSuccess(4)) {
+            Toast.makeText(PermissionActivity.this,
+                    "Sie haben den Erfolg " + mModel.getAchievement(4).getTitle() + " erreicht!",
+                    Toast.LENGTH_LONG).show();
+        }
+        if (TrueAnswersInTime == 2 && mModel.achievementSuccess(5)) {
+            Toast.makeText(PermissionActivity.this,
+                    "Sie haben den Erfolg " + mModel.getAchievement(5).getTitle() + " erreicht!",
+                    Toast.LENGTH_LONG).show();
+        }
+
+        if (TrueAnswersInTime2 == 3 && mModel.achievementSuccess(6)) {
+            Toast.makeText(PermissionActivity.this,
+                    "Sie haben den Erfolg " + mModel.getAchievement(6).getTitle() + " erreicht!",
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
+    void showNextGame() {
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(PermissionActivity.this, PermissionActivity.class);
+                        Bundle b = new Bundle();
+                        b.putInt("key", TrueAnswers);
+                        b.putInt("key2", TrueAnswersInTime);
+                        b.putInt("key3", TrueAnswersInTime2);
+                        intent.putExtras(b);
+                        startActivity(intent);
+                        PermissionActivity.this.finish();
+
+                    }
+                },
+                4000
+        );
+    }
+
 }
 
