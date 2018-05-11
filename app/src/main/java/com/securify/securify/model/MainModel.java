@@ -217,7 +217,7 @@ public class MainModel {
         int gamesCount=list.size();
         int gamesPlayed=0;
         for(T t:list){
-            if(t.isPlayed()){
+            if(t.isSucceeded()){
                 gamesPlayed++;
             }
         }

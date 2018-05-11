@@ -90,11 +90,11 @@ public class PopulationFactory {
         PermissionModel model3=new PermissionModel();
         model3.setKamera(true);
         model3.setKontake(false);
-        model3.setMikrofon(false);
+        model3.setMikrofon(true);
         model3.setPosition(true);
         model3.setSms(false);
         model3.setErklaerung("Mikrofon und Kamera sind nötig um Videos mit Ton aufzunehemen. Deine Kontakte werden gebraucht um damit die App deine Freunde in den Videos markieren kann");
-        model3.setZeit(5);
+        model3.setZeit(8);
         model3.setSprache("DE"); //Sprache ist Deutsch
         model3.setKontext("Du Willst eine Video aufnahme App installieren, die die Funktion hat Freunde die du als Kontakte am Handy mit Bild eingespeichert hast im Video zu markieren");
         model3.setSchwierigkeit("HARD");
@@ -134,7 +134,7 @@ public class PopulationFactory {
         PhishingModel model2=new PhishingModel();
         model2.setAbsender("from: info@twitter.com");
         model2.setBetreff("An update on your account security");
-        model2.setIs_phishing(true);
+        model2.setIs_phishing(false);
         model2.setErklaerung("Das ist eine echte Email die Twitter ausgesendet hat. Die Email hat weder Rechtschreibfehler noch ist der Absender von einer seltsamen Adresse. Man wird auch nicht direkt aufgerufen auf einen seltsamen Link zu drücken.");
         model2.setZeit(50);
         model2.setSprache("DE"); //Sprache ist Deutsch
