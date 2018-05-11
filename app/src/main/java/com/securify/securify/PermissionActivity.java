@@ -197,6 +197,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void checkBool(boolean cameraB, boolean positionB, boolean contactB, boolean smsB, boolean microphoneB) {
+
+
         if (cameraB != cameraBool) {
             gameResult = false;
             runOnUiThread(new Runnable() {
@@ -316,6 +318,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
             });
         }
 
+        //save game to database
+        mModel.setPermissionSucceded(pModel,gameResult);
 
     }
 

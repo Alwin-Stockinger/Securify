@@ -90,11 +90,11 @@ public class PopulationFactory {
         PermissionModel model3=new PermissionModel();
         model3.setKamera(true);
         model3.setKontake(false);
-        model3.setMikrofon(false);
+        model3.setMikrofon(true);
         model3.setPosition(true);
         model3.setSms(false);
         model3.setErklaerung("Mikrofon und Kamera sind nötig um Videos mit Ton aufzunehemen. Deine Kontakte werden gebraucht um damit die App deine Freunde in den Videos markieren kann");
-        model3.setZeit(5);
+        model3.setZeit(8);
         model3.setSprache("DE"); //Sprache ist Deutsch
         model3.setKontext("Du Willst eine Video aufnahme App installieren, die die Funktion hat Freunde die du als Kontakte am Handy mit Bild eingespeichert hast im Video zu markieren");
         model3.setSchwierigkeit("HARD");

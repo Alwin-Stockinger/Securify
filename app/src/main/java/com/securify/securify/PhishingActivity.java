@@ -196,6 +196,9 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
                             resultIcon.setVisibility(View.VISIBLE);
                             explanationText.setVisibility(View.VISIBLE);
                             hint_Btn.setClickable(false);
+
+                            //save game to database
+                            mModel.setPhishingSucceeded(phModel,false);
                         }
                     });
                 }
@@ -209,6 +212,9 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
                             resultIcon.setImageResource(R.mipmap.true_icon);
                             resultIcon.setVisibility(View.VISIBLE);
                             hint_Btn.setClickable(false);
+
+                            //save game to database
+                            mModel.setPhishingSucceeded(phModel,true);
                         }
                     });
                 }
@@ -232,6 +238,9 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
                             resultIcon.setVisibility(View.VISIBLE);
                             explanationText.setVisibility(View.VISIBLE);
                             hint_Btn.setClickable(false);
+
+                            //save game to database
+                            mModel.setPhishingSucceeded(phModel,false);
                         }
                     });
                 }
@@ -245,6 +254,9 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
                             resultIcon.setImageResource(R.mipmap.true_icon);
                             resultIcon.setVisibility(View.VISIBLE);
                             hint_Btn.setClickable(false);
+
+                            //save game to database
+                            mModel.setPhishingSucceeded(phModel,true);
                         }
                     });
                 }

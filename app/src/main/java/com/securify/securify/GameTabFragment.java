@@ -18,6 +18,10 @@ public class GameTabFragment extends Fragment{
     private int pStatus = 0;
     private Handler handler = new Handler();
 
+    private ProgressBar phishingBar;
+    private ProgressBar passwordBar;
+    private ProgressBar permissionsBar;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -31,17 +35,10 @@ public class GameTabFragment extends Fragment{
         ImageButton phishingButton = view.findViewById(R.id.phishingButton);
         ImageButton passwordButton = view.findViewById(R.id.passwordButton);
         ImageButton permissionsButton = view.findViewById(R.id.permissionsButton);
-        final ProgressBar phishingBar = view.findViewById(R.id.phishingProgressBar);
-        final ProgressBar passwordBar = view.findViewById(R.id.passwordProgressBar);
-        final ProgressBar permissionsBar = view.findViewById(R.id.permissionsProgressBar);
+        phishingBar = view.findViewById(R.id.phishingProgressBar);
+        passwordBar = view.findViewById(R.id.passwordProgressBar);
+        permissionsBar = view.findViewById(R.id.permissionsProgressBar);
 
-
-
-        //Progress Bar initialization
-        MainModel model=new MainModel(getContext());
-        phishingBar.setProgress(model.getPhishingProgress());
-        passwordBar.setProgress(model.getPassswordProgress());
-        permissionsBar.setProgress(model.getPermissionProgress());
 
 
         /*
@@ -100,6 +97,18 @@ public class GameTabFragment extends Fragment{
                 GameTabFragment.this.onClick(v, game_name);
             }
         });
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        //Progress Bar initialization
+        MainModel model=new MainModel(getContext());
+        phishingBar.setProgress(model.getPhishingProgress());
+        passwordBar.setProgress(model.getPassswordProgress());
+        permissionsBar.setProgress(model.getPermissionProgress());
+
     }
 
     public void onClick(View v, String game_name) {
