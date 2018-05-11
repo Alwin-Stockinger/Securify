@@ -11,6 +11,7 @@ import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.securify.securify.model.MainModel;
@@ -46,6 +47,7 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
 
     boolean decisionUser;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,15 +57,19 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
         phModel = mModel.getPhishGameById(1);
 
         context = findViewById(R.id.mail_view_id);
-        context.setMovementMethod(new ScrollingMovementMethod());
+
+        resultText = findViewById(R.id.phishing_result_text);
 
         resultIcon = findViewById(R.id.phishing_result_icon);
         resultIcon.setVisibility(View.GONE);
-        resultText = findViewById(R.id.phishing_result_text);
+
 
         timerSeconds = phModel.getZeit();
         context.setText("Absender " + phModel.getAbsender() + "\n" + "\n" + "Betreff: " +
                 phModel.getBetreff() + "\n" + "\n" + phModel.getKontext());
+
+        context.setMovementMethod(new ScrollingMovementMethod());
+        context.setScrollbarFadingEnabled(false);
 
         spam_btn = findViewById(R.id.spam_btn);
         spam_btn.setBackgroundColor(Color.GREEN);

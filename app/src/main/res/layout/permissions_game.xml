@@ -47,7 +47,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameIcon" />
+        app:layout_constraintTop_toBottomOf="@+id/gameIcon"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Switch
         android:id="@+id/camera_id"
@@ -153,7 +154,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/camera_id"
         app:layout_constraintTop_toTopOf="@+id/gameIcon"
-        app:layout_constraintVertical_bias="0.351"
+        app:layout_constraintVertical_bias="0.414"
         app:srcCompat="@android:color/white" />
 
     <ImageView
@@ -161,14 +162,13 @@
         android:layout_width="23dp"
         android:layout_height="24dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@+id/position_id"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499"
+        app:layout_constraintVertical_bias="0.54"
         app:srcCompat="@android:color/background_light" />
 
     <ImageView
@@ -184,7 +184,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/contact_id"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.681"
+        app:layout_constraintVertical_bias="0.662"
         app:srcCompat="@android:color/background_light" />
 
 
@@ -219,7 +219,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/sms_id"
         app:layout_constraintTop_toTopOf="@+id/gameIcon"
-        app:layout_constraintVertical_bias="0.798"
+        app:layout_constraintVertical_bias="0.778"
         app:srcCompat="@android:color/background_light" />
 
     <Button
