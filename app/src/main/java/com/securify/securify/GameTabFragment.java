@@ -39,41 +39,6 @@ public class GameTabFragment extends Fragment{
         passwordBar = view.findViewById(R.id.passwordProgressBar);
         permissionsBar = view.findViewById(R.id.permissionsProgressBar);
 
-
-
-        /*
-        android.view.animation.Animation an = new android.view.animation.RotateAnimation(0.0f, 90.0f, 250f, 273f);
-        an.setFillAfter(true);
-        phishingBar.startAnimation(an);
-        passwordBar.startAnimation(an);
-        permissionsBar.startAnimation(an);
-        */
-
-        /*
-        //demo behaviour
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (pStatus <= 100) {
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            phishingBar.setProgress(pStatus);
-                            passwordBar.setProgress(pStatus);
-                            permissionsBar.setProgress(pStatus);
-                        }
-                    });
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    pStatus++;
-                }
-            }
-        }).start();
-        */
-
         phishingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,14 +76,51 @@ public class GameTabFragment extends Fragment{
 
     }
 
+    private void clickAnimation(final ProgressBar bar){
+                /*
+        android.view.animation.Animation an = new android.view.animation.RotateAnimation(0.0f, 90.0f, 250f, 273f);
+        an.setFillAfter(true);
+        phishingBar.startAnimation(an);
+        passwordBar.startAnimation(an);
+        permissionsBar.startAnimation(an);
+        */
+
+
+        //demo behaviour
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (pStatus <= 100) {
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            bar.setProgress(pStatus);
+                        }
+                    });
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    pStatus++;
+                }
+            }
+        }).start();
+
+
+    }
+
     public void onClick(View v, String game_name) {
         Intent i;
-        if (game_name.equals("phishing"))
+        if (game_name.equals("phishing")) {
             i = new Intent(getActivity(), PhishingActivity.class);
-        else if (game_name.equals("password"))
+        }
+        else if (game_name.equals("password")) {
             i = new Intent(getActivity(), PasswordActivity.class);
-        else
+        }
+        else {
             i = new Intent(getActivity(), PermissionActivity.class);
+        }
         startActivity(i);
     }
 

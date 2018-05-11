@@ -22,13 +22,13 @@
 
     <ImageView
         android:id="@+id/gameIcon"
-        android:layout_width="45dp"
-        android:layout_height="47dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/round_buttons"
-        android:src="@drawable/ic_lock"
+        android:src="@drawable/ic_key"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
     <TextView
         android:id="@+id/permission_textbox"
         android:layout_width="match_parent"
-        android:layout_height="117dp"
+        android:layout_height="120dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
@@ -149,12 +149,11 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/camera_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/camera_id"
-        app:layout_constraintTop_toTopOf="@+id/gameIcon"
-        app:layout_constraintVertical_bias="0.414"
+        app:layout_constraintTop_toTopOf="@+id/camera_id"
         app:srcCompat="@android:color/white" />
 
     <ImageView
@@ -163,12 +162,11 @@
         android:layout_height="24dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/position_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/position_id"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.54"
+        app:layout_constraintTop_toTopOf="@+id/position_id"
         app:srcCompat="@android:color/background_light" />
 
     <ImageView
@@ -179,14 +177,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/contact_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/contact_id"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.662"
+        app:layout_constraintTop_toTopOf="@+id/contact_id"
         app:srcCompat="@android:color/background_light" />
-
 
 
     <ImageView
@@ -197,12 +193,11 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/microphone_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/gameIcon"
-        app:layout_constraintVertical_bias="0.907"
+        app:layout_constraintTop_toTopOf="@+id/microphone_id"
         app:srcCompat="@android:color/background_light" />
 
 
@@ -214,12 +209,11 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/sms_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/sms_id"
-        app:layout_constraintTop_toTopOf="@+id/gameIcon"
-        app:layout_constraintVertical_bias="0.778"
+        app:layout_constraintTop_toTopOf="@+id/sms_id"
         app:srcCompat="@android:color/background_light" />
 
     <Button
@@ -241,6 +235,7 @@
         android:id="@+id/camera_text"
         android:layout_width="59dp"
         android:layout_height="22dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -254,6 +249,7 @@
         android:id="@+id/position_text"
         android:layout_width="59dp"
         android:layout_height="22dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -267,6 +263,7 @@
         android:id="@+id/contact_text"
         android:layout_width="59dp"
         android:layout_height="22dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -280,6 +277,7 @@
         android:id="@+id/sms_text"
         android:layout_width="59dp"
         android:layout_height="22dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -293,6 +291,7 @@
         android:id="@+id/microphone_text"
         android:layout_width="59dp"
         android:layout_height="22dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -304,35 +303,22 @@
 
     <ImageButton
         android:id="@+id/permission_hint_icon"
-        android:layout_width="59dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="496dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/ic_lightbulb"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/permission_hint_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.974"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_lightbulb" />
 
     <TextView
         android:id="@+id/permission_hint_text"
-        android:layout_width="186dp"
-        android:layout_height="42dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="68dp"
+        android:layout_width="189dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
         android:text="TextView"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.002" />
+        app:layout_constraintBottom_toTopOf="@+id/permission_textbox"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
