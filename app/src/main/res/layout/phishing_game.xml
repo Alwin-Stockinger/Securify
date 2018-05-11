@@ -26,8 +26,8 @@
 
     <ImageView
         android:id="@+id/gameIcon"
-        android:layout_width="45dp"
-        android:layout_height="47dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -44,11 +44,11 @@
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/ic_lightbulb"
         android:src="@drawable/ic_lightbulb"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintHorizontal_bias="0.754"
         app:layout_constraintStart_toEndOf="@+id/gameIcon"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -137,7 +137,6 @@
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phishing_result_icon" />
 
@@ -152,7 +151,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hint_phishing_id"
-        app:layout_constraintVertical_bias="0.008" />
+        app:layout_constraintVertical_bias="0.039" />
 
     <TextView
         android:id="@+id/phishing_explanationFalse_id"
@@ -166,7 +165,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phishing_result_text"
-        app:layout_constraintVertical_bias="0.631" />
+        app:layout_constraintTop_toBottomOf="@+id/phishing_result_text" />
 
 </android.support.constraint.ConstraintLayout>
