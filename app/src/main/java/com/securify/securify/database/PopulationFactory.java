@@ -67,10 +67,10 @@ public class PopulationFactory {
         model1.setMikrofon(false);
         model1.setPosition(true);
         model1.setSms(false);
-        model1.setErklaerung("Um den Ort zu speichern braucht die ob deine Position und für die Fotos die Kamera");
+        model1.setErklaerung("Um den Ort zu speichern braucht die App deine Position und für die Fotos die Kamera");
         model1.setZeit(15);  //15 sekunden Zeit
         model1.setSprache("DE"); //Sprache ist Deutsch
-        model1.setKontext("Du Willst eine Foto App installieren die zusätzlich noch den Ort deiner Fotos speichert");
+        model1.setKontext("Du willst eine Foto-App installieren die zusätzlich noch den Ort deiner Fotos speichert");
         model1.setSchwierigkeit("EASY");
         model1.setTipp("Um den Ort zu speichern muss die App wissen wo du dich gerade befindest");
 
@@ -83,7 +83,7 @@ public class PopulationFactory {
         model2.setErklaerung("Die App muss auf deine SMS zugreifen können um diese zu verschicken. Da du nicht an den Sprachnachrichten interessiert bist, solltest du das Mikrofon nicht erlauben.");
         model2.setZeit(10);
         model2.setSprache("DE"); //Sprache ist Deutsch
-        model2.setKontext("Du willst eine neue Messenger App herunterladen, die auch SMS verschicken kann, zusätzlich kann die App auch Sprachnachrichten aufnehmen und verscicken, woran du aber nicht interessiert bist.");
+        model2.setKontext("Du willst eine neue Messenger-App herunterladen, die auch SMS verschicken kann, zusätzlich kann die App auch Sprachnachrichten aufnehmen und verschicken, woran du aber nicht interessiert bist.");
         model2.setSchwierigkeit("MEDIUM");
         model2.setTipp("Was dich nicht interessiert solltest du auch nicht erlauben!");
 
@@ -93,10 +93,10 @@ public class PopulationFactory {
         model3.setMikrofon(true);
         model3.setPosition(true);
         model3.setSms(false);
-        model3.setErklaerung("Mikrofon und Kamera sind nötig um Videos mit Ton aufzunehemen. Deine Kontakte werden gebraucht um damit die App deine Freunde in den Videos markieren kann");
+        model3.setErklaerung("Mikrofon und Kamera sind nötig um Videos mit Ton aufzunehemen. Deine Kontakte werden gebraucht, damit die App deine Freunde in den Videos markieren kann");
         model3.setZeit(8);
         model3.setSprache("DE"); //Sprache ist Deutsch
-        model3.setKontext("Du Willst eine Video aufnahme App installieren, die die Funktion hat Freunde die du als Kontakte am Handy mit Bild eingespeichert hast im Video zu markieren");
+        model3.setKontext("Du Willst eine Videoaufnahme-App installieren, die die Funktion hat Freunde, die du als Kontakte am Handy mit Bild eingespeichert hast, im Video zu markieren");
         model3.setSchwierigkeit("HARD");
         model3.setTipp("Videos brauchen Ton!");
 
