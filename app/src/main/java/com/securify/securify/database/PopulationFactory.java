@@ -63,40 +63,40 @@ public class PopulationFactory {
 
         PermissionModel model1=new PermissionModel();
         model1.setKamera(true);
-        model1.setKontake(true);
-        model1.setMikrofon(true);
+        model1.setKontake(false);
+        model1.setMikrofon(false);
         model1.setPosition(true);
-        model1.setSms(true);
-        model1.setErklaerung("Um den Ort zu speichern braucht die ob deine Position und für die Fotos die Kamera");
-        model1.setZeit(24);  //15 sekunden Zeit
+        model1.setSms(false);
+        model1.setErklaerung("Um den Ort zu speichern braucht die App deine Position und für die Fotos die Kamera");
+        model1.setZeit(15);  //15 sekunden Zeit
         model1.setSprache("DE"); //Sprache ist Deutsch
-        model1.setKontext("Du Willst eine Foto App installieren die zusätzlich noch den Ort deiner Fotos speichert");
+        model1.setKontext("Du willst eine Foto-App installieren die zusätzlich noch den Ort deiner Fotos speichert");
         model1.setSchwierigkeit("EASY");
         model1.setTipp("Um den Ort zu speichern muss die App wissen wo du dich gerade befindest");
 
         PermissionModel model2=new PermissionModel();
-        model2.setKamera(true);
-        model2.setKontake(true);
-        model2.setMikrofon(true);
-        model2.setPosition(true);
+        model2.setKamera(false);
+        model2.setKontake(false);
+        model2.setMikrofon(false);
+        model2.setPosition(false);
         model2.setSms(true);
         model2.setErklaerung("Die App muss auf deine SMS zugreifen können um diese zu verschicken. Da du nicht an den Sprachnachrichten interessiert bist, solltest du das Mikrofon nicht erlauben.");
-        model2.setZeit(20);
+        model2.setZeit(10);
         model2.setSprache("DE"); //Sprache ist Deutsch
-        model2.setKontext("Du willst eine neue Messenger App herunterladen, die auch SMS verschicken kann, zusätzlich kann die App auch Sprachnachrichten aufnehmen und verscicken, woran du aber nicht interessiert bist.");
+        model2.setKontext("Du willst eine neue Messenger-App herunterladen, die auch SMS verschicken kann, zusätzlich kann die App auch Sprachnachrichten aufnehmen und verschicken, woran du aber nicht interessiert bist.");
         model2.setSchwierigkeit("MEDIUM");
         model2.setTipp("Was dich nicht interessiert solltest du auch nicht erlauben!");
 
         PermissionModel model3=new PermissionModel();
         model3.setKamera(true);
-        model3.setKontake(true);
+        model3.setKontake(false);
         model3.setMikrofon(true);
         model3.setPosition(true);
-        model3.setSms(true);
-        model3.setErklaerung("Mikrofon und Kamera sind nötig um Videos mit Ton aufzunehemen. Deine Kontakte werden gebraucht um damit die App deine Freunde in den Videos markieren kann");
-        model3.setZeit(18);
+        model3.setSms(false);
+        model3.setErklaerung("Mikrofon und Kamera sind nötig um Videos mit Ton aufzunehemen. Deine Kontakte werden gebraucht, damit die App deine Freunde in den Videos markieren kann");
+        model3.setZeit(8);
         model3.setSprache("DE"); //Sprache ist Deutsch
-        model3.setKontext("Du Willst eine Video aufnahme App installieren, die die Funktion hat Freunde die du als Kontakte am Handy mit Bild eingespeichert hast im Video zu markieren");
+        model3.setKontext("Du Willst eine Videoaufnahme-App installieren, die die Funktion hat Freunde, die du als Kontakte am Handy mit Bild eingespeichert hast, im Video zu markieren");
         model3.setSchwierigkeit("HARD");
         model3.setTipp("Videos brauchen Ton!");
 
@@ -232,58 +232,31 @@ public class PopulationFactory {
 
     public List<AchievementModel> getAchievementModels(){
 
-        //PASSWORD ACHIEVMENTS
         AchievementModel ach1=new AchievementModel();
         ach1.setId(1);
         ach1.setTitle("Passwort-Experte");
-        ach1.setContext("Erreichen Sie über 60% beim Passwortspiel.");
+        ach1.setContext("Erreiche über 60% beim Passwortspiel.");
         ach1.setDifficulty("EASY");
         ach1.setLanguage("DE");
 
         AchievementModel ach2=new AchievementModel();
         ach2.setId(2);
         ach2.setTitle("Passwort-Spezialist");
-        ach2.setContext("Erreichen Sie über 65% beim Passwortspiel mit weniger als 3 Sonderzeichen.");
+        ach2.setContext("Erreiche über 65% beim Passwortspiel mit weniger als 3 Sonderzeichen.");
         ach2.setDifficulty("MEDIUM");
         ach2.setLanguage("DE");
 
         AchievementModel ach3=new AchievementModel();
         ach3.setId(3);
         ach3.setTitle("Passwort-Meister");
-        ach3.setContext("Erreichen Sie über 70% beim Passwortspiel mit weniger als 3 Sonderzeichen und weniger als 3 Zahlen.");
+        ach3.setContext("Erreiche über 70% beim Passwortspiel mit weniger als 3 Sonderzeichen und weniger als 3 Zahlen.");
         ach3.setDifficulty("HARD");
         ach3.setLanguage("DE");
-
-        //PERMISSION ACHIEVEMENTS
-        AchievementModel ach4=new AchievementModel();
-        ach4.setId(4);
-        ach4.setTitle("Zugriffe absichern");
-        ach4.setContext("Beantworten Sie 2 Fragen hintereinander richtig.");
-        ach4.setDifficulty("EASY");
-        ach4.setLanguage("DE");
-
-        AchievementModel ach5=new AchievementModel();
-        ach5.setId(5);
-        ach5.setTitle("Zugriffe schnell absichern");
-        ach5.setContext("Beantworten Sie 2 Fragen hintereinander richtig, ohne länger als 50% der gegebenen Zeit für jedes Spiel zu benötigen.");
-        ach5.setDifficulty("MEDIUM");
-        ach5.setLanguage("DE");
-
-        AchievementModel ach6 = new AchievementModel();
-        ach6.setId(6);
-        ach6.setTitle("Sicherheitsexperte");
-        ach6.setContext("Beantworten Sie 3 Fragen hintereinander richtig, ohne länger als 30% der gegebenen Zeit für jedes Spiel zu benötigen.");
-        ach6.setDifficulty("HARD");
-        ach6.setLanguage("DE");
 
         List<AchievementModel> list=new ArrayList<>();
         list.add(ach1);
         list.add(ach2);
         list.add(ach3);
-        list.add(ach4);
-        list.add(ach5);
-        list.add(ach6);
-
 
         return list;
     }

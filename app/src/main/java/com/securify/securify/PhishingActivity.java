@@ -19,6 +19,8 @@ import com.securify.securify.model.gameModels.PhishingModel;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static android.graphics.Color.parseColor;
+
 public class PhishingActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button spam_btn;
@@ -70,11 +72,11 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
         context.setScrollbarFadingEnabled(false);
 
         spam_btn = findViewById(R.id.spam_btn);
-        spam_btn.setBackgroundColor(Color.GREEN);
+        spam_btn.setBackgroundColor(parseColor("#64dd17"));
         spam_btn.setOnClickListener(this);
 
         no_spam_btn = findViewById(R.id.no_spam_btn);
-        no_spam_btn.setBackgroundColor(Color.RED);
+        no_spam_btn.setBackgroundColor(parseColor("#e53935"));
         no_spam_btn.setOnClickListener(this);
 
         hint_Btn = findViewById(R.id.hint_phishing_id);
@@ -91,7 +93,7 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
         hint_text = findViewById(R.id.phishing_hint_text_id);
         hint_text.setText(phModel.getTipp());
         hint_text.setVisibility(View.GONE);
-        hint_text.setTextColor(Color.parseColor("#5e4ceb"));
+        hint_text.setTextColor(parseColor("#5e4ceb"));
 
         //Timer settings
         int delay = 1000;
@@ -139,7 +141,7 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
                                 anim.setRepeatMode(Animation.REVERSE);
                                 anim.setRepeatCount(Animation.INFINITE);
                                 counter.startAnimation(anim);
-                                counter.setTextColor(Color.RED);
+                                counter.setTextColor(parseColor("#c30000"));
                             }
                         });
                     }
