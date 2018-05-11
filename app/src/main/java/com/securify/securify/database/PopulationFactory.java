@@ -154,7 +154,7 @@ public class PopulationFactory {
         ach2.setDifficulty("MEDIUM");
         ach2.setLanguage("DE");
 
-        List<AchievementModel> list=new ArrayList<AchievementModel>();
+        List<AchievementModel> list=new ArrayList<>();
         list.add(ach1);
         list.add(ach2);
 
