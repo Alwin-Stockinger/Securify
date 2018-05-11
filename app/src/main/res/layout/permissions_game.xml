@@ -155,7 +155,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/camera_id"
         app:layout_constraintTop_toTopOf="@+id/camera_id"
-        app:srcCompat="#eeeeee" />
+        android:background="#eeeeee" />
 
     <ImageView
         android:id="@+id/position_icon_id"
@@ -168,7 +168,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/position_id"
         app:layout_constraintTop_toTopOf="@+id/position_id"
-        app:srcCompat="#eeeeee" />
+        android:background="#eeeeee" />
 
     <ImageView
         android:id="@+id/contact_icon_id"
@@ -183,7 +183,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/contact_id"
         app:layout_constraintTop_toTopOf="@+id/contact_id"
-        app:srcCompat="#eeeeee" />
+        android:background="#eeeeee" />
 
 
     <ImageView
@@ -199,7 +199,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/microphone_id"
-        app:srcCompat="#eeeeee" />
+        android:background="#eeeeee" />
 
 
     <ImageView
@@ -215,7 +215,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/sms_id"
         app:layout_constraintTop_toTopOf="@+id/sms_id"
-        app:srcCompat="#eeeeee" />
+        android:background="#eeeeee" />
 
     <Button
         android:id="@+id/permission_finish_btn"

@@ -215,7 +215,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    cameraIcon.setImageResource(R.mipmap.true_icon);
+                    cameraIcon.setImageResource(R.mipmap.true_icon2);
                     camera.setBackgroundColor(Color.parseColor("#d9ffe1"));
                     cameraText.setText("Richtig!");
                     cameraText.setTextColor(Color.GREEN);
@@ -239,7 +239,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    positionIcon.setImageResource(R.mipmap.true_icon);
+                    positionIcon.setImageResource(R.mipmap.true_icon2);
                     position.setBackgroundColor(Color.parseColor("#d9ffe1"));
                     positionText.setText("Richtig!");
                     positionText.setTextColor(Color.GREEN);
@@ -263,7 +263,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    contactIcon.setImageResource(R.mipmap.true_icon);
+                    contactIcon.setImageResource(R.mipmap.true_icon2);
                     contact.setBackgroundColor(Color.parseColor("#d9ffe1"));
                     contactText.setText("Richtig!");
                     contactText.setTextColor(Color.GREEN);
@@ -287,7 +287,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    smsIcon.setImageResource(R.mipmap.true_icon);
+                    smsIcon.setImageResource(R.mipmap.true_icon2);
                     sms.setBackgroundColor(Color.parseColor("#d9ffe1"));
                     smsText.setText("Richtig!");
                     smsText.setTextColor(Color.GREEN);
@@ -310,7 +310,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    microphoneIcon.setImageResource(R.mipmap.true_icon);
+                    microphoneIcon.setImageResource(R.mipmap.true_icon2);
                     microphone.setBackgroundColor(Color.parseColor("#d9ffe1"));
                     microphoneText.setText("Richtig!");
                     microphoneText.setTextColor(Color.GREEN);
