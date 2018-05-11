@@ -103,14 +103,13 @@
 
     <TextView
         android:id="@+id/mail_view_id"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="331dp"
+        android:layout_height="271dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:fadeScrollbars="false"
-        android:maxLines="15"
+        android:maxLines="18"
         android:scrollbars="vertical"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/spam_btn"
@@ -125,9 +124,8 @@
         android:layout_height="70dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toStartOf="@+id/no_spam_btn"
-        app:layout_constraintHorizontal_bias="0.548"
         app:layout_constraintStart_toEndOf="@+id/spam_btn"
         app:layout_constraintTop_toBottomOf="@+id/mail_view_id"
         app:srcCompat="@drawable/custom_progressbar_drawable" />
@@ -139,6 +137,7 @@
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phishing_result_icon" />
 
@@ -158,8 +157,7 @@
     <TextView
         android:id="@+id/phishing_explanationFalse_id"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="24dp"
+        android:layout_height="57dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:textAlignment="center"
@@ -169,6 +167,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phishing_result_text"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.631" />
 
 </android.support.constraint.ConstraintLayout>
