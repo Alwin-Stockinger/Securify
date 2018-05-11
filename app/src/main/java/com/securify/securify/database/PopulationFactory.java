@@ -234,21 +234,29 @@ public class PopulationFactory {
 
         AchievementModel ach1=new AchievementModel();
         ach1.setId(1);
-        ach1.setTitle("Passwort Expterte");
-        ach1.setContext("Erreiche über 70% beim Passwortspiel");
+        ach1.setTitle("Passwort-Experte");
+        ach1.setContext("Erreiche über 60% beim Passwortspiel.");
         ach1.setDifficulty("EASY");
         ach1.setLanguage("DE");
 
         AchievementModel ach2=new AchievementModel();
         ach2.setId(2);
-        ach2.setTitle("Passwort Spezialist");
-        ach2.setContext("Erreiche über 65% beim Passwortspiel mit weniger als 2 Sonderzeichen");
+        ach2.setTitle("Passwort-Spezialist");
+        ach2.setContext("Erreiche über 65% beim Passwortspiel mit weniger als 3 Sonderzeichen.");
         ach2.setDifficulty("MEDIUM");
         ach2.setLanguage("DE");
+
+        AchievementModel ach3=new AchievementModel();
+        ach3.setId(3);
+        ach3.setTitle("Passwort-Meister");
+        ach3.setContext("Erreiche über 70% beim Passwortspiel mit weniger als 3 Sonderzeichen und weniger als 3 Zahlen.");
+        ach3.setDifficulty("HARD");
+        ach3.setLanguage("DE");
 
         List<AchievementModel> list=new ArrayList<>();
         list.add(ach1);
         list.add(ach2);
+        list.add(ach3);
 
 
         return list;

@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.securify.securify.model.achievementModels.AchievementModel;
 import com.securify.securify.model.gameModels.PasswordModel;
 import com.securify.securify.model.MainModel;
 
@@ -38,6 +39,8 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
 
     private ImageButton backBtn;
 
+    private MainModel model;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +48,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
 
 
         //Model things
-        MainModel model=new MainModel(getApplicationContext());
+        model=new MainModel(getApplicationContext());
         PasswordModel gameModel=model.getPassGameById(1);
 
         final int minLength=gameModel.getMin_length();
@@ -194,37 +197,64 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
                 int counterDigit = 0;
                 int counterUpper = 0;
                 int counterSpecial_Symbol = 0;
+                int counterLetter = 0;
 
                 for (int i = 0; i < inputText.length(); i++) {
                     ch = inputText.charAt(i);
+
+                    if (!Character.isUpperCase(ch) && !Character.isDigit(ch) && Character.isLetter(ch)) {
+                        counterLetter++;
+                        if (counterLetter <= 3) percentage += 5; //20
+                        else if (counterLetter <= 8 && counterLetter > 3) percentage += 3; //15
+                        else if (counterLetter >= 9) percentage += 1; //6
+                    }
+
                     if (Character.isUpperCase(ch)) {
                         counterUpper++;
-                        if (counterUpper == 1) percentage += 6;
+                        if (counterUpper == 1) percentage += 5;
                         if (counterUpper == 2) percentage += 4;
                         if (counterUpper == 3) percentage += 3;
                         if (counterUpper == 4) percentage += 2;
                         if (counterUpper >= 5) percentage += 1;
+                        //16
                     }
-                    if (Character.isDigit(ch)) {
+                    else if (Character.isDigit(ch)) {
                         counterDigit++;
                         if (counterDigit == 1) percentage += 8;
                         if (counterDigit == 2) percentage += 5;
                         if (counterDigit == 3) percentage += 3;
                         if (counterDigit == 4) percentage += 2;
                         if (counterDigit >= 5) percentage += 1;
+                        //19
                     }
-                    if (special_symbol_bool) {
+                    else if (!Character.isLetter(ch)){
                         counterSpecial_Symbol++;
-                        if (counterSpecial_Symbol == 1) percentage += 10;
-                        if (counterSpecial_Symbol == 2) percentage += 8;
+                        if (counterSpecial_Symbol == 1) percentage += 9;
+                        if (counterSpecial_Symbol == 2) percentage += 7;
                         if (counterSpecial_Symbol == 3) percentage += 5;
                         if (counterSpecial_Symbol == 4) percentage += 3;
                         if (counterSpecial_Symbol >= 5) percentage += 1;
+                        //25
                     }
 
                 }
-                if (inputText.length() > 10) percentage += 10;
-                else percentage += inputText.length();
+
+                //Achievements
+                if (percentage >= 60 && model.achievementSuccess(1)) {
+                    Toast.makeText(PasswordActivity.this,
+                            "Sie haben den Erfolg " + model.getAchievement(1).getTitle() + " erreicht!",
+                            Toast.LENGTH_LONG).show();
+                }
+                else if (percentage >= 65 && counterSpecial_Symbol <= 2 && model.achievementSuccess(2)) {
+                    Toast.makeText(PasswordActivity.this,
+                            "Sie haben den Erfolg " + model.getAchievement(2).getTitle() + " erreicht!",
+                            Toast.LENGTH_LONG).show();
+                }
+                else if (percentage >= 70  && counterDigit <= 2 && counterSpecial_Symbol <= 2 && model.achievementSuccess(3)) {
+                    Toast.makeText(PasswordActivity.this,
+                            "Sie haben den Erfolg " + model.getAchievement(3).getTitle() + " erreicht!",
+                            Toast.LENGTH_LONG).show();
+                }
 
                 prozent_view.setText(Integer.toString(percentage) + "%");
                 break;
