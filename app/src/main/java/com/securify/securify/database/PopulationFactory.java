@@ -135,7 +135,7 @@ public class PopulationFactory {
         model2.setAbsender("from: info@twitter.com");
         model2.setBetreff("An update on your account security");
         model2.setIs_phishing(false);
-        model2.setErklaerung("Das ist eine echte Email die Twitter ausgesendet hat. Die Email hat weder Rechtschreibfehler noch ist der Absender von einer seltsamen Adresse. Man wird auch nicht direkt aufgerufen auf einen seltsamen Link zu drücken.");
+        model2.setErklaerung("Das ist eine echte Email die Twitter ausgesendet hat. Die Email hat weder Rechtschreibfehler noch ist der Absender von einer seltsamen Adresse und es befinden sich keine dubiosen Links in der E-Mail.");
         model2.setZeit(50);
         model2.setSprache("DE"); //Sprache ist Deutsch
         model2.setKontext("Hi ,\n" +
