@@ -71,6 +71,9 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
     private TextView permission_hint_text;
     final Timer time = new Timer();
 
+
+    boolean stopped=false;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -427,18 +430,26 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    @Override
+    protected void onStop(){
+        super.onStop();
+        stopped=true;
+    }
+
     void showNextGame() {
         new java.util.Timer().schedule(
                 new java.util.TimerTask() {
                     @Override
                     public void run() {
-                        Intent intent = new Intent(PermissionActivity.this, PermissionActivity.class);
-                        Bundle b = new Bundle();
-                        b.putInt("key", TrueAnswers);
-                        b.putInt("key2", TrueAnswersInTime);
-                        b.putInt("key3", TrueAnswersInTime2);
-                        intent.putExtras(b);
-                        startActivity(intent);
+                        if(!stopped){
+                            Intent intent = new Intent(PermissionActivity.this, PermissionActivity.class);
+                            Bundle b = new Bundle();
+                            b.putInt("key", TrueAnswers);
+                            b.putInt("key2", TrueAnswersInTime);
+                            b.putInt("key3", TrueAnswersInTime2);
+                            intent.putExtras(b);
+                            startActivity(intent);
+                        }
                         PermissionActivity.this.finish();
 
                     }
