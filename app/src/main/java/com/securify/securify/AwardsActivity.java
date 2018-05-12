@@ -1,9 +1,9 @@
 package com.securify.securify;
 
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -17,10 +17,11 @@ import com.securify.securify.model.achievementModels.AchievementModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AwardsActivity extends AppCompatActivity{
+public class AwardsActivity extends AppCompatActivity implements View.OnClickListener{
 
     List<TextView> achTexts;
     List<ImageView> achIcons;
+    List<ImageButton> achInfos;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,7 +55,18 @@ public class AwardsActivity extends AppCompatActivity{
         achIcons.add((ImageView) findViewById(R.id.secExpertIcon));
 
         //InfoButtons
-        //when clicked shows context in a message?
+        achInfos=new ArrayList<>();
+        achInfos.add((ImageButton) findViewById(R.id.pwExpertInfo));
+        achInfos.add((ImageButton) findViewById(R.id.pwSpecInfo));
+        achInfos.add((ImageButton) findViewById(R.id.pwMasterInfo));
+        achInfos.add((ImageButton) findViewById(R.id.secInfo));
+        achInfos.add((ImageButton) findViewById(R.id.quickSecInfo));
+        achInfos.add((ImageButton) findViewById(R.id.secExpertInfo));
+
+        for(int i=0;i<achInfos.size();++i){
+            achInfos.get(i).setOnClickListener(this);
+        }
+
     }
 
     @Override
@@ -87,11 +99,44 @@ public class AwardsActivity extends AppCompatActivity{
                             achIcons.get(i).setImageResource(R.drawable.green_shield);
                             break;
                         default:
-                            Log.d("Achievements","Error: Could not set icon.");
+                            Log.e("Achievements","Error: Could not set icon.");
                     }
                 }
             }
         }
     }
 
+    @Override
+    public void onClick(View view) {
+        MainModel model=new MainModel(getApplicationContext());
+        long awardId=0;
+
+        switch (view.getId()){
+            case R.id.pwExpertInfo:
+                awardId=1;
+                break;
+            case R.id.pwSpecInfo:
+                awardId=2;
+                break;
+            case R.id.pwMasterInfo:
+                awardId=3;
+                break;
+            case R.id.secInfo:
+                awardId=4;
+                break;
+            case R.id.quickSecInfo:
+                awardId=5;
+                break;
+            case R.id.secExpertInfo:
+                awardId=6;
+                break;
+            default:
+                Log.e("Achievements","Could not identify clicker");
+        }
+
+        //show Achievement Info
+        Snackbar infoSnackbar=Snackbar.make(view,model.getAchievement(awardId).getContext(),10000);
+        infoSnackbar.show();
+
+    }
 }
