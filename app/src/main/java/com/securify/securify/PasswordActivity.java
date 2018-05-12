@@ -243,6 +243,18 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
 
                 }
 
+
+                //if password was already used in an earlier gamy by this user, the percantage will be decreased by 5% for every time it was used
+                percentage-=5*model.amountPassworUsed(inputText);
+
+                //insert password as used, so it will bring disadvantage if used again
+                model.setPasswordUsed(inputText);
+
+
+                //set highscore
+                model.setUserPasswordHighscore(percentage);
+
+
                 //Geschafft
                 if(percentage>=60){
                     model.setPasswordSucceeded(gameModel,true);

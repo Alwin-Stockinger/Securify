@@ -12,6 +12,8 @@ import java.util.List;
 @Dao
 public abstract class UsedPasswordUserDao implements BaseDao<UsedPasswordUserModel> {
 
+    @Query("SELECT usedPasswordUserJoin.* FROM usedPasswordUserJoin INNER JOIN usedPassword On usedPasswordUserJoin.passwordId=usedPassword.id WHERE (userId=:userId AND usedPassword.password=:password)")
+    public abstract UsedPasswordUserModel getUsedPasswordUserModelByUserIdAndPassword(long userId, String password);
 
     @Query("SELECT usedPassword.* FROM usedPasswordUserJoin INNER JOIN usedPassword ON usedPasswordUserJoin.passwordId=usedPassword.id WHERE userId=:userId")
     public abstract List<UsedPasswordModel> getUsedPasswordModelByUserId(long userId);

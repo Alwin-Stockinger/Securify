@@ -182,7 +182,7 @@ public class PopulationFactory {
 
         //set all values
         UserModel model1=new UserModel("Razvan");
-        model1.setPasswordHighscore(9001);
+        model1.setPasswordHighscore(99);
         model1.setPermissionHighscore(0);
         model1.setPhishingHighscore(0);
         model1.setLanguage("DE");

@@ -159,23 +159,43 @@ public class MainModel {
         return inserList;
     }
 
-    //Password Used Methods, This Methods are for checking if password was already used and inserting used passwords
+    //Password Used Methods, This Methods are for checking if password was already used and inserting used passwords and counting how many times the password was already used
     public boolean isPasswordUsed(String password){
         return db.usedPasswordUserDao().isPasswordUsedByUserId(password,activeUser.getId());
     }
 
-    public void setPasswordUsed(String password){
-        long passwordId;
-        if(db.usedPasswordDao().doesExist(password)){
-            passwordId=db.usedPasswordDao().getUsedPasswordByPassword(password).getId();
-        }
-        else{
-            UsedPasswordModel usedPasswordModel=new UsedPasswordModel(password);
-            passwordId=db.usedPasswordDao().insertGetLong(usedPasswordModel);
-        }
-        UsedPasswordUserModel usedPasswordUserModel=new UsedPasswordUserModel(activeUser.getId(),passwordId);
-        db.usedPasswordUserDao().insert(usedPasswordUserModel);
+    public int amountPassworUsed(String password){
+        if(!isPasswordUsed(password)) return 0;
+        else return (int) db.usedPasswordUserDao().getUsedPasswordUserModelByUserIdAndPassword(activeUser.getId(),password).getCount();
     }
+
+    public void setPasswordUsed(String password){
+
+        //password does not exist
+        if(!db.usedPasswordDao().doesExist(password)){
+            UsedPasswordModel usedPasswordModel=new UsedPasswordModel(password);
+            long passwordId=db.usedPasswordDao().insertGetLong(usedPasswordModel);
+            UsedPasswordUserModel usedPasswordUserModel=new UsedPasswordUserModel(activeUser.getId(),passwordId);
+            db.usedPasswordUserDao().insert(usedPasswordUserModel);
+        }
+
+        //password exists, but not for user
+        else if(!isPasswordUsed(password)){
+            long passwordId=db.usedPasswordDao().getUsedPasswordByPassword(password).getId();
+            UsedPasswordUserModel usedPasswordUserModel=new UsedPasswordUserModel(activeUser.getId(),passwordId);
+            db.usedPasswordUserDao().insert(usedPasswordUserModel);
+        }
+
+        //password exists
+        else{
+            UsedPasswordUserModel usedPasswordUserModel=db.usedPasswordUserDao().getUsedPasswordUserModelByUserIdAndPassword(activeUser.getId(),password);
+            usedPasswordUserModel.addOneCount();
+            db.usedPasswordUserDao().update(usedPasswordUserModel);
+        }
+
+    }
+
+
 
     //User Methods---------------------------------
     public UserModel changeUser(String name){

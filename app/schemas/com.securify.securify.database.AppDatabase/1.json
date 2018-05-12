@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "94f6c22bd471e4c6ec1da29041ccdcc9",
+    "identityHash": "01a821b3aebe3538c0ac2b544d57fc9c",
     "entities": [
       {
         "tableName": "passwortspiel",
@@ -604,7 +604,7 @@
       },
       {
         "tableName": "usedPasswordUserJoin",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `passwordId` INTEGER NOT NULL, PRIMARY KEY(`userId`, `passwordId`), FOREIGN KEY(`userId`) REFERENCES `user`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`passwordId`) REFERENCES `usedPassword`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `passwordId` INTEGER NOT NULL, `count` INTEGER NOT NULL, PRIMARY KEY(`userId`, `passwordId`), FOREIGN KEY(`userId`) REFERENCES `user`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`passwordId`) REFERENCES `usedPassword`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "userId",
@@ -615,6 +615,12 @@
           {
             "fieldPath": "passwordId",
             "columnName": "passwordId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "count",
+            "columnName": "count",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -1137,7 +1143,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"94f6c22bd471e4c6ec1da29041ccdcc9\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"01a821b3aebe3538c0ac2b544d57fc9c\")"
     ]
   }
 }

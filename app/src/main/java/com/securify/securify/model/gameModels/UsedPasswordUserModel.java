@@ -21,9 +21,12 @@ public class UsedPasswordUserModel {
     private long userId;
     private long passwordId;
 
+    private long count;
+
     public UsedPasswordUserModel(long userId, long passwordId){
         this.userId=userId;
         this.passwordId=passwordId;
+        this.count=1;
     }
 
     public long getUserId() {
@@ -40,5 +43,17 @@ public class UsedPasswordUserModel {
 
     public void setPasswordId(long passwordId) {
         this.passwordId = passwordId;
+    }
+
+    public long getCount() {
+        return count;
+    }
+
+    public void setCount(long count) {
+        this.count = count;
+    }
+
+    public void addOneCount(){
+        this.count++;
     }
 }

@@ -6,14 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.securify.securify.model.MainModel;
-import android.widget.Button;
-import android.widget.ImageButton;
 
 public class SettingsActivity extends AppCompatActivity implements  View.OnClickListener{
 
     EditText userNameInput;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,7 +49,6 @@ public class SettingsActivity extends AppCompatActivity implements  View.OnClick
 
 
 
-        ImageButton backButton = findViewById(R.id.backButton);
-        Button changeLang = findViewById(R.id.changeLanguage);
+        //Button changeLang = findViewById(R.id.changeLanguage);
     }
 }
