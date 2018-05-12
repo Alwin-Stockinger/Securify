@@ -20,6 +20,13 @@ public class SettingsActivity extends AppCompatActivity implements  View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
 
+        ImageButton backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

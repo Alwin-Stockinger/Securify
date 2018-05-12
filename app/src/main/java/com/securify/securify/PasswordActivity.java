@@ -77,9 +77,14 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
         prozent_view = findViewById(R.id.password_prozent);
 
         backBtn = findViewById(R.id.password_game_backBtn);
-        backBtn.setOnClickListener(this);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+                                       @Override
+                                       public void onClick(View v) {
+                                           finish();
+                                       }
+                                   });
 
-        password_confirm_button = findViewById(R.id.password_confirm_btn);
+                password_confirm_button = findViewById(R.id.password_confirm_btn);
         password_confirm_button.setOnClickListener(this);
 
         input.addTextChangedListener(new TextWatcher() {
