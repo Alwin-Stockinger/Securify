@@ -10,7 +10,7 @@
 
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/backButton"
         style="@android:style/Widget.Material.ImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
         app:srcCompat="?attr/actionModeCloseDrawable" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/awardTitle"
         android:layout_width="332dp"
         android:layout_height="43dp"
         android:layout_marginEnd="8dp"
@@ -33,12 +33,12 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+        app:layout_constraintStart_toEndOf="@+id/backButton"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/pwExpertIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -46,25 +46,25 @@
         android:background="@drawable/greyshield"
         android:scaleType="centerInside"
         android:src="@drawable/ic_lock_grey"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintBottom_toBottomOf="@+id/pwExpertText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
+        app:layout_constraintTop_toTopOf="@+id/pwExpertText" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/pwSpecIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="@drawable/greyshield"
         android:scaleType="centerInside"
         android:src="@drawable/ic_lock_grey"
-        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintBottom_toBottomOf="@+id/pwSpecText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView6" />
+        app:layout_constraintTop_toTopOf="@+id/pwSpecText" />
 
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/pwExpertText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -76,11 +76,11 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/pwExpertInfo"
         app:layout_constraintHorizontal_bias="0.435"
-        app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintStart_toEndOf="@+id/pwExpertIcon"
+        app:layout_constraintTop_toBottomOf="@+id/awardTitle" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/pwMasterIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -88,12 +88,12 @@
         android:background="@drawable/greyshield"
         android:scaleType="centerInside"
         android:src="@drawable/ic_lock_grey"
-        app:layout_constraintBottom_toBottomOf="@+id/textView7"
+        app:layout_constraintBottom_toBottomOf="@+id/pwMasterText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView7" />
+        app:layout_constraintTop_toTopOf="@+id/pwMasterText" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/pwSpecText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -104,11 +104,11 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/pwSpecInfo"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintStart_toEndOf="@+id/pwSpecIcon"
+        app:layout_constraintTop_toBottomOf="@+id/pwExpertText" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/pwMasterText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -120,8 +120,8 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/pwMasterInfo"
         app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintStart_toEndOf="@+id/pwMasterIcon"
+        app:layout_constraintTop_toBottomOf="@+id/pwSpecText" />
 
     <ImageButton
         android:id="@+id/pwExpertInfo"
@@ -129,9 +129,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintBottom_toBottomOf="@+id/pwExpertText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/pwExpertText"
         app:srcCompat="@android:drawable/ic_dialog_info" />
 
     <ImageButton
@@ -139,9 +139,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintBottom_toBottomOf="@+id/pwSpecText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/pwSpecText"
         app:srcCompat="@android:drawable/ic_dialog_info" />
 
     <ImageButton
@@ -149,10 +149,128 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView7"
+        app:layout_constraintBottom_toBottomOf="@+id/pwMasterText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="@+id/pwMasterText"
         app:srcCompat="@android:drawable/ic_dialog_info" />
+
+    <ImageView
+        android:id="@+id/secIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/greyshield"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_lock_grey"
+        app:layout_constraintBottom_toBottomOf="@+id/secText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/secText" />
+
+    <ImageView
+        android:id="@+id/quickSecIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/greyshield"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_lock_grey"
+        app:layout_constraintBottom_toBottomOf="@+id/quickSecText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/quickSecText" />
+
+
+    <TextView
+        android:id="@+id/secText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="serif"
+        android:text="Zugriffe absichern"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/secInfo"
+        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintStart_toEndOf="@+id/secIcon"
+        app:layout_constraintTop_toBottomOf="@+id/pwMasterText" />
+
+    <ImageView
+        android:id="@+id/secExpertIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/greyshield"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_lock_grey"
+        app:layout_constraintBottom_toBottomOf="@+id/secExpertText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/secExpertText" />
+
+    <TextView
+        android:id="@+id/quickSecText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="serif"
+        android:text="Zugriffe schnell absichern"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/quickSecInfo"
+        app:layout_constraintStart_toEndOf="@+id/quickSecIcon"
+        app:layout_constraintTop_toBottomOf="@+id/secText" />
+
+    <TextView
+        android:id="@+id/secExpertText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="serif"
+        android:text="Sicherheitsexperte"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/secExpertInfo"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toEndOf="@+id/secExpertIcon"
+        app:layout_constraintTop_toBottomOf="@+id/quickSecText" />
+
+    <ImageButton
+        android:id="@+id/secInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/secText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/secText"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
+    <ImageButton
+        android:id="@+id/quickSecInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/quickSecText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/quickSecText"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
+    <ImageButton
+        android:id="@+id/secExpertInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/secExpertText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/secExpertText"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
 
 
 </android.support.constraint.ConstraintLayout>
