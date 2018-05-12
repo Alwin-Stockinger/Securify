@@ -39,11 +39,11 @@
 
     <ImageView
         android:id="@+id/pwExpertIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/greyshield"
+        android:background="@drawable/grey_shield"
         android:scaleType="centerInside"
         android:src="@drawable/ic_lock_grey"
         app:layout_constraintBottom_toBottomOf="@+id/pwExpertText"
@@ -52,10 +52,10 @@
 
     <ImageView
         android:id="@+id/pwSpecIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:background="@drawable/greyshield"
+        android:background="@drawable/grey_shield"
         android:scaleType="centerInside"
         android:src="@drawable/ic_lock_grey"
         app:layout_constraintBottom_toBottomOf="@+id/pwSpecText"
@@ -81,11 +81,11 @@
 
     <ImageView
         android:id="@+id/pwMasterIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="16dp"
-        android:background="@drawable/greyshield"
+        android:background="@drawable/grey_shield"
         android:scaleType="centerInside"
         android:src="@drawable/ic_lock_grey"
         app:layout_constraintBottom_toBottomOf="@+id/pwMasterText"
@@ -156,11 +156,11 @@
 
     <ImageView
         android:id="@+id/secIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/greyshield"
+        android:background="@drawable/grey_shield"
         android:scaleType="centerInside"
         android:src="@drawable/ic_lock_grey"
         app:layout_constraintBottom_toBottomOf="@+id/secText"
@@ -169,10 +169,10 @@
 
     <ImageView
         android:id="@+id/quickSecIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:background="@drawable/greyshield"
+        android:background="@drawable/grey_shield"
         android:scaleType="centerInside"
         android:src="@drawable/ic_lock_grey"
         app:layout_constraintBottom_toBottomOf="@+id/quickSecText"
@@ -198,11 +198,11 @@
 
     <ImageView
         android:id="@+id/secExpertIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="16dp"
-        android:background="@drawable/greyshield"
+        android:background="@drawable/grey_shield"
         android:scaleType="centerInside"
         android:src="@drawable/ic_lock_grey"
         app:layout_constraintBottom_toBottomOf="@+id/secExpertText"

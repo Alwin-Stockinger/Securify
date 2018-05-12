@@ -52,7 +52,7 @@ public class AwardsActivity extends AppCompatActivity{
             achTexts.get(i).setText(awards.get(i).getTitle());
 
             //sets achieved to Black
-            for(int j=0; j<awardsAchieved.size();++j) {           //cant use list.contains because databse somehow returns different objects
+            for(int j=0; j<awardsAchieved.size();++j) {           //cant use list.contains because database somehow returns different objects
                 if(awardsAchieved.get(j).getTitle().equals(awards.get(i).getTitle())){
                     achTexts.get(i).setTextColor(Color.BLACK);
                 }
