@@ -3,7 +3,6 @@ package com.securify.securify;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -162,6 +161,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                     contact.setClickable(false);
                     sms.setClickable(false);
                     microphone.setClickable(false);
+                    finishBtn.setClickable(false);
 
                     achievementTest();
                     showNextGame();
@@ -369,6 +369,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 contact.setClickable(false);
                 sms.setClickable(false);
                 microphone.setClickable(false);
+                finishBtn.setClickable(false);
 
                 achievementTest();
                 showNextGame();
