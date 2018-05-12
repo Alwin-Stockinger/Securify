@@ -38,6 +38,7 @@ public class SettingsActivity extends AppCompatActivity implements  View.OnClick
         //Assign layout items
         userNameInput=findViewById(R.id.user_name_inputfield);
         userNameInput.setText(model.getActiveUser().getName());
+        userNameInput.setSelection(userNameInput.getText().length()); //sets cursor to the end of the input field
         Button userNameButton=findViewById(R.id.user_name_confirm_btn);
         userNameButton.setOnClickListener(this);
     }
@@ -47,8 +48,5 @@ public class SettingsActivity extends AppCompatActivity implements  View.OnClick
         MainModel model=new MainModel(getApplicationContext());
         model.changeUser(userNameInput.getText().toString());
 
-
-
-        //Button changeLang = findViewById(R.id.changeLanguage);
     }
 }
