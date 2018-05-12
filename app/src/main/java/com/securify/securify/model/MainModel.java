@@ -306,7 +306,7 @@ public class MainModel {
 
     //achievement Mehtods
 
-    //Creates new succeeded achievement entry, the method will do nothing if already succeeded
+    //Creates new succeeded achievement entry, the method will do nothing if already succeeded, return true means that the achievement was not already achieved
     public boolean achievementSuccess(long achievementId){
         if(!db.userAchievementDao().isAchieved(activeUser.getId(),achievementId)){
             UserAchievementModel userAchievementModel=new UserAchievementModel(activeUser.getId(),achievementId,new Date());

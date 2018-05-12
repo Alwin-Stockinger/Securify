@@ -15,7 +15,7 @@ import java.util.List;
 @Dao
 public abstract class AchievementDao implements BaseDao<AchievementModel> {
 
-    @Query("SELECT * FROM achievement WHERE language=:language")
+    @Query("SELECT * FROM achievement WHERE language=:language ORDER BY id")
     public abstract List<AchievementModel> getAllAchievementsWithLanguage(String language);
 
     @Query("SELECT * FROM achievement WHERE id=:id")
