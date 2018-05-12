@@ -89,9 +89,9 @@ public class PopulationFactory {
 
         PermissionModel model3=new PermissionModel();
         model3.setKamera(true);
-        model3.setKontake(false);
+        model3.setKontake(true);
         model3.setMikrofon(true);
-        model3.setPosition(true);
+        model3.setPosition(false);
         model3.setSms(false);
         model3.setErklaerung("Mikrofon und Kamera sind nötig um Videos mit Ton aufzunehemen. Deine Kontakte werden gebraucht, damit die App deine Freunde in den Videos markieren kann");
         model3.setZeit(18);
