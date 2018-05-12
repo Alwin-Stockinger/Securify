@@ -342,7 +342,13 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
         mModel.setPermissionSucceded(pModel,gameResult);
 
         if (trueAnswers == 5) return true;
-        else return false;
+        else {
+            //set Highscore: amount of trueAnswers right in a row
+            mModel.setUserPermissionHighscore(trueAnswers+5*TrueAnswers);
+
+
+            return false;
+        }
 
     }
 
