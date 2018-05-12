@@ -25,16 +25,20 @@ public class MainActivity extends AppCompatActivity {
 
     MainModel model;
     TabLayout tabLayout;
+    ViewPager vp;
+    public static MainActivity mInstance = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mInstance = this;
 
         prefs=getSharedPreferences("com.securify.securify",MODE_PRIVATE);//get preferences to check if the app is started the first time
 
         //setting the tabs and fragments
-        ViewPager vp = findViewById(R.id.viewpager);
+        vp = findViewById(R.id.viewpager);
         tabLayout = findViewById(R.id.tab_layout);
 
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), MainActivity.this);
@@ -68,6 +72,14 @@ public class MainActivity extends AppCompatActivity {
     private void setupTabIcons() {
         tabLayout.getTabAt(0).setIcon(R.drawable.game);
         tabLayout.getTabAt(1).setIcon(R.drawable.menu);
+    }
+
+    public void next_fragment(View view) {
+        vp.setCurrentItem(vp.getCurrentItem()+1);
+    }
+
+    public void previous_fragment(View view) {
+        vp.setCurrentItem(vp.getCurrentItem()-1);
     }
 
     public class PagerAdapter extends FragmentPagerAdapter {

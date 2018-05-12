@@ -410,7 +410,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
                 android:paddingStart="4dp"
-                android:text="@string/password_game_string"
+                android:text="@string/permissions_game_string"
                 android:textSize="18sp" />
         </TableRow>
 

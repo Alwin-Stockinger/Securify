@@ -51,6 +51,7 @@ public class OtherTabFragment extends Fragment {
                 OtherTabFragment.this.onClick(v,"awards");
             }
         });
+
     }
 
     private void onClick(View v, String button_name) {
