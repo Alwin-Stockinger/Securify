@@ -4,6 +4,9 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.securify.securify.model.MainModel;
@@ -15,7 +18,7 @@ import java.util.List;
 public class AwardsActivity extends AppCompatActivity{
 
     List<TextView> achTexts;
-
+    List<ImageView> achIcons;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,8 +36,17 @@ public class AwardsActivity extends AppCompatActivity{
         achTexts.add((TextView) findViewById(R.id.quickSecText));
         achTexts.add((TextView) findViewById(R.id.secExpertText));
 
+        //ImageViews
+        achIcons = new ArrayList<>();
+        achIcons.add((ImageView) findViewById(R.id.pwExpertIcon));
+        achIcons.add((ImageView) findViewById(R.id.pwSpecIcon));
+        achIcons.add((ImageView) findViewById(R.id.pwMasterIcon));
+        achIcons.add((ImageView) findViewById(R.id.secIcon));
+        achIcons.add((ImageView) findViewById(R.id.quickSecIcon));
+        achIcons.add((ImageView) findViewById(R.id.secExpertIcon));
 
-
+        //InfoButtons
+        //when clicked shows context in a message?
     }
 
     @Override
@@ -55,6 +67,20 @@ public class AwardsActivity extends AppCompatActivity{
             for(int j=0; j<awardsAchieved.size();++j) {           //cant use list.contains because database somehow returns different objects
                 if(awardsAchieved.get(j).getTitle().equals(awards.get(i).getTitle())){
                     achTexts.get(i).setTextColor(Color.BLACK);
+
+                    switch(awardsAchieved.get(j).getDifficulty()){
+                        case "EASY":
+                            achIcons.get(i).setImageResource(R.drawable.yellow_shield);
+                            break;
+                        case "MEDIUM":
+                            achIcons.get(i).setImageResource(R.drawable.orange_shield);
+                            break;
+                        case "HARD":
+                            achIcons.get(i).setImageResource(R.drawable.green_shield);
+                            break;
+                        default:
+                            Log.d("Achievements","Error: Could not set icon.");
+                    }
                 }
             }
         }

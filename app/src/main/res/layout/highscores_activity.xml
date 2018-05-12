@@ -30,18 +30,33 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView4"
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/password_game_string"
-        android:textSize="18sp" />
+        android:layout_marginTop="8dp"
+        android:padding="4dp"
+        android:background="#eeeeee">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TableRow
+        android:orientation="horizontal"
+        android:background="@color/colorAccent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_width="wrap_content">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:paddingStart="4dp"
+            android:text="@string/password_game_string"
+            android:textSize="18sp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/placeone"
@@ -62,15 +77,15 @@
 
         <TextView
             android:id="@+id/points1"
-            android:layout_width="12dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
+            android:layout_marginStart="0dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -93,15 +108,15 @@
 
         <TextView
             android:id="@+id/points2"
-            android:layout_width="12dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -126,14 +141,14 @@
             android:id="@+id/points3"
             android:layout_width="12dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
+            android:layout_marginStart="0dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -158,14 +173,14 @@
             android:id="@+id/points4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
+            android:layout_marginStart="0dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -188,31 +203,45 @@
 
         <TextView
             android:id="@+id/points5"
-            android:layout_width="12dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
+            android:layout_marginStart="0dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <TextView
-        android:id="@+id/phishing_title"
+    </TableLayout>
+
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/phishing_game_string"
-        android:textSize="18sp" />
+        android:layout_marginTop="8dp"
+        android:padding="4dp"
+        android:background="#eeeeee">
 
-    <LinearLayout
+        <TableRow
+            android:background="@color/colorAccent">
+
+            <TextView
+                android:id="@+id/phishing_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:paddingStart="4dp"
+                android:text="@string/phishing_game_string"
+                android:textSize="18sp" />
+
+        </TableRow>
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/placeone_phishing"
-            android:layout_width="wrap_content"
+            android:layout_width="91dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/first"
@@ -231,13 +260,13 @@
             android:id="@+id/points1_phishing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
+            android:layout_marginStart="0dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -262,14 +291,14 @@
             android:id="@+id/points2_phishing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
+            android:layout_marginStart="0dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -294,14 +323,14 @@
             android:id="@+id/points3_phishing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
+            android:layout_marginStart="0dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -330,9 +359,9 @@
             android:text="@string/zero"
             android:textSize="18sp" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -361,20 +390,33 @@
             android:text="@string/zero"
             android:textSize="18sp" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <TextView
-        android:id="@+id/permissions_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/password_game_string"
-        android:textSize="18sp" />
+    </TableLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TableLayout
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:padding="4dp"
+        android:background="#eeeeee">
+
+        <TableRow
+            android:background="@color/colorAccent">
+
+            <TextView
+                android:id="@+id/permissions_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:paddingStart="4dp"
+                android:text="@string/password_game_string"
+                android:textSize="18sp" />
+        </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/placeone_permissions"
@@ -390,6 +432,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
+            android:fontFamily="serif"
             android:text="@string/samplename"
             android:textSize="18sp" />
 
@@ -397,13 +440,13 @@
             android:id="@+id/points1_permissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
+            android:layout_marginStart="0dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -428,14 +471,14 @@
             android:id="@+id/points2_permissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
+            android:layout_marginStart="0dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -460,14 +503,14 @@
             android:id="@+id/points3_permissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
+            android:layout_marginStart="0dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -492,14 +535,14 @@
             android:id="@+id/points4_permissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
+            android:layout_marginStart="0dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -524,12 +567,14 @@
             android:id="@+id/points5_permissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
+            android:layout_marginStart="0dp"
             android:layout_weight="1"
             android:text="@string/zero"
             android:textSize="18sp" />
 
-    </LinearLayout>
+    </TableRow>
+
+    </TableLayout>
 
     <ImageView
         android:id="@+id/imageView"
