@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".AwardsActivity"
     tools:layout_editor_absoluteY="25dp">
-
+    
 
     <ImageButton
         android:id="@+id/backButton"
@@ -269,6 +269,122 @@
         app:layout_constraintBottom_toBottomOf="@+id/secExpertText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/secExpertText"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
+    <ImageView
+        android:id="@+id/phiCheatIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/grey_shield"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_lock_grey"
+        app:layout_constraintBottom_toBottomOf="@+id/phiCheatText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/phiCheatText"
+        app:layout_constraintVertical_bias="0.636" />
+
+    <TextView
+        android:id="@+id/phiCheatText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="44dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="serif"
+        android:text="Betrüger erkennen"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/phiCheatInfo"
+        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintStart_toEndOf="@+id/phiCheatIcon"
+        app:layout_constraintTop_toBottomOf="@+id/secExpertText" />
+
+    <ImageButton
+        android:id="@+id/phiCheatInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/phiCheatText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/phiCheatText"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
+    <ImageView
+        android:id="@+id/phiQuickIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/grey_shield"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_lock_grey"
+        app:layout_constraintBottom_toBottomOf="@+id/phiQuickText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/phiQuickText" />
+
+    <TextView
+        android:id="@+id/phiQuickText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="serif"
+        android:text="Betrüger schnell erkennen"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/phiQuickIcon"
+        app:layout_constraintTop_toBottomOf="@+id/phiCheatText" />
+
+    <ImageButton
+        android:id="@+id/phiQuickInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/phiQuickText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/phiQuickText"
+        app:layout_constraintVertical_bias="0.485"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
+    <ImageView
+        android:id="@+id/phiExpertIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/grey_shield"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_lock_grey"
+        app:layout_constraintBottom_toBottomOf="@+id/phiExpertText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/phiExpertText" />
+
+    <TextView
+        android:id="@+id/phiExpertText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="serif"
+        android:text="Mail-Experte"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/phiExpertIcon"
+        app:layout_constraintTop_toBottomOf="@+id/phiQuickText" />
+
+    <ImageButton
+        android:id="@+id/phiExpertInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/phiExpertText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/phiExpertText"
+        app:layout_constraintVertical_bias="0.657"
         app:srcCompat="@android:drawable/ic_dialog_info" />
 
 

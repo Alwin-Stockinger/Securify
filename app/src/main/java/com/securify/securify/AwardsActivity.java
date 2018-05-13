@@ -44,6 +44,9 @@ public class AwardsActivity extends AppCompatActivity implements View.OnClickLis
         achTexts.add((TextView) findViewById(R.id.secText));
         achTexts.add((TextView) findViewById(R.id.quickSecText));
         achTexts.add((TextView) findViewById(R.id.secExpertText));
+        achTexts.add((TextView) findViewById(R.id.phiCheatText));
+        achTexts.add((TextView) findViewById(R.id.phiQuickText));
+        achTexts.add((TextView) findViewById(R.id.phiExpertText));
 
         //ImageViews
         achIcons = new ArrayList<>();
@@ -53,6 +56,9 @@ public class AwardsActivity extends AppCompatActivity implements View.OnClickLis
         achIcons.add((ImageView) findViewById(R.id.secIcon));
         achIcons.add((ImageView) findViewById(R.id.quickSecIcon));
         achIcons.add((ImageView) findViewById(R.id.secExpertIcon));
+        achIcons.add((ImageView) findViewById(R.id.phiCheatIcon));
+        achIcons.add((ImageView) findViewById(R.id.phiQuickIcon));
+        achIcons.add((ImageView) findViewById(R.id.phiExpertIcon));
 
         //InfoButtons
         achInfos=new ArrayList<>();
@@ -62,6 +68,9 @@ public class AwardsActivity extends AppCompatActivity implements View.OnClickLis
         achInfos.add((ImageButton) findViewById(R.id.secInfo));
         achInfos.add((ImageButton) findViewById(R.id.quickSecInfo));
         achInfos.add((ImageButton) findViewById(R.id.secExpertInfo));
+        achInfos.add((ImageButton) findViewById(R.id.phiCheatInfo));
+        achInfos.add((ImageButton) findViewById(R.id.phiQuickInfo));
+        achInfos.add((ImageButton) findViewById(R.id.phiExpertInfo));
 
         for(int i=0;i<achInfos.size();++i){
             achInfos.get(i).setOnClickListener(this);
@@ -129,6 +138,15 @@ public class AwardsActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.secExpertInfo:
                 awardId=6;
+                break;
+            case R.id.phiCheatInfo:
+                awardId=7;
+                break;
+            case R.id.phiQuickInfo:
+                awardId=8;
+                break;
+            case R.id.phiExpertInfo:
+                awardId=9;
                 break;
             default:
                 Log.e("Achievements","Could not identify clicker");

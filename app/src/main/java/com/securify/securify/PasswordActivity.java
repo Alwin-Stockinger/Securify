@@ -2,6 +2,7 @@ package com.securify.securify;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -20,6 +21,8 @@ import com.securify.securify.model.gameModels.PasswordModel;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static android.graphics.Color.parseColor;
+
 public class PasswordActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText input;
@@ -36,6 +39,11 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
     private Button password_confirm_button;
 
     private ImageButton backBtn;
+    private ImageButton hintButton;
+    private TextView hint_text;
+    private int clickCounter = 0;
+    private String inputText;
+    private String inputText2;
 
     private MainModel model;
     private PasswordModel gameModel;
@@ -53,7 +61,11 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
         final int minLength=gameModel.getMin_length();
         final int maxLength=gameModel.getMax_length();
 
-
+        //HINT SETTINGS
+        hint_text = findViewById(R.id.password_hint_text);
+        hint_text.setText(gameModel.getTipp());
+        hint_text.setVisibility(View.GONE);
+        hint_text.setTextColor(parseColor("#5e4ceb"));
 
         //Assigning views
         constraint1 = findViewById(R.id.password_constraint1);
@@ -83,9 +95,10 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
                                            finish();
                                        }
                                    });
-
-                password_confirm_button = findViewById(R.id.password_confirm_btn);
+        password_confirm_button = findViewById(R.id.password_confirm_btn);
         password_confirm_button.setOnClickListener(this);
+        hintButton = findViewById(R.id.password_hint_button);
+        hintButton.setOnClickListener(this);
 
         input.addTextChangedListener(new TextWatcher() {
             @Override
@@ -167,11 +180,19 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
 
         switch (view.getId()) {
 
+            case R.id.password_hint_button:
+                hint_text.setVisibility(View.VISIBLE);
+                break;
+
             case R.id.password_confirm_btn:
+                clickCounter++;
+
                 if (constraint1.getCurrentTextColor() == Color.RED) {
                     Toast.makeText(PasswordActivity.this,
                             "Halten Sie bitte die Passwort-Voraussetzungen ein!",
                             Toast.LENGTH_LONG).show();
+                    input.setText("");
+                    clickCounter = 0;
                     return;
                 }
 
@@ -179,6 +200,8 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
                     Toast.makeText(PasswordActivity.this,
                             "Halten Sie bitte die Passwort-Voraussetzungen ein!",
                             Toast.LENGTH_LONG).show();
+                    input.setText("");
+                    clickCounter = 0;
                     return;
                 }
 
@@ -186,101 +209,133 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
                     Toast.makeText(PasswordActivity.this,
                             "Halten Sie bitte die Passwort-Voraussetzungen ein!",
                             Toast.LENGTH_LONG).show();
+                    input.setText("");
+                    clickCounter = 0;
                     return;
                 }
 
-                String inputText = input.getText().toString();
-                char ch;
-                int percentage = 0;
-
-                //checking here for special symbols
-                Pattern p = Pattern.compile("[^A-Za-z0-9]", Pattern.CASE_INSENSITIVE);
-                Matcher m = p.matcher(inputText);
-                boolean special_symbol_bool = m.find();
-
-                int counterDigit = 0;
-                int counterUpper = 0;
-                int counterSpecial_Symbol = 0;
-                int counterLetter = 0;
-
-                for (int i = 0; i < inputText.length(); i++) {
-                    ch = inputText.charAt(i);
-
-                    if (!Character.isUpperCase(ch) && !Character.isDigit(ch) && Character.isLetter(ch)) {
-                        counterLetter++;
-                        if (counterLetter <= 3) percentage += 5; //20
-                        else if (counterLetter <= 8 && counterLetter > 3) percentage += 3; //15
-                        else if (counterLetter >= 9) percentage += 1; //6
-                    }
-
-                    if (Character.isUpperCase(ch)) {
-                        counterUpper++;
-                        if (counterUpper == 1) percentage += 5;
-                        if (counterUpper == 2) percentage += 4;
-                        if (counterUpper == 3) percentage += 3;
-                        if (counterUpper == 4) percentage += 2;
-                        if (counterUpper >= 5) percentage += 1;
-                        //16
-                    }
-                    else if (Character.isDigit(ch)) {
-                        counterDigit++;
-                        if (counterDigit == 1) percentage += 8;
-                        if (counterDigit == 2) percentage += 5;
-                        if (counterDigit == 3) percentage += 3;
-                        if (counterDigit == 4) percentage += 2;
-                        if (counterDigit >= 5) percentage += 1;
-                        //19
-                    }
-                    else if (!Character.isLetter(ch)){
-                        counterSpecial_Symbol++;
-                        if (counterSpecial_Symbol == 1) percentage += 9;
-                        if (counterSpecial_Symbol == 2) percentage += 7;
-                        if (counterSpecial_Symbol == 3) percentage += 5;
-                        if (counterSpecial_Symbol == 4) percentage += 3;
-                        if (counterSpecial_Symbol >= 5) percentage += 1;
-                        //25
-                    }
-
+                if (clickCounter == 1) {
+                    inputText = input.getText().toString();
+                    Toast.makeText(PasswordActivity.this,
+                            "Passwort bitte nochmal eingeben!",
+                            Toast.LENGTH_LONG).show();
+                    input.setText("");
+                    break;
                 }
+                if (clickCounter == 2) {
+                    inputText2 = input.getText().toString();
+                    if (inputText.equals(inputText2)) {
+                        char ch;
+                        int percentage = 0;
+
+                        //checking here for special symbols
+                        Pattern p = Pattern.compile("[^A-Za-z0-9]", Pattern.CASE_INSENSITIVE);
+                        Matcher m = p.matcher(inputText);
+                        boolean special_symbol_bool = m.find();
+
+                        int counterDigit = 0;
+                        int counterUpper = 0;
+                        int counterSpecial_Symbol = 0;
+                        int counterLetter = 0;
+
+                        for (int i = 0; i < inputText.length(); i++) {
+                            ch = inputText.charAt(i);
+
+                            if (!Character.isUpperCase(ch) && !Character.isDigit(ch) && Character.isLetter(ch)) {
+                                counterLetter++;
+                                if (counterLetter <= 3) percentage += 5; //20
+                                else if (counterLetter <= 8 && counterLetter > 3) percentage += 3; //15
+                                else if (counterLetter >= 9) percentage += 1; //6
+                            }
+
+                            if (Character.isUpperCase(ch)) {
+                                counterUpper++;
+                                if (counterUpper == 1) percentage += 5;
+                                if (counterUpper == 2) percentage += 4;
+                                if (counterUpper == 3) percentage += 3;
+                                if (counterUpper == 4) percentage += 2;
+                                if (counterUpper >= 5) percentage += 1;
+                                //16
+                            }
+                            else if (Character.isDigit(ch)) {
+                                counterDigit++;
+                                if (counterDigit == 1) percentage += 8;
+                                if (counterDigit == 2) percentage += 5;
+                                if (counterDigit == 3) percentage += 3;
+                                if (counterDigit == 4) percentage += 2;
+                                if (counterDigit >= 5) percentage += 1;
+                                //19
+                            }
+                            else if (!Character.isLetter(ch)){
+                                counterSpecial_Symbol++;
+                                if (counterSpecial_Symbol == 1) percentage += 9;
+                                if (counterSpecial_Symbol == 2) percentage += 7;
+                                if (counterSpecial_Symbol == 3) percentage += 5;
+                                if (counterSpecial_Symbol == 4) percentage += 3;
+                                if (counterSpecial_Symbol >= 5) percentage += 1;
+                                //25
+                            }
+
+                        }
+                        percentage *= (15.0/gameModel.getMax_length());
 
 
-                //if password was already used in an earlier gamy by this user, the percantage will be decreased by 5% for every time it was used
-                percentage-=5*model.amountPassworUsed(inputText);
+                        //if password was already used in an earlier gamy by this user, the percantage will be decreased by 5% for every time it was used
+                        percentage-=5*model.amountPassworUsed(inputText);
 
-                //insert password as used, so it will bring disadvantage if used again
-                model.setPasswordUsed(inputText);
+                        input.setText("");
+
+                        //insert password as used, so it will bring disadvantage if used again
+                        model.setPasswordUsed(inputText);
+
+                        //passwort cannot be smaller than 0%..
+                        if (percentage < 0)
+                            percentage = 0;
+
+                        //set highscore
+                        model.setUserPasswordHighscore(percentage);
 
 
-                //set highscore
-                model.setUserPasswordHighscore(percentage);
+                        //Geschafft
+                        if(percentage>=60){
+                            model.setPasswordSucceeded(gameModel,true);
+                            //Achievements
+                            if (percentage >= 60 && model.achievementSuccess(1)) {
+                                Toast.makeText(PasswordActivity.this,
+                                        "Sie haben den Erfolg " + model.getAchievement(1).getTitle() + " erreicht!",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                            else if (percentage >= 65 && counterSpecial_Symbol <= 2 && model.achievementSuccess(2)) {
+                                Toast.makeText(PasswordActivity.this,
+                                        "Sie haben den Erfolg " + model.getAchievement(2).getTitle() + " erreicht!",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                            else if (percentage >= 70  && counterDigit <= 2 && counterSpecial_Symbol <= 2 && model.achievementSuccess(3)) {
+                                Toast.makeText(PasswordActivity.this,
+                                        "Sie haben den Erfolg " + model.getAchievement(3).getTitle() + " erreicht!",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        }
+                        else model.setPasswordSucceeded(gameModel,false);
 
 
-                //Geschafft
-                if(percentage>=60){
-                    model.setPasswordSucceeded(gameModel,true);
-                    //Achievements
-                    if (percentage >= 60 && model.achievementSuccess(1)) {
-                        Toast.makeText(PasswordActivity.this,
-                                "Sie haben den Erfolg " + model.getAchievement(1).getTitle() + " erreicht!",
-                                Toast.LENGTH_LONG).show();
+
+                        prozent_view.setText(Integer.toString(percentage) + "%");
+                        clickCounter = 0;
+                        inputText = "";
+                        inputText2 = "";
+                        input.setText("");
+                        break;
                     }
-                    else if (percentage >= 65 && counterSpecial_Symbol <= 2 && model.achievementSuccess(2)) {
+                    else {
+                        input.setText("");
                         Toast.makeText(PasswordActivity.this,
-                                "Sie haben den Erfolg " + model.getAchievement(2).getTitle() + " erreicht!",
+                                "Passwörter stimmen nicht überein! Versuchen Sie es erneut.",
                                 Toast.LENGTH_LONG).show();
-                    }
-                    else if (percentage >= 70  && counterDigit <= 2 && counterSpecial_Symbol <= 2 && model.achievementSuccess(3)) {
-                        Toast.makeText(PasswordActivity.this,
-                                "Sie haben den Erfolg " + model.getAchievement(3).getTitle() + " erreicht!",
-                                Toast.LENGTH_LONG).show();
+                        clickCounter = 0;
+                        break;
                     }
                 }
-                else model.setPasswordSucceeded(gameModel,false);
-
-
-
-                prozent_view.setText(Integer.toString(percentage) + "%");
-                break;
         }
     }
 

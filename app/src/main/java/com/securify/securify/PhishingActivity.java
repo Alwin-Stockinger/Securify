@@ -1,5 +1,6 @@
 package com.securify.securify;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.securify.securify.model.MainModel;
 import com.securify.securify.model.gameModels.PhishingModel;
@@ -38,6 +40,7 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
     final Timer time = new Timer();
     private TextView counter;
     private int timerSeconds;
+    private int oldTimer = 0;
 
     // Model things
     MainModel mModel;
@@ -47,11 +50,20 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
 
     boolean decisionUser;
 
+    boolean stopped=false;
+
+    private int TrueAnswers;
+    private int TrueAnswersInTime;
+    private int TrueAnswersInTime2;
+
+    boolean hintClicked = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.phishing_game);
+
+        handOverForAchievements();
 
         mModel = new MainModel(getApplicationContext());
         phModel = mModel.getRandomPhishingGame();
@@ -62,7 +74,6 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
 
         resultIcon = findViewById(R.id.phishing_result_icon);
         resultIcon.setVisibility(View.GONE);
-
 
         timerSeconds = phModel.getZeit();
         context.setText("Absender " + phModel.getAbsender() + "\n" + "\n" + "Betreff: " +
@@ -122,6 +133,10 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
                     });
                     spam_btn.setClickable(false);
                     no_spam_btn.setClickable(false);
+                    TrueAnswers = 0;
+                    TrueAnswersInTime = 0;
+                    TrueAnswersInTime2 = 0;
+                    showNextGame();
 
                 } else {
                     setTimerSeconds();
@@ -182,11 +197,13 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.hint_phishing_id:
                 hint_text.setVisibility(View.VISIBLE);
+                hintClicked = true;
                 break;
 
 
             case R.id.spam_btn:
                 decisionUser = true;
+                oldTimer = getTimerSeconds();
                 if (phModel.isIs_phishing() != decisionUser) {
                     runOnUiThread(new Runnable() {
                         @Override
@@ -219,16 +236,20 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
                             mModel.setPhishingSucceeded(phModel,true);
                         }
                     });
+
                 }
                 time.cancel();
                 time.purge();
 
                 spam_btn.setClickable(false);
                 no_spam_btn.setClickable(false);
+                achievementTest(decisionUser);
+                showNextGame();
                 break;
 
             case R.id.no_spam_btn:
                 decisionUser = false;
+                oldTimer = getTimerSeconds();
                 if (phModel.isIs_phishing() != decisionUser) {
                     runOnUiThread(new Runnable() {
                         @Override
@@ -267,8 +288,85 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
 
                 spam_btn.setClickable(false);
                 no_spam_btn.setClickable(false);
+                achievementTest(decisionUser);
+                showNextGame();
                 break;
 
         }
+    }
+
+    void achievementTest(boolean userDecision) {
+        if (userDecision == phModel.isIs_phishing()) {
+            TrueAnswers++;
+            if (oldTimer >= (phModel.getZeit() * 0.6))
+                TrueAnswersInTime++;
+            else
+                TrueAnswersInTime = 0;
+            if (oldTimer >= (phModel.getZeit()*0.8) && hintClicked != true)
+                TrueAnswersInTime2++;
+            else TrueAnswersInTime2 = 0;
+        } else {
+            TrueAnswers = 0;
+            TrueAnswersInTime = 0;
+            TrueAnswersInTime2 = 0;
+        }
+        if (TrueAnswers == 1 && mModel.achievementSuccess(7)) {
+            Toast.makeText(PhishingActivity.this,
+                    "Sie haben den Erfolg " + mModel.getAchievement(7).getTitle() + " erreicht!",
+                    Toast.LENGTH_LONG).show();
+        }
+        if (TrueAnswersInTime == 2 && mModel.achievementSuccess(8)) {
+            Toast.makeText(PhishingActivity.this,
+                    "Sie haben den Erfolg " + mModel.getAchievement(8).getTitle() + " erreicht!",
+                    Toast.LENGTH_LONG).show();
+        }
+
+        if (TrueAnswersInTime2 == 2 && mModel.achievementSuccess(9)) {
+            Toast.makeText(PhishingActivity.this,
+                    "Sie haben den Erfolg " + mModel.getAchievement(9).getTitle() + " erreicht!",
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
+    void handOverForAchievements() {
+        Bundle b = getIntent().getExtras();
+        if(b != null) {
+            TrueAnswers = b.getInt("key");
+            TrueAnswersInTime = b.getInt("key2");
+            TrueAnswersInTime2 = b.getInt("key3");
+        }
+        else {
+            TrueAnswers = 0;
+            TrueAnswersInTime = 0;
+            TrueAnswersInTime2 = 0;
+        }
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        stopped=true;
+    }
+
+    void showNextGame() {
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        if(!stopped){
+                            Intent intent = new Intent(PhishingActivity.this, PhishingActivity.class);
+                            Bundle b = new Bundle();
+                            b.putInt("key", TrueAnswers);
+                            b.putInt("key2", TrueAnswersInTime);
+                            b.putInt("key3", TrueAnswersInTime2);
+                            intent.putExtras(b);
+                            startActivity(intent);
+                        }
+                        PhishingActivity.this.finish();
+
+                    }
+                },
+                4000
+        );
     }
 }

@@ -17,27 +17,27 @@ import java.util.List;
 public class PopulationFactory {
 
     public List<PasswordModel> getPasswordModels(){
-        PasswordModel model1=new PasswordModel();
-        model1.setMax_length(15);
-        model1.setMin_length(5);
-        model1.setMin_number(1);
-        model1.setMin_upper(1);
-        model1.setKontext("Du willst dir ein neues Facebook-Passwort erstellen!");
-        model1.setSchwierigkeit("EASY");
-        model1.setSprache("DE");
-        model1.setTipp("Sonderzeichen sind immer gut!");
-        model1.setZeit(55);
-
         PasswordModel model2=new PasswordModel();
         model2.setMax_length(10);
         model2.setMin_length(7);
         model2.setMin_number(3);
         model2.setMin_upper(2);
         model2.setKontext("Du willst dir ein neues Twitter-Passwort erstellen");
-        model2.setSchwierigkeit("MEDIUM");
+        model2.setSchwierigkeit("EASY");
         model2.setSprache("DE");
         model2.setTipp("Sonderzeichen sind immer gut!");
         model2.setZeit(30);
+
+        PasswordModel model1=new PasswordModel();
+        model1.setMax_length(15);
+        model1.setMin_length(5);
+        model1.setMin_number(1);
+        model1.setMin_upper(1);
+        model1.setKontext("Du willst dir ein neues Facebook-Passwort erstellen!");
+        model1.setSchwierigkeit("MEDIUM");
+        model1.setSprache("DE");
+        model1.setTipp("Sonderzeichen sind immer gut!");
+        model1.setZeit(55);
 
         PasswordModel model3=new PasswordModel();
         model3.setMax_length(20);
@@ -232,25 +232,25 @@ public class PopulationFactory {
 
     public List<AchievementModel> getAchievementModels(){
 
-        //PASSWORD ACHIEVMENTS
+        //PASSWORD ACHIEVEMENTS
         AchievementModel ach1=new AchievementModel();
         ach1.setId(1);
         ach1.setTitle("Passwort-Experte");
-        ach1.setContext("Erreiche über 60% beim Passwortspiel.");
+        ach1.setContext("Erreichen Sie über 60% beim Passwortspiel.");
         ach1.setDifficulty("EASY");
         ach1.setLanguage("DE");
 
         AchievementModel ach2=new AchievementModel();
         ach2.setId(2);
         ach2.setTitle("Passwort-Spezialist");
-        ach2.setContext("Erreiche über 65% beim Passwortspiel mit weniger als 3 Sonderzeichen.");
+        ach2.setContext("Erreichen Sie über 65% beim Passwortspiel mit weniger als 3 Sonderzeichen.");
         ach2.setDifficulty("MEDIUM");
         ach2.setLanguage("DE");
 
         AchievementModel ach3=new AchievementModel();
         ach3.setId(3);
         ach3.setTitle("Passwort-Meister");
-        ach3.setContext("Erreiche über 70% beim Passwortspiel mit weniger als 3 Sonderzeichen und weniger als 3 Zahlen.");
+        ach3.setContext("Erreichen Sie über 70% beim Passwortspiel mit weniger als 3 Sonderzeichen und weniger als 3 Zahlen.");
         ach3.setDifficulty("HARD");
         ach3.setLanguage("DE");
 
@@ -258,23 +258,45 @@ public class PopulationFactory {
         AchievementModel ach4=new AchievementModel();
         ach4.setId(4);
         ach4.setTitle("Zugriffe absichern");
-        ach4.setContext("Beantworte 2 Fragen hintereinander richtig.");
+        ach4.setContext("Beantworten Sie 2 Fragen hintereinander richtig.");
         ach4.setDifficulty("EASY");
         ach4.setLanguage("DE");
 
         AchievementModel ach5=new AchievementModel();
         ach5.setId(5);
         ach5.setTitle("Zugriffe schnell absichern");
-        ach5.setContext("Beantworte 2 Fragen hintereinander richtig, ohne länger als 50% der gegebenen Zeit für jedes Spiel zu benötigen.");
+        ach5.setContext("Beantworten Sie 2 Fragen hintereinander richtig, ohne länger als 50% der gegebenen Zeit für jedes Spiel zu benötigen.");
         ach5.setDifficulty("MEDIUM");
         ach5.setLanguage("DE");
 
         AchievementModel ach6 = new AchievementModel();
         ach6.setId(6);
         ach6.setTitle("Sicherheitsexperte");
-        ach6.setContext("Beantworte 3 Fragen hintereinander richtig, ohne länger als 30% der gegebenen Zeit für jedes Spiel zu benötigen.");
-        ach6.setDifficulty("MEDIUM");
+        ach6.setContext("Beantworten Sie 3 Fragen hintereinander richtig, ohne länger als 30% der gegebenen Zeit für jedes Spiel zu benötigen.");
+        ach6.setDifficulty("HARD");
         ach6.setLanguage("DE");
+
+        //PHISHING ACHIEVEMENTS
+        AchievementModel ach7=new AchievementModel();
+        ach7.setId(7);
+        ach7.setTitle("Betrüger erkennen");
+        ach7.setContext("Erkennen Sie bei 1 Fallbeispielen die Echtheit/Fälschung der Mails korrekt.");
+        ach7.setDifficulty("EASY");
+        ach7.setLanguage("DE");
+
+        AchievementModel ach8=new AchievementModel();
+        ach8.setId(8);
+        ach8.setTitle("Betrüger schnell erkennen");
+        ach8.setContext("Erkennen Sie bei 2 Fallbeispielen die Echtheit/Fälschung der Mails korrekt, ohne länger als 40% der Zeit zu benötigen.");
+        ach8.setDifficulty("MEDIUM");
+        ach8.setLanguage("DE");
+
+        AchievementModel ach9 = new AchievementModel();
+        ach9.setId(9);
+        ach9.setTitle("Mail-Experte");
+        ach9.setContext("Erkennen Sie bei 2 Fallbeispielen hintereinander die Echtheit/Fälscung der Mails korrekt, ohne länger als 20% der Zeit zu benötigen und ohne den Tipp-Button zu betätigen.");
+        ach9.setDifficulty("HARD");
+        ach9.setLanguage("DE");
 
         List<AchievementModel> list=new ArrayList<>();
         list.add(ach1);
@@ -283,6 +305,9 @@ public class PopulationFactory {
         list.add(ach4);
         list.add(ach5);
         list.add(ach6);
+        list.add(ach7);
+        list.add(ach8);
+        list.add(ach9);
 
 
         return list;
