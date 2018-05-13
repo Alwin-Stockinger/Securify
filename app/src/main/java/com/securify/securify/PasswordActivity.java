@@ -2,7 +2,6 @@ package com.securify.securify;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -73,7 +72,9 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
         constraint3 = findViewById(R.id.password_constraint3);
 
         //database text
+        constraint1.setText("mindestens "+gameModel.getMin_upper()+" Großbuchstaben");
         constraint2.setText("mindestens "+minLength+" und maximal "+maxLength+" Zeichen " + "(0)");
+        constraint3.setText("mindestens "+gameModel.getMin_number()+" Zahlen");
 
 
         constraint1.setTextColor(Color.RED);
@@ -112,23 +113,24 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
                 boolean digitFlag = false;
                 boolean capitalFlag = false;
 
+                int digits=0;
+                int capitals=0;
+
                 for (int i = 0; i < entryText.length(); i++) {
                     ch = entryText.charAt(i);
                     if (Character.isDigit(ch)) {
-                        digitFlag = true;
-                        break;
+                        digits++;
                     }
                 }
 
                 for (int i = 0; i < entryText.length(); i++) {
                     ch = entryText.charAt(i);
                     if (Character.isUpperCase(ch)) {
-                        capitalFlag = true;
-                        break;
+                        capitals++;
                     }
                 }
 
-                if (capitalFlag) {
+                if (capitals>=gameModel.getMin_upper()) {
                     constraint1.setTextColor(Color.GREEN);
                     constraint1_icon.setImageResource(R.mipmap.true_icon);
                 }
@@ -136,7 +138,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
                     constraint1.setTextColor(Color.RED);
                     constraint1_icon.setImageResource(R.mipmap.ic_launcher_false_icon);
                 }
-                if (digitFlag) {
+                if (digits>=gameModel.getMin_number()) {
                     constraint3.setTextColor(Color.GREEN);
                     constraint3_icon.setImageResource(R.mipmap.true_icon);
                 }
