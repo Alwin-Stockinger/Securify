@@ -154,6 +154,12 @@ public class AwardsActivity extends AppCompatActivity implements View.OnClickLis
 
         //show Achievement Info
         Snackbar infoSnackbar=Snackbar.make(view,model.getAchievement(awardId).getContext(),10000);
+
+        //More lines so achievements wont be cut off
+        View infoView=infoSnackbar.getView();
+        TextView infoText=(TextView) infoView.findViewById(android.support.design.R.id.snackbar_text);
+        infoText.setMaxLines(4);
+
         infoSnackbar.show();
 
     }

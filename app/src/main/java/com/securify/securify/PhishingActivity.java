@@ -243,6 +243,7 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
 
                 spam_btn.setClickable(false);
                 no_spam_btn.setClickable(false);
+                setHighscore(decisionUser);
                 achievementTest(decisionUser);
                 showNextGame();
                 break;
@@ -293,6 +294,15 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
                 break;
 
         }
+    }
+
+    void setHighscore(boolean userDecision){
+
+        //lost
+        if(userDecision!=phModel.isIs_phishing()){
+            mModel.setUserPhishingHighscore(TrueAnswers);
+        }
+        //won do nothing
     }
 
     void achievementTest(boolean userDecision) {

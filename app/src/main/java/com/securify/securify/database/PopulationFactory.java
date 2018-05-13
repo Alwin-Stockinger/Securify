@@ -280,7 +280,7 @@ public class PopulationFactory {
         AchievementModel ach7=new AchievementModel();
         ach7.setId(7);
         ach7.setTitle("Betrüger erkennen");
-        ach7.setContext("Erkennen Sie bei 1 Fallbeispielen die Echtheit/Fälschung der Mails korrekt.");
+        ach7.setContext("Erkennen Sie bei 1 Fallbeispiel die Echtheit/Fälschung der Mails korrekt.");
         ach7.setDifficulty("EASY");
         ach7.setLanguage("DE");
 
@@ -294,7 +294,7 @@ public class PopulationFactory {
         AchievementModel ach9 = new AchievementModel();
         ach9.setId(9);
         ach9.setTitle("Mail-Experte");
-        ach9.setContext("Erkennen Sie bei 2 Fallbeispielen hintereinander die Echtheit/Fälscung der Mails korrekt, ohne länger als 20% der Zeit zu benötigen und ohne den Tipp-Button zu betätigen.");
+        ach9.setContext("Erkennen Sie bei 2 Fallbeispielen hintereinander die Echtheit/Fälschung der Mails korrekt, ohne länger als 20% der Zeit zu benötigen und ohne den Tipp-Button zu betätigen.");
         ach9.setDifficulty("HARD");
         ach9.setLanguage("DE");
 
