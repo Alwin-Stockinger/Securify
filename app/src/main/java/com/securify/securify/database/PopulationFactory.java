@@ -42,7 +42,7 @@ public class PopulationFactory {
         PasswordModel model3=new PasswordModel();
         model3.setMax_length(20);
         model3.setMin_length(13);
-        model3.setMin_number(12);
+        model3.setMin_number(2);
         model3.setMin_upper(1);
         model3.setKontext("Du willst dir ein Passwort für Google erstellen!");
         model3.setSchwierigkeit("HARD");
