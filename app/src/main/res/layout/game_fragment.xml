@@ -7,7 +7,8 @@
     android:fitsSystemWindows="true"
     android:gravity="top"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#eeeeee">
 
     <RelativeLayout
         android:layout_width="match_parent"
