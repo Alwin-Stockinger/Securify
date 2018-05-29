@@ -1,7 +1,7 @@
 ## Readme - M3
 
 * Gruppe:	[Montag1]
-* Team-Nr.: ??
+* Team-Nr.: 
 * Projektthema: Gamification im Kontext Informationssicherheit
 
 ### Implementierung

@@ -9,6 +9,12 @@
         ut condimentum est. Vestibulum ac lectus metus. Aenean vitae felis non orci cursus feugiat vitae sed quam.
     </string>
 
+    <string-array name="tabnames">
+        <item> Spiele </item>
+        <item> Anderes </item>
+
+    </string-array>
+
     <!-- -->
     <string name="phishing_game_string">Phishing</string>
     <string name="password_game_string">Passwörter</string>
