@@ -65,16 +65,11 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
         android:elevation="6dp"
         android:minHeight="?attr/actionBarSize"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:tabGravity="center"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="#ffffff"
-        app:tabTextColor="#d3d3d3" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/textView"
@@ -119,7 +114,6 @@
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:rotation="180"
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
