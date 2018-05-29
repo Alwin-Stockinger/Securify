@@ -3,6 +3,7 @@ package com.securify.securify;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -46,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         pagerAdapter.addPage(new GameTabFragment());
         pagerAdapter.addPage(new OtherTabFragment());
         vp.setAdapter(pagerAdapter);
+
+        tabLayout.setTabTextColors(Color.BLACK,Color.BLACK);
         tabLayout.setupWithViewPager(vp);
 
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
