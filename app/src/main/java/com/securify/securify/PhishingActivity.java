@@ -21,6 +21,7 @@ import com.securify.securify.model.gameModels.PhishingModel;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static android.graphics.Color.WHITE;
 import static android.graphics.Color.parseColor;
 
 public class PhishingActivity extends AppCompatActivity implements View.OnClickListener{
@@ -83,11 +84,12 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
         context.setScrollbarFadingEnabled(false);
 
         spam_btn = findViewById(R.id.spam_btn);
-        spam_btn.setBackgroundColor(parseColor("#64dd17"));
+        spam_btn.setBackgroundColor(parseColor("#bf360c"));
+        spam_btn.setTextColor(WHITE);
         spam_btn.setOnClickListener(this);
 
         no_spam_btn = findViewById(R.id.no_spam_btn);
-        no_spam_btn.setBackgroundColor(parseColor("#e53935"));
+        no_spam_btn.setBackgroundColor(parseColor("#2bbd7e"));
         no_spam_btn.setOnClickListener(this);
 
         hint_Btn = findViewById(R.id.hint_phishing_id);
@@ -121,7 +123,7 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            counter.clearAnimation();;
+                            counter.clearAnimation();
                         }
                     });
                     setTimerSeconds();
