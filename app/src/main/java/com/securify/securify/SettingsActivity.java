@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.securify.securify.model.MainModel;
 
@@ -48,5 +49,11 @@ public class SettingsActivity extends AppCompatActivity implements  View.OnClick
         MainModel model=new MainModel(getApplicationContext());
         model.changeUser(userNameInput.getText().toString());
 
+        Toast.makeText(getApplicationContext(),
+                "Sie sind jetzt " + model.getActiveUser().getName(),
+                Toast.LENGTH_LONG).show();
     }
+
+
 }
+

@@ -245,7 +245,7 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
 
                 spam_btn.setClickable(false);
                 no_spam_btn.setClickable(false);
-                setHighscore(decisionUser);
+
                 achievementTest(decisionUser);
                 showNextGame();
                 break;
@@ -292,6 +292,7 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
                 spam_btn.setClickable(false);
                 no_spam_btn.setClickable(false);
                 achievementTest(decisionUser);
+
                 showNextGame();
                 break;
 
@@ -301,7 +302,7 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
     void setHighscore(boolean userDecision){
 
         //lost
-        if(userDecision!=phModel.isIs_phishing()){
+        if(userDecision!=phModel.isIs_phishing()||stopped){
             mModel.setUserPhishingHighscore(TrueAnswers);
         }
         //won do nothing
@@ -365,6 +366,7 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
                 new java.util.TimerTask() {
                     @Override
                     public void run() {
+                        mModel.setUserPhishingHighscore(TrueAnswers);
                         if(!stopped){
                             Intent intent = new Intent(PhishingActivity.this, PhishingActivity.class);
                             Bundle b = new Bundle();
