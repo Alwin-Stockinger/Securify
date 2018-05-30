@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         pagerAdapter.addPage(new OtherTabFragment());
         vp.setAdapter(pagerAdapter);
 
-        tabLayout.setTabTextColors(Color.BLACK,Color.BLACK);
         tabLayout.setupWithViewPager(vp);
 
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
@@ -121,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
             View tab = LayoutInflater.from(context).inflate(R.layout.custom_tab, null);
             TextView tv = tab.findViewById(R.id.custom_text);
             tv.setText(tabTitles[position]);
+            tv.setTextColor(getResources().getColorStateList(R.drawable.selector_textview));
             return tab;
         }
 

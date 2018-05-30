@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/tools">
     <color name="colorPrimary">#ff7043</color>
     <color name="colorPrimaryDark">#c63f17</color>
     <!--
     <color name="colorAccent">#ffa270</color>
     -->
     <color name="colorAccent">#bcbcbc</color>
+
+    <color name="tabSelected"
+        >#000000</color>
+    <color name="tabUnfocused">#424242</color>
+
 </resources>

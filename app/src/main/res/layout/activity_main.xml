@@ -22,8 +22,8 @@
         app:tabIndicatorHeight="4dp"
         app:tabMode="fixed"
         app:tabIndicatorColor="@color/colorPrimaryDark"
-        app:tabSelectedTextColor="#000000"
-        app:tabTextColor="#000000" >
+        app:tabSelectedTextColor="@color/tabSelected"
+        app:tabTextColor="@color/tabUnfocused" >
 
     </android.support.design.widget.TabLayout>
 
