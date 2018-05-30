@@ -131,7 +131,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
                 }
 
                 if (capitals>=gameModel.getMin_upper()) {
-                    constraint1.setTextColor(Color.GREEN);
+                    constraint1.setTextColor(getResources().getColor(R.color.calmGreen));
                     constraint1_icon.setImageResource(R.mipmap.true_icon);
                 }
                     else {
@@ -139,7 +139,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
                     constraint1_icon.setImageResource(R.mipmap.ic_launcher_false_icon);
                 }
                 if (digits>=gameModel.getMin_number()) {
-                    constraint3.setTextColor(Color.GREEN);
+                    constraint3.setTextColor(getResources().getColor(R.color.calmGreen));
                     constraint3_icon.setImageResource(R.mipmap.true_icon);
                 }
                     else {
@@ -152,7 +152,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
                     constraint2_icon.setImageResource(R.mipmap.ic_launcher_false_icon);
                 }
                 else {
-                    constraint2.setTextColor(Color.GREEN);
+                    constraint2.setTextColor(getResources().getColor(R.color.calmGreen));
                     constraint2_icon.setImageResource(R.mipmap.true_icon);
                 }
 

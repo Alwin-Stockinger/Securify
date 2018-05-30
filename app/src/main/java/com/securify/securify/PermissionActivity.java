@@ -149,7 +149,6 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                         @Override
                         public void run() {
                             counter.clearAnimation();
-                            ;
                         }
                     });
                     setTimerSeconds();
@@ -221,7 +220,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     cameraIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
                     camera.setBackgroundColor(Color.parseColor("#ffd9d9"));
-                    cameraText.setText("Falsch!");
+                    cameraText.setText(R.string.wrong);
                     cameraText.setTextColor(Color.RED);
                 }
             });
@@ -232,8 +231,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     cameraIcon.setImageResource(R.mipmap.true_icon2);
                     camera.setBackgroundColor(Color.parseColor("#d9ffe1"));
-                    cameraText.setText("Richtig!");
-                    cameraText.setTextColor(Color.GREEN);
+                    cameraText.setText(R.string.correct);
+                    cameraText.setTextColor(getResources().getColor(R.color.vibrantGreen));
                 }
             });
             trueAnswers++;
@@ -246,7 +245,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     positionIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
                     position.setBackgroundColor(Color.parseColor("#ffd9d9"));
-                    positionText.setText("Falsch!");
+                    positionText.setText(R.string.wrong);
                     positionText.setTextColor(Color.RED);
                 }
             });
@@ -257,8 +256,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     positionIcon.setImageResource(R.mipmap.true_icon2);
                     position.setBackgroundColor(Color.parseColor("#d9ffe1"));
-                    positionText.setText("Richtig!");
-                    positionText.setTextColor(Color.GREEN);
+                    positionText.setText(R.string.correct);
+                    positionText.setTextColor(getResources().getColor(R.color.vibrantGreen));
                 }
             });
             trueAnswers++;
@@ -271,7 +270,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     contactIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
                     contact.setBackgroundColor(Color.parseColor("#ffd9d9"));
-                    contactText.setText("Falsch!");
+                    contactText.setText(R.string.wrong);
                     contactText.setTextColor(Color.RED);
                 }
             });
@@ -282,8 +281,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     contactIcon.setImageResource(R.mipmap.true_icon2);
                     contact.setBackgroundColor(Color.parseColor("#d9ffe1"));
-                    contactText.setText("Richtig!");
-                    contactText.setTextColor(Color.GREEN);
+                    contactText.setText(R.string.correct);
+                    contactText.setTextColor(getResources().getColor(R.color.vibrantGreen));
                 }
             });
             trueAnswers++;
@@ -296,7 +295,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     smsIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
                     sms.setBackgroundColor(Color.parseColor("#ffd9d9"));
-                    smsText.setText("Falsch!");
+                    smsText.setText(R.string.wrong);
                     smsText.setTextColor(Color.RED);
                 }
             });
@@ -307,8 +306,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     smsIcon.setImageResource(R.mipmap.true_icon2);
                     sms.setBackgroundColor(Color.parseColor("#d9ffe1"));
-                    smsText.setText("Richtig!");
-                    smsText.setTextColor(Color.GREEN);
+                    smsText.setText(R.string.correct);
+                    smsText.setTextColor(getResources().getColor(R.color.vibrantGreen));
                 }
             });
             trueAnswers++;
@@ -320,7 +319,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     microphoneIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
                     microphone.setBackgroundColor(Color.parseColor("#ffd9d9"));
-                    microphoneText.setText("Falsch!");
+                    microphoneText.setText(R.string.wrong);
                     microphoneText.setTextColor(Color.RED);
                 }
             });
@@ -331,8 +330,8 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                 public void run() {
                     microphoneIcon.setImageResource(R.mipmap.true_icon2);
                     microphone.setBackgroundColor(Color.parseColor("#d9ffe1"));
-                    microphoneText.setText("Richtig!");
-                    microphoneText.setTextColor(Color.GREEN);
+                    microphoneText.setText(R.string.correct);
+                    microphoneText.setTextColor(getResources().getColor(R.color.vibrantGreen));
                 }
             });
             trueAnswers++;

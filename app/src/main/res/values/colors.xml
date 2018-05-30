@@ -7,5 +7,9 @@
 
     <color name="tabSelected">#000000</color>
     <color name="tabUnfocused">#424242</color>
+    <color name="vibrantGreen">#32cb00</color>
+    <color name="vibrantRed">#c30000</color>
+    <color name="calmGreen">#00c853</color>
+    <color name="calmRed">#bf360c</color>
 
 </resources>

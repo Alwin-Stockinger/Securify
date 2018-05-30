@@ -32,4 +32,6 @@
     <string name="fourth">4.</string>
     <string name="fifth">5.</string>
     <string name="password_text">Bitte geben Sie ein Passwort passend den unten aufgelisteten Regeln ein! Versuchen Sie dabei einen möglichst hohen Prozentsatz zu erreichen, der Ihnen angibt, wie sicher Ihr Passwort ist. Sie sollten sich Ihr Passwort aber auch merken können.</string>
+    <string name="correct">Richtig!</string>
+    <string name="wrong">Falsch!</string>
 </resources>

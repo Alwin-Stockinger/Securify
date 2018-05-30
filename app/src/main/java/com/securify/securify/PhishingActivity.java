@@ -84,12 +84,12 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
         context.setScrollbarFadingEnabled(false);
 
         spam_btn = findViewById(R.id.spam_btn);
-        spam_btn.setBackgroundColor(parseColor("#bf360c"));
+        spam_btn.setBackgroundColor(getResources().getColor(R.color.calmRed));
         spam_btn.setTextColor(WHITE);
         spam_btn.setOnClickListener(this);
 
         no_spam_btn = findViewById(R.id.no_spam_btn);
-        no_spam_btn.setBackgroundColor(parseColor("#2bbd7e"));
+        no_spam_btn.setBackgroundColor(getResources().getColor(R.color.calmGreen));
         no_spam_btn.setOnClickListener(this);
 
         hint_Btn = findViewById(R.id.hint_phishing_id);
@@ -183,7 +183,7 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
                 @Override
                 public void run() {
                     counter.clearAnimation();
-                    resultText.setText("Falsch!");
+                    resultText.setText(R.string.wrong);
                     resultText.setTextColor(Color.RED);
                     resultIcon.setVisibility(View.VISIBLE);
                     resultIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
@@ -211,7 +211,7 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
                         @Override
                         public void run() {
                             counter.clearAnimation();
-                            resultText.setText("Falsch!");
+                            resultText.setText(R.string.wrong);
                             resultText.setTextColor(Color.RED);
                             resultIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
                             resultIcon.setVisibility(View.VISIBLE);
@@ -228,8 +228,8 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
                         @Override
                         public void run() {
                             counter.clearAnimation();
-                            resultText.setText("Richtig!");
-                            resultText.setTextColor(Color.GREEN);
+                            resultText.setText(R.string.correct);
+                            resultText.setTextColor(getResources().getColor(R.color.calmGreen));
                             resultIcon.setImageResource(R.mipmap.true_icon);
                             resultIcon.setVisibility(View.VISIBLE);
                             hint_Btn.setClickable(false);
@@ -258,7 +258,7 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
                         @Override
                         public void run() {
                             counter.clearAnimation();
-                            resultText.setText("Falsch!");
+                            resultText.setText(R.string.wrong);
                             resultText.setTextColor(Color.RED);
                             resultIcon.setImageResource(R.mipmap.ic_launcher_false_icon);
                             resultIcon.setVisibility(View.VISIBLE);
@@ -275,8 +275,8 @@ public class PhishingActivity extends AppCompatActivity implements View.OnClickL
                         @Override
                         public void run() {
                             counter.clearAnimation();
-                            resultText.setText("Richtig!");
-                            resultText.setTextColor(Color.GREEN);
+                            resultText.setText(R.string.correct);
+                            resultText.setTextColor(getResources().getColor(R.color.calmGreen));
                             resultIcon.setImageResource(R.mipmap.true_icon);
                             resultIcon.setVisibility(View.VISIBLE);
                             hint_Btn.setClickable(false);

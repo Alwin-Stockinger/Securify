@@ -14,7 +14,7 @@
         android:layout_height="46dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="@android:color/black"
@@ -43,16 +43,11 @@
         android:id="@+id/hint_phishing_id"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/ic_lightbulb"
         android:src="@drawable/ic_lightbulb"
-        app:layout_constraintBottom_toTopOf="@+id/phishing_hint_text_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.754"
-        app:layout_constraintStart_toEndOf="@+id/gameIcon"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- <TextView
@@ -135,12 +130,14 @@
 
     <TextView
         android:id="@+id/phishing_result_text"
-        android:layout_width="77dp"
+        android:layout_width="0dp"
         android:layout_height="34dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/no_spam_btn"
+        app:layout_constraintStart_toEndOf="@+id/spam_btn"
         app:layout_constraintTop_toBottomOf="@+id/phishing_result_icon" />
 
     <TextView
@@ -149,25 +146,30 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="188dp"
+        android:layout_marginStart="24dp"
+        android:backgroundTint="@color/colorAccent"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/mail_view_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hint_phishing_id" />
 
     <TextView
         android:id="@+id/phishing_explanationFalse_id"
         android:layout_width="0dp"
-        android:layout_height="57dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:textAlignment="center"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phishing_result_text" />
+        app:layout_constraintTop_toBottomOf="@+id/phishing_result_text"
+        app:layout_constraintVertical_bias="0.6" />
 
 </android.support.constraint.ConstraintLayout>
