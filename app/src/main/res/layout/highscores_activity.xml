@@ -40,7 +40,7 @@
 
     <TableRow
         android:orientation="horizontal"
-        android:background="@color/colorAccent"
+        android:background="@color/colorSecondAccent"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content">
 
@@ -223,7 +223,7 @@
         android:background="#eeeeee">
 
         <TableRow
-            android:background="@color/colorAccent">
+            android:background="@color/colorSecondAccent">
 
             <TextView
                 android:id="@+id/phishing_title"
@@ -403,7 +403,7 @@
         android:background="#eeeeee">
 
         <TableRow
-            android:background="@color/colorAccent">
+            android:background="@color/colorSecondAccent">
 
             <TextView
                 android:id="@+id/permissions_title"

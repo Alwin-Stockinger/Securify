@@ -27,14 +27,14 @@ public class MainActivity extends AppCompatActivity {
     MainModel model;
     TabLayout tabLayout;
     ViewPager vp;
-    public static MainActivity mInstance = null;
+    //public static MainActivity mInstance = null;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mInstance = this;
+        //mInstance = this;
 
         prefs=getSharedPreferences("com.securify.securify",MODE_PRIVATE);//get preferences to check if the app is started the first time
 

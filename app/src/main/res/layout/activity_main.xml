@@ -18,7 +18,7 @@
         android:minHeight="?attr/actionBarSize"
         android:textAlignment="viewEnd"
         app:tabPadding="8dp"
-        app:tabGravity="fill"
+        app:tabGravity="center"
         app:tabIndicatorHeight="4dp"
         app:tabMode="fixed"
         app:tabIndicatorColor="@color/colorPrimaryDark"
