@@ -1,5 +1,6 @@
 package com.securify.securify;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -169,6 +170,16 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
                     showNextGame();
 
                 } else {
+
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(timerSeconds%10==0) bounceTipp(hint_Btn);
+                        }
+                    });
+
+
                     setTimerSeconds();
                     runOnUiThread(new Runnable() {
                         @Override
@@ -195,6 +206,14 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
         }, delay, period);
 
     }
+
+    private void bounceTipp(View targetView){
+        ObjectAnimator animator=ObjectAnimator.ofFloat(targetView, "translationY",0,-35,0);
+        animator.setStartDelay(1);
+        animator.setDuration(500);
+        animator.start();
+    }
+
 
     private void setTimerSecondsDirect(int value) {
         timerSeconds = value;

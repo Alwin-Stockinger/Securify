@@ -28,6 +28,9 @@ public class SettingsActivity extends AppCompatActivity implements  View.OnClick
                 finish();
             }
         });
+
+        Button userNameButton=findViewById(R.id.user_name_confirm_btn);
+        userNameButton.setOnClickListener(this);
     }
 
     @Override
@@ -40,8 +43,7 @@ public class SettingsActivity extends AppCompatActivity implements  View.OnClick
         userNameInput=findViewById(R.id.user_name_inputfield);
         userNameInput.setText(model.getActiveUser().getName());
         userNameInput.setSelection(userNameInput.getText().length()); //sets cursor to the end of the input field
-        Button userNameButton=findViewById(R.id.user_name_confirm_btn);
-        userNameButton.setOnClickListener(this);
+
     }
 
     @Override

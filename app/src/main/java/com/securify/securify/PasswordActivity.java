@@ -1,5 +1,6 @@
 package com.securify.securify;
 
+import android.animation.ObjectAnimator;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -163,6 +164,14 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
             public void onTextChanged(CharSequence s, int start, int before, int count){}
         });
 
+
+    }
+
+    private void bounceTipp(View targetView){
+        ObjectAnimator animator=ObjectAnimator.ofFloat(targetView, "translationY",0,-35,0);
+        animator.setStartDelay(1);
+        animator.setDuration(500);
+        animator.start();
     }
 
     @Override

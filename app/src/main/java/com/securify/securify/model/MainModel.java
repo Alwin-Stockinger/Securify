@@ -43,6 +43,8 @@ public class MainModel {
     }
 
     private void setActiveUser(UserModel activeUser) {
+        activeUser.setActive(true);
+        db.userDao().update(activeUser);
         this.activeUser = activeUser;
     }
 
@@ -217,9 +219,7 @@ public class MainModel {
 
             setActiveUser(user);
         }
-        activeUser.setActive(true);
-        userDao.update(activeUser);
-        return activeUser;
+        return this.activeUser;
     }
 
     public void changeLanguage(String language){
