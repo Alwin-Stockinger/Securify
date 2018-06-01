@@ -68,7 +68,7 @@ public class PopulationFactory {
         model1.setPosition(true);
         model1.setSms(false);
         model1.setErklaerung("Um den Ort zu speichern braucht die App deine Position und für die Fotos die Kamera");
-        model1.setZeit(24);  //15 sekunden Zeit
+        model1.setZeit(35);  //15 sekunden Zeit
         model1.setSprache("DE"); //Sprache ist Deutsch
         model1.setKontext("Du Willst eine Foto-App installieren die zusätzlich noch den Ort deiner Fotos speichert");
         model1.setSchwierigkeit("EASY");
@@ -81,7 +81,7 @@ public class PopulationFactory {
         model2.setPosition(false);
         model2.setSms(true);
         model2.setErklaerung("Die App muss auf deine SMS zugreifen können um diese zu verschicken. Da du nicht an den Sprachnachrichten interessiert bist, solltest du das Mikrofon nicht erlauben.");
-        model2.setZeit(20);
+        model2.setZeit(30);
         model2.setSprache("DE"); //Sprache ist Deutsch
         model2.setKontext("Du willst eine neue Messenger-App herunterladen, die auch SMS verschicken kann, zusätzlich kann die App auch Sprachnachrichten aufnehmen und verschicken, woran du aber nicht interessiert bist.");
         model2.setSchwierigkeit("MEDIUM");
@@ -94,7 +94,7 @@ public class PopulationFactory {
         model3.setPosition(false);
         model3.setSms(false);
         model3.setErklaerung("Mikrofon und Kamera sind nötig um Videos mit Ton aufzunehemen. Deine Kontakte werden gebraucht, damit die App deine Freunde in den Videos markieren kann");
-        model3.setZeit(18);
+        model3.setZeit(25);
         model3.setSprache("DE"); //Sprache ist Deutsch
         model3.setKontext("Du Willst eine Videoaufnahme-App installieren, die die Funktion hat Freunde, die du als Kontakte am Handy mit Bild eingespeichert hast, im Video zu markieren");
         model3.setSchwierigkeit("HARD");
