@@ -1,4 +1,4 @@
-## Readme - M3
+## Readme - M4
 
 * Gruppe:	[Montag1]
 * Team-Nr.: 
@@ -17,7 +17,7 @@ Externe Libraries und Frameworks:
 [Design, Room, Mockito]
 
 Dauer der Entwicklung:
-[100 Stunden]
+[105 Stunden]
 
 Weitere Anmerkungen:
 [...]
