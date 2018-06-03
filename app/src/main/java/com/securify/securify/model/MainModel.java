@@ -54,6 +54,12 @@ public class MainModel {
         setActiveUser(db.userDao().getActiveUser());
         this.gamePicker=new GamePicker(db,getActiveUser());
     }
+    public MainModel(Context context, boolean first){
+        this.db=AppDatabase.getDatabase(context);
+        databaseinit();
+        setActiveUser(db.userDao().getActiveUser());
+        this.gamePicker=new GamePicker(db,getActiveUser());
+    }
 
     public PasswordModel getRandomPasswordGame(){
         return gamePicker.getRandomPassGame();

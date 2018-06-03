@@ -61,9 +61,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
 
-        model = new MainModel(getApplicationContext());
+
         if(prefs.getBoolean("firstrun",true)){//check if first run  https://stackoverflow.com/questions/7217578/check-if-application-is-on-its-first-run
-            model.databaseinit();
+            model = new MainModel(getApplicationContext(),true);
             prefs.edit().putBoolean("firstrun",false).commit();
         }
 
